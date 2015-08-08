@@ -1,0 +1,19 @@
+.site{
+    height: 100%;
+    width: 100%;
+}
+
+.section-content{
+    width: 100%;
+    background: $white;
+    padding: 15% 8% 15% 15%;
+    @media screen and (max-width: 600px) {
+        padding-left: 75px;
+    }
+    p{
+        margin-top: 0;
+        &+p{
+            margin-top: rem(60);
+        }
+    }
+}

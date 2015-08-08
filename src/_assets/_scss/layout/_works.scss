@@ -1,0 +1,34 @@
+.section-content.section-works{
+    background: #1d1d1d;
+    position: relative;
+    .content-projects{
+        display: table;
+        img{
+            float: left;
+            vertical-align: middle;
+            width: 50%;
+            &:hover{
+                box-shadow: 0 0 10px rgba(0,0,0,0.5);
+                transform: scale(1.01);
+            }
+            @media screen and (max-width: 500px) {
+                width: 100%;
+            }
+        }
+    }
+    p, a{
+        color: $white;
+    }
+    p{
+        padding: 0 rem(5);
+        font-size: rem(30);
+    }
+    .vertical-line{
+        p{
+            color: $white;
+        }
+        &:after{
+            background: rgba(255,255,255,0.3);
+        }
+    }
+}
