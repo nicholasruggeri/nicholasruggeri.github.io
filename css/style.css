@@ -471,21 +471,11 @@ img.zoom-img {
     .vertical-line .vertical-line-element a {
       color: #fff;
       text-decoration: none; }
-      .vertical-line .vertical-line-element a:after {
-        content: "";
-        height: 1px;
-        width: 100%;
-        background-color: #fff; }
     .vertical-line .vertical-line-element.dark {
       color: #333F4C; }
       .vertical-line .vertical-line-element.dark a {
         color: #333F4C;
         text-decoration: none; }
-        .vertical-line .vertical-line-element.dark a:after {
-          content: "";
-          height: 1px;
-          width: 100%;
-          background-color: #333F4C; }
   .vertical-line:after {
     content: "";
     width: 1px;
