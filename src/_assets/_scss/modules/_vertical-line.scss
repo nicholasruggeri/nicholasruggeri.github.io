@@ -22,24 +22,12 @@
         a{
             color: $white;
             text-decoration: none;
-            &:after{
-                content: "";
-                height: 1px;
-                width: 100%;
-                background-color: $white;
-            }
         }
         &.dark{
             color: $primaryColor;
             a{
                 color: $primaryColor;
                 text-decoration: none;
-                &:after{
-                    content: "";
-                    height: 1px;
-                    width: 100%;
-                    background-color: $primaryColor;
-                }
             }
         }
     }
