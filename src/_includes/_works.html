@@ -2,11 +2,21 @@
 
     <div class="content-projects">
         <p class="small">
-            Agency: <a href="http://www.h-art.com" target="_blank">H-ART</a><br>
-            Client: {{include.client}}<br>
-            Project: <a href="{{include.url}}" target="_blank">{{include.project}}</a>
+
+            {% if include.agency %}
+                Agency: <a href="http://www.h-art.com" target="_blank">{{include.agency}}</a><br>
+            {% endif %}
+
+            {% if include.client %}
+                Client: {{include.client}}<br>
+            {% endif %}
+
+            {% if include.project %}
+                Project: <a href="{{include.url}}" target="_blank">{{include.project}}</a>
+            {% endif %}
+
+
         </p>
-        <p class="small"></p>
         <div class="content-image">
             <img src="img/{{include.img}}.jpg" alt="" data-action="zoom">
         </div>

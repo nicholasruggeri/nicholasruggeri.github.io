@@ -23,13 +23,14 @@ p {
     font-family: $secondaryFont;
     margin: 0;
     position: relative;
+    padding: rem(30) 0;
     &:after{
         content: "";
         display: block;
         height: 1px;
         width: 5%;
         position: absolute;
-        top: rem(-30);
+        top: 0;
         background-color: $primaryColor;
     }
     a{
