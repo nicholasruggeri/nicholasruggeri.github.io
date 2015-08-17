@@ -23,7 +23,7 @@
         font-size: 40px;
     }
     @media screen and (max-width: 480px) {
-        font-size: 5vw;
+        font-size: 4.5vw;
     }
     h1, h2{
         display: inline-block;
@@ -46,6 +46,9 @@
     }
     h1{
         font-size: 2em;
+        @media screen and (max-width: 480px) {
+            margin-bottom: rem(5);
+        }
     }
     h2{
         font-size: 1.3em;

@@ -75,9 +75,9 @@
 
     // Event handling
     function addListeners() {
-        // if(!('ontouchstart' in window)) {
-        //     window.addEventListener('mousemove', mouseMove);
-        // }
+        if(!('ontouchstart' in window)) {
+            window.addEventListener('mousemove', mouseMove);
+        }
         window.addEventListener('scroll', scrollCheck);
         // $(window).on('resize', resize);
     }
@@ -137,7 +137,7 @@
                     points[i].circle.active = 0;
                 }
 
-                drawLines(points[i]);
+                // drawLines(points[i]);
                 points[i].circle.draw();
             }
         }
