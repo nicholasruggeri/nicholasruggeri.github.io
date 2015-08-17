@@ -492,7 +492,7 @@ img.zoom-img {
 .section-content {
   width: 100%;
   background: #fff;
-  padding: 15% 8% 15% 15%; }
+  padding: 15% 10% 15% 15%; }
   @media screen and (max-width: 600px) {
     .section-content {
       padding-left: 75px; } }
@@ -599,26 +599,33 @@ img.zoom-img {
 
 .section-content.section-works {
   background: #1d1d1d;
-  position: relative; }
+  position: relative;
+  padding-bottom: 0; }
+  .section-content.section-works:nth-child(odd) {
+    background: #1d1d1d; }
+  .section-content.section-works:nth-child(even) {
+    background: #252525; }
   .section-content.section-works .content-projects {
     display: table; }
-    .section-content.section-works .content-projects img {
-      float: left;
-      vertical-align: middle;
-      width: 50%; }
-      .section-content.section-works .content-projects img:hover {
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        -webkit-transform: scale(1.01);
-            -ms-transform: scale(1.01);
-                transform: scale(1.01); }
+    .section-content.section-works .content-projects .content-image {
+      margin-bottom: -40%; }
       @media screen and (max-width: 500px) {
-        .section-content.section-works .content-projects img {
-          width: 100%; } }
+        .section-content.section-works .content-projects .content-image {
+          margin-bottom: -20%; } }
+    .section-content.section-works .content-projects img {
+      vertical-align: middle;
+      width: 100%; }
+    .section-content.section-works .content-projects a {
+      background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 75%, rgba(255, 255, 255, 0.8) 75%);
+      background-position: 0 92%; }
   .section-content.section-works p, .section-content.section-works a {
     color: #fff; }
   .section-content.section-works p {
+    line-height: 1.5;
     padding: 0 0.3125rem;
-    font-size: 1.875rem; }
+    font-size: 1.25rem; }
+    .section-content.section-works p:after {
+      background-color: #fff; }
   .section-content.section-works .vertical-line p {
     color: #fff; }
   .section-content.section-works .vertical-line:after {
