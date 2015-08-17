@@ -509,7 +509,7 @@ img.zoom-img {
 .section-content.section-header {
   overflow: hidden;
   background-color: #333F4C;
-  background: linear-gradient(180deg, #485563 30%, #333F4C 70%);
+  background: linear-gradient(180deg, #485563 10%, #333F4C 90%);
   z-index: 1;
   -webkit-transform: translateX(-100%);
       -ms-transform: translateX(-100%);
