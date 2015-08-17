@@ -534,7 +534,7 @@ img.zoom-img {
     .header {
       font-size: 5vw; } }
   .header h1, .header h2 {
-    display: table;
+    display: inline-block;
     position: relative;
     margin: 0;
     cursor: default;
@@ -553,9 +553,7 @@ img.zoom-img {
       left: 0;
       background: #fff; }
   .header h1 {
-    font-size: 2em;
-    letter-spacing: -0.125rem;
-    margin-bottom: 0.625rem; }
+    font-size: 2em; }
   .header h2 {
     font-size: 1.3em;
     font-weight: 300; }
