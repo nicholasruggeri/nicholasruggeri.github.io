@@ -1,7 +1,7 @@
 .section-content.section-header{
     overflow: hidden;
     background-color: $primaryColor;
-    background: linear-gradient(180deg, #485563 30%, $primaryColor 70%);
+    background: linear-gradient(180deg, #485563 10%, $primaryColor 90%);
     z-index: 1;
     transform: translateX(-100%);
     display: table;

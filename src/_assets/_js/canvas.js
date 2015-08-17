@@ -20,7 +20,7 @@
         canvas.height = height;
         ctx = canvas.getContext('2d');
 
-        target.x = $(window).height()/7;
+        target.x = $(window).height()/3;
         target.y = $(window).height()/2;
 
         // create points
@@ -75,9 +75,9 @@
 
     // Event handling
     function addListeners() {
-        if(!('ontouchstart' in window)) {
-            window.addEventListener('mousemove', mouseMove);
-        }
+        // if(!('ontouchstart' in window)) {
+        //     window.addEventListener('mousemove', mouseMove);
+        // }
         window.addEventListener('scroll', scrollCheck);
         // $(window).on('resize', resize);
     }
