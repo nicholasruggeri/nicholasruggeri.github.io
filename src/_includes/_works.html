@@ -1,10 +1,15 @@
 <section class="section-content section-works">
 
     <div class="content-projects">
-        <img src="img/company-profile.jpg" alt="" data-action="zoom">
-        <img src="img/the-network.jpg" alt="" data-action="zoom">
-        <img src="img/vespa-946-ea.jpg" alt="" data-action="zoom">
-        <img src="img/ridillo.jpg" alt="" data-action="zoom">
+        <p class="small">
+            Agency: <a href="http://www.h-art.com" target="_blank">H-ART</a><br>
+            Client: {{include.client}}<br>
+            Project: <a href="{{include.url}}" target="_blank">{{include.project}}</a>
+        </p>
+        <p class="small"></p>
+        <div class="content-image">
+            <img src="img/{{include.img}}.jpg" alt="" data-action="zoom">
+        </div>
     </div>
 
     <div class="vertical-line">
