@@ -26,7 +26,7 @@
         font-size: 5vw;
     }
     h1, h2{
-        display: table;
+        display: inline-block;
         position: relative;
         margin: 0;
         cursor: default;
@@ -46,8 +46,6 @@
     }
     h1{
         font-size: 2em;
-        letter-spacing: rem(-2);
-        margin-bottom: rem(10);
     }
     h2{
         font-size: 1.3em;
