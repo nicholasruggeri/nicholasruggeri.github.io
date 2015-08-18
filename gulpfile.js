@@ -144,7 +144,7 @@ gulp.task('default', ['js', 'js:vendor', 'sass', 'browser-sync', 'watch']);
 
 gulp.task('prod', function() {
     prod = true;
-    runSequence('clean', 'jekyll-build', 'sass', 'js', 'js:vendor')
+    runSequence('jekyll-build', 'sass', 'js', 'js:vendor')
 });
 
 
