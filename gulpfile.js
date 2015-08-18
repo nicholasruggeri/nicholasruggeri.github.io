@@ -8,10 +8,8 @@ var exec = require('child_process').exec;
 var uglify = require('gulp-uglify');
 var gulpif = require('gulp-if');
 var concat = require("gulp-concat");
-var sourcemaps = require('gulp-sourcemaps');
 var runSequence = require('run-sequence');
 var deploy = require('gulp-gh-pages');
-var clean = require('gulp-clean');
 
 
 /**
@@ -76,13 +74,6 @@ gulp.task('sass', function () {
         .pipe(gulp.dest(basePath + '/css'))
 });
 
-gulp.task('minify-css', function() {
-  return gulp.src('web/css/*.css')
-    .pipe(sourcemaps.init())
-    .pipe(minifyCss())
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest('web/css'));
-});
 
 /**
 * Concat compress js
@@ -95,9 +86,6 @@ gulp.task('js', function() {
         })))
         .pipe(gulp.dest(basePath + '/js'));
 });
-
-
-
 
 
 
@@ -145,13 +133,6 @@ gulp.task('default', ['js', 'js:vendor', 'sass', 'browser-sync', 'watch']);
 gulp.task('prod', function() {
     prod = true;
     runSequence('jekyll-build', 'sass', 'js', 'js:vendor')
-});
-
-
-
-gulp.task('clean', function () {
-    return gulp.src('web')
-        .pipe(clean());
 });
 
 
