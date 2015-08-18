@@ -2,6 +2,7 @@
 var gulp = require('gulp');
 var browserSync = require('browser-sync');
 var sass = require('gulp-sass');
+var minifyCss = require('gulp-minify-css');
 var prefix = require('gulp-autoprefixer');
 var exec = require('child_process').exec;
 var uglify = require('gulp-uglify');
@@ -10,6 +11,7 @@ var concat = require("gulp-concat");
 var sourcemaps = require('gulp-sourcemaps');
 var runSequence = require('run-sequence');
 var deploy = require('gulp-gh-pages');
+var clean = require('gulp-clean');
 
 
 /**
@@ -31,7 +33,6 @@ var prod = false,
  * Build the Jekyll Site
  */
 gulp.task('jekyll-build', function () {
-    console.log('jb');
     exec('jekyll build', function(err, stdout, stderr) {
         browserSync.notify('jekyll build');
         browserSync.reload();
@@ -49,7 +50,6 @@ gulp.task('jekyll-rebuild', ['jekyll-build'], function () {
  * Wait for jekyll-build, then launch the Server
  */
 gulp.task('browser-sync', ['jekyll-build'], function() {
-    console.log('bs');
     browserSync({
         server: {
             baseDir: 'web'
@@ -76,15 +76,23 @@ gulp.task('sass', function () {
         .pipe(gulp.dest(basePath + '/css'))
 });
 
+gulp.task('minify-css', function() {
+  return gulp.src('web/css/*.css')
+    .pipe(sourcemaps.init())
+    .pipe(minifyCss())
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('web/css'));
+});
+
 /**
 * Concat compress js
 */
 gulp.task('js', function() {
     return gulp.src(basePath + '/_assets/_js/**/*.js')
+        .pipe(concat('script.js'))
         .pipe(gulpif(prod === true, uglify({
             preserveComments: 'some'
         })))
-        .pipe(concat('script.js'))
         .pipe(gulp.dest(basePath + '/js'));
 });
 
@@ -132,13 +140,18 @@ gulp.task('default', ['js', 'js:vendor', 'sass', 'browser-sync', 'watch']);
 
 /**
 * Gulp Prod
-* =========
-* Prod
 */
 
 gulp.task('prod', function() {
     prod = true;
-    runSequence('sass', 'js', 'js:vendor', 'jekyll-build')
+    runSequence('clean', 'jekyll-build', 'sass', 'js', 'js:vendor')
+});
+
+
+
+gulp.task('clean', function () {
+    return gulp.src('web')
+        .pipe(clean());
 });
 
 
