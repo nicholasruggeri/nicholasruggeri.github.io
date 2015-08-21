@@ -10,6 +10,7 @@ var concat = require("gulp-concat");
 var runSequence = require('run-sequence');
 var deploy = require('gulp-gh-pages');
 var minifyCss = require('gulp-minify-css');
+var minifyHTML = require('gulp-minify-html');
 
 
 /**
@@ -103,6 +104,22 @@ gulp.task('js:vendor', function() {
 });
 
 
+
+
+gulp.task('minify-html', function() {
+    var opts = {
+        conditionals: true,
+        spare:true
+    };
+
+    return gulp.src('./web/*.html')
+        .pipe(minifyHTML(opts))
+        .pipe(gulp.dest('./web/'));
+});
+
+
+
+
 /**
  * Watch scss files for changes & recompile
  * Watch html/md files, run jekyll & reload BrowserSync
@@ -126,9 +143,9 @@ gulp.task('default', ['js', 'js:vendor', 'sass', 'browser-sync', 'watch']);
 */
 
 gulp.task('prod', function() {
-    console.log('prod asd');
+    console.log('prod');
     prod = true;
-    runSequence('jekyll-build', 'sass', 'js', 'js:vendor');
+    runSequence('jekyll-build', 'sass', 'js', 'js:vendor', 'minify-html');
 });
 
 
