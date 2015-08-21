@@ -2,7 +2,6 @@
 var gulp = require('gulp');
 var browserSync = require('browser-sync');
 var sass = require('gulp-sass');
-var minifyCss = require('gulp-minify-css');
 var prefix = require('gulp-autoprefixer');
 var exec = require('child_process').exec;
 var uglify = require('gulp-uglify');
@@ -86,6 +85,7 @@ gulp.task('js', function() {
         .pipe(gulpif(prod === true, uglify({
             preserveComments: 'some'
         })))
+        .pipe(gulp.dest('web/js'))
         .pipe(gulp.dest(basePath + '/js'));
 });
 
@@ -98,6 +98,7 @@ gulp.task('js:vendor', function() {
     return gulp.src(jsplugins)
         .pipe(uglify())
         .pipe(concat('vendor.js'))
+        .pipe(gulp.dest('web/js'))
         .pipe(gulp.dest(basePath + '/js'));
 });
 
@@ -125,9 +126,9 @@ gulp.task('default', ['js', 'js:vendor', 'sass', 'browser-sync', 'watch']);
 */
 
 gulp.task('prod', function() {
-    console.log('prod');
+    console.log('prod asd');
     prod = true;
-    runSequence('sass', 'js', 'js:vendor', 'jekyll-build')
+    runSequence('jekyll-build', 'sass', 'js', 'js:vendor');
 });
 
 
