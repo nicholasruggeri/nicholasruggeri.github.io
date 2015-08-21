@@ -10,6 +10,7 @@ var gulpif = require('gulp-if');
 var concat = require("gulp-concat");
 var runSequence = require('run-sequence');
 var deploy = require('gulp-gh-pages');
+var minifyCss = require('gulp-minify-css');
 
 
 /**
@@ -69,6 +70,7 @@ gulp.task('sass', function () {
         })
         .pipe(sass())
         .pipe(prefix(['last 2 version', 'safari 5', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'], { cascade: true }))
+        .pipe(gulpif(prod === true, minifyCss()))
         .pipe(gulp.dest('web/css'))
         .pipe(browserSync.reload({stream:true}))
         .pipe(gulp.dest(basePath + '/css'))
@@ -100,14 +102,6 @@ gulp.task('js:vendor', function() {
 });
 
 
-
-
-
-
-
-
-
-
 /**
  * Watch scss files for changes & recompile
  * Watch html/md files, run jekyll & reload BrowserSync
@@ -131,8 +125,9 @@ gulp.task('default', ['js', 'js:vendor', 'sass', 'browser-sync', 'watch']);
 */
 
 gulp.task('prod', function() {
+    console.log('prod');
     prod = true;
-    runSequence('jekyll-build', 'sass', 'js', 'js:vendor')
+    runSequence('sass', 'js', 'js:vendor', 'jekyll-build')
 });
 
 
