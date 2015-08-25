@@ -11,6 +11,7 @@ var runSequence = require('run-sequence');
 var deploy = require('gulp-gh-pages');
 var minifyCss = require('gulp-minify-css');
 var minifyHTML = require('gulp-minify-html');
+var critical = require('critical').stream;
 
 
 /**
@@ -118,6 +119,14 @@ gulp.task('minify-html', function() {
 });
 
 
+// Generate & Inline Critical-path CSS
+gulp.task('critical', function () {
+    return gulp.src('web/index.html')
+        .pipe(critical({base: 'web/', inline: true, css: ['web/css/style.css']}))
+        .pipe(gulp.dest('web'));
+});
+
+
 
 
 /**
@@ -145,7 +154,7 @@ gulp.task('default', ['js', 'js:vendor', 'sass', 'browser-sync', 'watch']);
 gulp.task('prod', function() {
     console.log('prod');
     prod = true;
-    runSequence('jekyll-build', 'sass', 'js', 'js:vendor', 'minify-html');
+    runSequence('jekyll-build', 'sass', 'js', 'js:vendor', 'critical', 'minify-html');
 });
 
 
