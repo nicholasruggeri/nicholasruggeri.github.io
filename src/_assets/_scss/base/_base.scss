@@ -17,6 +17,7 @@ html, body {
 }
 
 body {
+    -webkit-overflow-scrolling: touch;
     font-family: $primaryFont;
 }
 
