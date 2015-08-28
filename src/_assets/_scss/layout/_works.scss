@@ -8,7 +8,20 @@
     &:nth-child(even) {
         background: #252525;
     }
+    .section-background{
+        opacity: .8;
+        filter: blur(50px);
+        transform: translate3d(0, 0, 0);
+        position: absolute;
+        z-index: 0;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+    }
     .content-projects{
+        position: relative;
         display: table;
         .content-image{
             margin-bottom: -35%;
