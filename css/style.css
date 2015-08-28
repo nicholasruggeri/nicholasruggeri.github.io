@@ -610,19 +610,6 @@ img.zoom-img {
     background: #1d1d1d; }
   .section-content.section-works:nth-child(even) {
     background: #252525; }
-  .section-content.section-works .section-background {
-    opacity: 0.8;
-    -webkit-filter: blur(50px);
-            filter: blur(50px);
-    -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
-    position: absolute;
-    z-index: 0;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    overflow: hidden; }
   .section-content.section-works .content-projects {
     position: relative;
     display: table; }
