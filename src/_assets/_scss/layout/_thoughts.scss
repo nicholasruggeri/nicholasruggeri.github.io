@@ -1,8 +1,10 @@
-.section-content.section-works{
+.section-content.section-thoughts{
     background: $black;
     position: relative;
-    padding-bottom: 0;
     overflow: hidden;
+    @media screen and (max-width: 600px) {
+        padding-bottom: 0;
+    }
     &:nth-child(odd) {
         background: $black;
         a{
@@ -15,19 +17,9 @@
             text-shadow: 3px 0px #252525, -3px 0px #252525;
         }
     }
-    .content-projects{
+    .content-thoughts{
         position: relative;
         display: table;
-        .content-image{
-            margin-bottom: -35%;
-            @media screen and (max-width: 500px) {
-                margin-bottom: -20%;
-            }
-        }
-        img{
-            vertical-align: middle;
-            width: 100%;
-        }
         a{
             background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 85%, rgba(255, 255, 255, 1) 85%);
             background-position: 0 90%;
@@ -50,5 +42,14 @@
         &:after{
             background: rgba(255,255,255,0.3);
         }
+    }
+}
+
+.thoughts-heart{
+    display: block;
+    font-size: rem(15);
+    svg{
+        fill: $white;
+        width: rem(11);
     }
 }
