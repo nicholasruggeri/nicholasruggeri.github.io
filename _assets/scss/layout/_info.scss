@@ -1,0 +1,39 @@
+.section-content.section-info{
+    background: $white;
+    position: relative;
+    p, a{
+        color: $primaryColor;
+    }
+    p{
+        font-size: rem(40);
+        &.small{
+            font-size: rem(25);
+            opacity: .8;
+        }
+        @media screen and (max-width: 480px) {
+            font-size: rem(30);
+        }
+        a{
+            white-space: nowrap;
+        }
+    }
+    .vertical-line{
+        p{
+            color: rgba(0, 0, 0, 0.7);
+        }
+        &:after{
+            background: rgba(0,0,0,0.1);
+        }
+    }
+    ul{
+        li{
+            color: $primaryColor;
+            opacity: .5;
+            display: inline-block;
+            padding: 6px 10px 2px;
+            border: 1px solid $primaryColor;
+            margin-bottom: 5px;
+            margin-right: 3px;
+        }
+    }
+}

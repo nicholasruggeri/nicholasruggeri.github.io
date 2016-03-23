@@ -1,0 +1,43 @@
+.vertical-line{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 100%;
+    z-index: 2;
+    .vertical-line-element{
+        margin: 0;
+        font-family: 'Inconsolata', monospace;
+        position: absolute;
+        transform: rotate(-90deg);
+        color: $white;
+        opacity: .5;
+        font-weight: lighter;
+        font-size: 13px !important;
+        text-transform: uppercase;
+        display: block;
+        width: 250px;
+        bottom: 150px;
+        left: -100px;
+        a{
+            color: $white;
+            text-decoration: none;
+        }
+        &.dark{
+            color: $primaryColor;
+            a{
+                color: $primaryColor;
+                text-decoration: none;
+            }
+        }
+    }
+    &:after{
+        content: "";
+        width: 1px;
+        height: 100%;
+        background: rgba(255,255,255,0.1);
+        position: absolute;
+        left: 50px;
+        top: 0;
+    }
+}
