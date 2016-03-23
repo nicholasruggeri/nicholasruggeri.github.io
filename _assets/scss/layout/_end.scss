@@ -7,6 +7,12 @@
     p{
         font-size: rem(30);
     }
+    img{
+        width: 50px;
+        margin-bottom: -4px;
+        position: absolute;
+        bottom: 0;
+    }
     .vertical-line{
         p{
             color: rgba(0, 0, 0, 0.7);
@@ -14,11 +20,5 @@
         &:after{
             background: rgba(0,0,0,0.1);
         }
-    }
-    svg{
-        width: 30px;
-        height: 30px;
-        margin-bottom: 20px;
-        fill: $primaryColor;
     }
 }
