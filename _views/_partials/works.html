@@ -1,0 +1,32 @@
+
+{% macro field(agency, client, url, project, img) %}
+
+<section class="section-content section-works">
+
+    <div class="content-projects">
+        <p class="small">
+
+            {% if agency != false %}
+                Agency: <a href="http://www.h-art.com" target="_blank">{{agency}}</a><br>
+            {% endif %}
+
+            {% if client != false %}
+                Client: {{client}}<br>
+            {% endif %}
+
+            Project: <a href="{{url}}" target="_blank">{{project}}</a>
+
+        </p>
+        <div class="content-image">
+            <img src="img/{{img}}.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">
+        </div>
+    </div>
+
+    <div class="vertical-line">
+        <span class="vertical-line-element">
+            works
+        </span>
+    </div>
+</section>
+
+{% endmacro %}
