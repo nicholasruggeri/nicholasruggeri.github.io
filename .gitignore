@@ -1,6 +1,6 @@
 node_modules
 .DS_Store
-src/_assets/_vendor
+_assets/vendor
 web
 src/css
 src/js
