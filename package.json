@@ -10,6 +10,7 @@
     "gulp": "3.9.0",
     "gulp-autoprefixer": "latest",
     "gulp-concat": "latest",
+    "gulp-gh-pages": "^0.5.4",
     "gulp-if": "latest",
     "gulp-minify-html": "^1.0.6",
     "gulp-notify": "latest",

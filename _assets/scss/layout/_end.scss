@@ -15,4 +15,10 @@
             background: rgba(0,0,0,0.1);
         }
     }
+    svg{
+        width: 30px;
+        height: 30px;
+        margin-bottom: 20px;
+        fill: $primaryColor;
+    }
 }

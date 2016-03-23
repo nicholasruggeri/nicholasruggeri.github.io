@@ -3,6 +3,7 @@
     position: relative;
     padding-bottom: 0;
     overflow: hidden;
+    height: auto;
     &:nth-child(odd) {
         background: $black;
         a{

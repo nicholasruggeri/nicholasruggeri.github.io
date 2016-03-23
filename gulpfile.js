@@ -19,7 +19,8 @@ var gulp        = require('gulp'),
     gulpif      = require('gulp-if'),
     browserSync = require('browser-sync').create(),
     nunjucksRender = require('gulp-nunjucks-render'),
-    minifyHTML = require('gulp-minify-html');
+    minifyHTML  = require('gulp-minify-html'),
+    ghPages     = require('gulp-gh-pages');
 
 var critical = require('critical').stream;
 
@@ -130,7 +131,8 @@ gulp.task('watch', function() {
 *
 **/
 gulp.task('build', function() {
-    gulp.start('styles', 'scripts', 'js:vendor', 'images', 'nunjucks', 'critical');
+    console.log('init build')
+    gulp.start('styles', 'scripts', 'js:vendor', 'images', 'nunjucks', 'minify-html');
 });
 
 
@@ -141,6 +143,7 @@ gulp.task('build', function() {
 
 
 gulp.task('nunjucks', function () {
+  del.sync('web/index.html');
   return gulp.src('_views/_pages/*.html')
     .pipe(nunjucksRender({
       path: ['_views/'] // String or Array
@@ -163,7 +166,7 @@ gulp.task('serve', ['build','watch'], function() {
 });
 
 // Generate & Inline Critical-path CSS
-gulp.task('critical', ['minify-html'], function () {
+gulp.task('critical', function () {
     return gulp.src('web/index.html')
         .pipe(critical({base: 'web/', inline: true, css: ['web/css/style.css']}))
         .pipe(gulp.dest('web'));
@@ -172,6 +175,7 @@ gulp.task('critical', ['minify-html'], function () {
 
 
 gulp.task('minify-html', function() {
+    console.log('init minify-html')
     var opts = {
         conditionals: true,
         spare:true
@@ -187,10 +191,10 @@ gulp.task('minify-html', function() {
 * Gulp Prod
 * - build all the assets in production env
 */
-gulp.task('prod', function(){
+gulp.task('prod', ['build'], function(){
+    console.log('init prod')
     gulp.src('CNAME').pipe(gulp.dest('web'));
     prod = true;
-    gulp.start('build');
 });
 
 /**
@@ -200,3 +204,10 @@ gulp.task('prod', function(){
 *
 **/
 gulp.task('default', ['serve']);
+
+gulp.task('deploy', function () {
+  return gulp.src("./web/**/*")
+    .pipe(ghPages({
+        branch: 'master'
+    }))
+});
