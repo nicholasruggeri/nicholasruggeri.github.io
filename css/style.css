@@ -445,7 +445,7 @@ p:after {
   content: "";
   display: block;
   height: 1px;
-  width: 3vw;
+  min-width: 30px;
   position: absolute;
   top: 0;
   background-color: #333F4C;
@@ -620,12 +620,27 @@ img.zoom-img {
 .section-content {
   width: 100%;
   background: #fff;
-  padding: 12% 10% 12% 15%;
+  padding: 12% 10% 12% 75px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (min-width: 600px) {
   .section-content {
-    padding-left: 75px;
+    height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding: 12% 10% 12% 15%;
+    min-height: 100px;
   }
 }
 
@@ -793,6 +808,7 @@ img.zoom-img {
   position: relative;
   padding-bottom: 0;
   overflow: hidden;
+  height: auto;
 }
 
 .section-content.section-works:nth-child(odd) {
@@ -862,6 +878,7 @@ img.zoom-img {
   background: #1d1d1d;
   position: relative;
   overflow: hidden;
+  height: auto;
 }
 
 @media screen and (max-width: 600px) {
@@ -947,4 +964,11 @@ img.zoom-img {
 
 .section-content.section-end .vertical-line:after {
   background: rgba(0, 0, 0, 0.1);
+}
+
+.section-content.section-end svg {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 20px;
+  fill: #333F4C;
 }
