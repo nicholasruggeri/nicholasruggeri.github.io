@@ -1,96 +1,76 @@
+/*==========================================================
+How to Gulp
+Author: @trevisojs       - https://treviso.js.org
+Author: @nicholasruggeri - http://ruggeri.io
+==========================================================*/
 
-var gulp = require('gulp');
-var browserSync = require('browser-sync');
-var sass = require('gulp-sass');
-var prefix = require('gulp-autoprefixer');
-var exec = require('child_process').exec;
-var uglify = require('gulp-uglify');
-var gulpif = require('gulp-if');
-var concat = require("gulp-concat");
-var runSequence = require('run-sequence');
-var deploy = require('gulp-gh-pages');
-var minifyCss = require('gulp-minify-css');
-var minifyHTML = require('gulp-minify-html');
+
+/**
+* List gulp dependencies
+**/
+var gulp        = require('gulp'),
+    sass        = require('gulp-sass'),
+    prefix      = require('gulp-autoprefixer'),
+    concat      = require('gulp-concat'),
+    uglify      = require('gulp-uglify'),
+    plumber     = require('gulp-plumber'),
+    notify      = require("gulp-notify"),
+    del         = require('del'),
+    gulpif      = require('gulp-if'),
+    browserSync = require('browser-sync').create(),
+    nunjucksRender = require('gulp-nunjucks-render'),
+    minifyHTML = require('gulp-minify-html');
+
 var critical = require('critical').stream;
 
 
-/**
- * Project Configuration
- * =====================
- */
-
 var prod = false,
-    basePath = 'src',
-    vendorPath = basePath + '/_assets/_vendor',
+    vendorPath = '_assets/vendor',
     jsplugins = [
         vendorPath + '/jquery/dist/jquery.js',
-        vendorPath + '/gsap/src/minified/TweenLite.min.js',
-        vendorPath + '/gsap/src/minified/easing/EasePack.min.js',
-        vendorPath + '/gsap/src/minified/plugins/CSSPlugin.min.js'
+        vendorPath + '/GreenSock-JS/src/minified/TweenLite.min.js',
+        vendorPath + '/GreenSock-JS/src/minified/easing/EasePack.min.js',
+        vendorPath + '/GreenSock-JS/src/minified/plugins/CSSPlugin.min.js'
     ];
 
-/**
- * Build the Jekyll Site
- */
-gulp.task('jekyll-build', function () {
-    exec('jekyll build', function(err, stdout, stderr) {
-        browserSync.notify('jekyll build');
-        browserSync.reload();
-    });
-});
-
-/**
- * Rebuild Jekyll & do page reload
- */
-gulp.task('jekyll-rebuild', ['jekyll-build'], function () {
-    browserSync.reload();
-});
-
-/**
- * Wait for jekyll-build, then launch the Server
- */
-gulp.task('browser-sync', ['jekyll-build'], function() {
-    browserSync({
-        server: {
-            baseDir: 'web'
-        }
-    });
-});
-
-
-
 
 
 /**
- * Compile files from _scss into both _site/css (for live injecting) and site (for future jekyll builds)
- */
-gulp.task('sass', function () {
-        return gulp.src(basePath + '/_assets/_scss/style.scss')
-            .on('error', function (err) {
-            console.error('Error!', err.message);
-        })
-        .pipe(sass())
-        .pipe(prefix(['last 2 version', 'safari 5', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'], { cascade: true }))
-        .pipe(gulpif(prod === true, minifyCss()))
+*
+* Styles
+* - Catch errors (gulp-plumber)
+* - Compile with 'compressed' output if prod
+* - Autoprefixer
+*
+**/
+gulp.task('styles', function() {
+    del.sync('web/css');
+    gulp.src('_assets/scss/*.scss')
+        .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
+        .pipe(sass({outputStyle: prod ? 'compressed' : 'expanded'}))
+        .pipe(prefix())
         .pipe(gulp.dest('web/css'))
-        .pipe(browserSync.reload({stream:true}))
-        .pipe(gulp.dest(basePath + '/css'))
+        .pipe(browserSync.stream());
 });
 
 
 /**
-* Concat compress js
-*/
-gulp.task('js', function() {
-    return gulp.src(basePath + '/_assets/_js/**/*.js')
-        .pipe(concat('script.js'))
-        .pipe(gulpif(prod === true, uglify({
-            preserveComments: 'some'
-        })))
+*
+* Scripts
+* - Catch errors (gulp-plumber)
+* - Concat
+* - Uglify if prod
+*
+**/
+gulp.task('scripts', function() {
+    del.sync('web/js');
+    gulp.src('_assets/js/**/*.js')
+        .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
+        .pipe(concat('scripts.js'))
+        .pipe(gulpif(prod, uglify()))
         .pipe(gulp.dest('web/js'))
-        .pipe(gulp.dest(basePath + '/js'));
+        .pipe(browserSync.stream());
 });
-
 
 
 /**
@@ -100,10 +80,94 @@ gulp.task('js:vendor', function() {
     return gulp.src(jsplugins)
         .pipe(uglify())
         .pipe(concat('vendor.js'))
-        .pipe(gulp.dest('web/js'))
-        .pipe(gulp.dest(basePath + '/js'));
+        .pipe(gulp.dest('web/js'));
 });
 
+
+/**
+*
+* Img
+* - Copy imgs in web
+*
+**/
+gulp.task('images', function () {
+    del.sync('web/img');
+    gulp.src('_assets/img/**/*')
+        .pipe(gulp.dest('web/img'));
+});
+
+
+/**
+*
+* Html
+* - copy html
+* - minify html if prod
+*
+**/
+gulp.task('html', function() {
+    del.sync('web/**/*.html');
+    gulp.src('_views/**/*.html')
+        .pipe(gulp.dest('web'));
+});
+
+
+/**
+*
+* Watch assets
+*
+**/
+gulp.task('watch', function() {
+    gulp.watch('_assets/scss/**/*.scss', ['styles']);
+    gulp.watch('_assets/js/**/*.js', ['scripts']);
+    gulp.watch('_assets/img/**/*', ['images']);
+    gulp.watch('_views/**/*.+(html)', ['nunjucks']).on('change', browserSync.reload);
+});
+
+
+/**
+*
+* Build task
+*
+**/
+gulp.task('build', function() {
+    gulp.start('styles', 'scripts', 'js:vendor', 'images', 'nunjucks', 'critical');
+});
+
+
+
+
+
+
+
+
+gulp.task('nunjucks', function () {
+  return gulp.src('_views/_pages/*.html')
+    .pipe(nunjucksRender({
+      path: ['_views/'] // String or Array
+    }))
+    .pipe(gulp.dest('web'));
+});
+
+
+/**
+*
+* Serve - BrowserSync.io
+* - Watch CSS, JS, IMG & HTML for changes
+* - View project at: localhost:3000
+*
+**/
+gulp.task('serve', ['build','watch'], function() {
+    browserSync.init({
+        server: "./web"
+    });
+});
+
+// Generate & Inline Critical-path CSS
+gulp.task('critical', ['minify-html'], function () {
+    return gulp.src('web/index.html')
+        .pipe(critical({base: 'web/', inline: true, css: ['web/css/style.css']}))
+        .pipe(gulp.dest('web'));
+});
 
 
 
@@ -113,59 +177,26 @@ gulp.task('minify-html', function() {
         spare:true
     };
 
-    return gulp.src('./web/*.html')
-        .pipe(minifyHTML(opts))
-        .pipe(gulp.dest('./web/'));
-});
-
-
-// Generate & Inline Critical-path CSS
-gulp.task('critical', function () {
     return gulp.src('web/index.html')
-        .pipe(critical({base: 'web/', inline: true, css: ['web/css/style.css']}))
-        .pipe(gulp.dest('web'));
+        .pipe(minifyHTML())
+        .pipe(gulp.dest('web/'));
 });
-
-
-
-
-/**
- * Watch scss files for changes & recompile
- * Watch html/md files, run jekyll & reload BrowserSync
- */
-gulp.task('watch', function () {
-    gulp.watch(basePath + '/_assets/_js/**/*.js', ['js', 'jekyll-build']);
-    gulp.watch(basePath + '/_assets/_scss/**/*.scss', ['sass']);
-    gulp.watch(basePath + '/**/*.html', ['jekyll-rebuild']);
-    gulp.watch(basePath + '/img/**/*', ['jekyll-rebuild']);
-});
-
-/**
- * Default task, running just `gulp` will compile the sass,
- * compile the jekyll site, launch BrowserSync & watch files.
- */
-gulp.task('default', ['js', 'js:vendor', 'sass', 'browser-sync', 'watch']);
 
 
 /**
 * Gulp Prod
+* - build all the assets in production env
 */
-
-gulp.task('prod', function() {
-    console.log('prod');
+gulp.task('prod', function(){
+    gulp.src('CNAME').pipe(gulp.dest('web'));
     prod = true;
-    runSequence('jekyll-build', 'sass', 'js', 'js:vendor', 'critical', 'minify-html');
+    gulp.start('build');
 });
-
-
-
 
 /**
- * Push build to gh-pages
- */
-gulp.task('deploy', ['prod'], function () {
-  return gulp.src("./web/**/*")
-    .pipe(deploy({
-        branch: 'master'
-    }))
-});
+*
+* Default task
+* - launch serve
+*
+**/
+gulp.task('default', ['serve']);

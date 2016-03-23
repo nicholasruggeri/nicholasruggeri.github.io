@@ -15,9 +15,8 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "1.11.3",
-    "normalize-scss": "3.0.3",
-    "jquery-mousewheel": "3.1.12",
-    "gsap": "https://github.com/greensock/GreenSock-JS.git#~1.17.0"
+    "jquery": "latest",
+    "normalize-scss": "latest",
+    "GreenSock-JS": "latest"
   }
 }
