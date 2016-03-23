@@ -640,7 +640,7 @@ img.zoom-img {
         -ms-flex-pack: center;
             justify-content: center;
     padding: 12% 10% 12% 15%;
-    min-height: 100px;
+    min-height: 500px;
   }
 }
 
@@ -958,17 +958,17 @@ img.zoom-img {
   font-size: 1.875rem;
 }
 
+.section-content.section-end img {
+  width: 50px;
+  margin-bottom: -4px;
+  position: absolute;
+  bottom: 0;
+}
+
 .section-content.section-end .vertical-line p {
   color: rgba(0, 0, 0, 0.7);
 }
 
 .section-content.section-end .vertical-line:after {
   background: rgba(0, 0, 0, 0.1);
-}
-
-.section-content.section-end svg {
-  width: 30px;
-  height: 30px;
-  margin-bottom: 20px;
-  fill: #333F4C;
 }
