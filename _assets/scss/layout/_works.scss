@@ -20,7 +20,10 @@
         position: relative;
         display: table;
         .content-image{
+            opacity: 0;
             margin-bottom: -35%;
+            transform: translateY(20%) translateZ(0);
+            backface-visibility: hidden;
             @media screen and (max-width: 500px) {
                 margin-bottom: -20%;
             }

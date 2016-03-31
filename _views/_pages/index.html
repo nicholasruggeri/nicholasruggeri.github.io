@@ -10,13 +10,14 @@
     {% include "_partials/info.html" %}
 
     {# Agency, Client, Url, Title Project, Name image #}
+    {{ work.field(false, false, 'http://www.weatherymood.space/', 'WheateryMood', 'weatherymood') }}
     {{ work.field('H-ART', 'Elica', 'http://snap.elica.com', 'Snap', 'elica') }}
     {{ work.field('H-ART', 'Telecom Italia', 'http://companyprofile.telecomitalia.com/en/', 'Company Profile', 'company-profile') }}
     {{ work.field('H-ART', 'Telecom Italia', 'http://rete.telecomitalia.com/en/', 'The Network', 'the-network') }}
     {{ work.field('H-ART', false, 'http://946.vespa.com', 'Vespa 946 EA', 'vespa-946-ea') }}
     {{ work.field(false, 'Ridillo', 'http://www.ridillo.it', 'Official Site', 'ridillo') }}
 
-    {% include "_partials/thoughts.html" %}
+    {# include "_partials/thoughts.html" #}
 
     {% include "_partials/end.html" %}
 

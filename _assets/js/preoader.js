@@ -39,9 +39,42 @@
             });
         }
 
+        function _animation() {
+            var animationCtrl = new ScrollMagic.Controller();
+            var $workImage = $('.content-image');
+            var $tag = $('.section-info li');
+            $workImage.each(function(i, elem){
+                new ScrollMagic.Scene({
+                    triggerElement: $workImage[i],
+                    triggerHook: 'onEnter',
+                })
+                .setTween($(elem), {
+                    y: '0%',
+                    opacity: 1
+                })
+                .addTo(animationCtrl)
+                .reverse(false);
+            });
+
+            $tag.each(function(i, elem){
+                new ScrollMagic.Scene({
+                    triggerElement: $tag[i],
+                    triggerHook: 'onEnter'
+                })
+                .setTween($(elem), {
+                    y: '0%',
+                    opacity: 1,
+                    delay: 0.1*i
+                })
+                .addTo(animationCtrl)
+                .reverse(false);
+            });
+        }
+
         function init() {
             _initPreloader();
             _loadImages();
+            _animation();
         }
 
 

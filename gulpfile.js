@@ -64,7 +64,7 @@ gulp.task('styles', function() {
 *
 **/
 gulp.task('scripts', function() {
-    del.sync('web/js');
+    //del.sync('web/js');
     gulp.src('_assets/js/**/*.js')
         .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
         .pipe(concat('scripts.js'))
@@ -132,7 +132,7 @@ gulp.task('watch', function() {
 **/
 gulp.task('build', function() {
     console.log('init build')
-    gulp.start('styles', 'scripts', 'js:vendor', 'images', 'nunjucks', 'minify-html');
+    gulp.start('styles', 'scripts', 'images', 'nunjucks', 'minify-html');
 });
 
 
