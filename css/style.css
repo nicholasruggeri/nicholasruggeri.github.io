@@ -794,8 +794,11 @@ img.zoom-img {
 }
 
 .section-content.section-info ul li {
+  -webkit-transform: translateY(50%);
+          transform: translateY(50%);
   color: #333F4C;
   opacity: .5;
+  opacity: 0;
   display: inline-block;
   padding: 6px 10px 2px;
   border: 1px solid #333F4C;
@@ -833,7 +836,12 @@ img.zoom-img {
 }
 
 .section-content.section-works .content-projects .content-image {
+  opacity: 0;
   margin-bottom: -35%;
+  -webkit-transform: translateY(20%) translateZ(0);
+          transform: translateY(20%) translateZ(0);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
 }
 
 @media screen and (max-width: 500px) {
