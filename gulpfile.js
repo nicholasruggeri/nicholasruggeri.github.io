@@ -48,7 +48,7 @@ gulp.task('styles', function() {
     del.sync('web/css');
     gulp.src('_assets/scss/*.scss')
         .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
-        .pipe(sass({outputStyle: prod ? 'compressed' : 'expanded'}))
+        .pipe(sass({outputStyle: 'compressed'}))
         .pipe(prefix())
         .pipe(gulp.dest('web/css'))
         .pipe(browserSync.stream());
@@ -68,7 +68,7 @@ gulp.task('scripts', function() {
     gulp.src('_assets/js/**/*.js')
         .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
         .pipe(concat('scripts.js'))
-        .pipe(gulpif(prod, uglify()))
+        .pipe(uglify())
         .pipe(gulp.dest('web/js'))
         .pipe(browserSync.stream());
 });
