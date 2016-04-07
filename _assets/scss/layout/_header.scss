@@ -1,7 +1,14 @@
 .section-content.section-header{
     overflow: hidden;
     background-color: $primaryColor;
-    background: linear-gradient(180deg, #355F82 0%, $primaryColor 100%);
+    background: linear-gradient(90deg, $black 0%, #161719 100%);
+    background-image:
+    radial-gradient(
+      circle at center left,
+      $black,
+      #0C0C0C
+    );
+
     z-index: 1;
     transform: translateX(-100%);
     display: table;
@@ -9,6 +16,9 @@
     position: relative;
     @media screen and (max-width: 600px) {
         height: 100%;
+    }
+    .vertical-line{
+        background: $black;
     }
 }
 

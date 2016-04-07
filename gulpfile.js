@@ -27,12 +27,21 @@ var critical = require('critical').stream;
 
 var prod = false,
     vendorPath = '_assets/vendor',
+    customPath = '_assets/js',
     jsplugins = [
         vendorPath + '/jquery/dist/jquery.js',
         vendorPath + '/GreenSock-JS/src/minified/TweenLite.min.js',
         vendorPath + '/GreenSock-JS/src/minified/easing/EasePack.min.js',
         vendorPath + '/GreenSock-JS/src/minified/plugins/CSSPlugin.min.js'
-    ];
+    ],
+    jscustoms = [
+        customPath + '/raf.js',
+        customPath + '/sharer.js',
+        customPath + '/animations.js',
+        customPath + '/preloader.js',
+        customPath + '/canvas.js',
+        customPath + '/main.js'
+    ]
 
 
 

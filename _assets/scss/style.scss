@@ -4,9 +4,11 @@
 // Vars
 //
 
-$primaryColor: #333F4C;
+// $primaryColor: #333F4C;
+$primaryColor: #252525;
 $white: #fff;
 $black: #1d1d1d;
+$black2: #252525;
 
 $primaryFont: 'Josefin Sans', sans-serif;
 $secondaryFont: 'Bitter', serif;
@@ -14,12 +16,10 @@ $secondaryFont: 'Bitter', serif;
 
 @import 'mixins/rem';
 @import 'base/base';
-@import 'modules/zoom';
 @import 'modules/spinner';
 @import 'modules/vertical-line';
 @import 'layout/generic';
 @import 'layout/header';
 @import 'layout/info';
 @import 'layout/works';
-@import 'layout/thoughts';
 @import 'layout/end';

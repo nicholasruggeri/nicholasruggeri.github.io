@@ -11,13 +11,12 @@
     }
 
     function initHeader() {
-        var $el = $('.header h1');
-        width = window.innerWidth;
-        height = window.innerHeight;
+        width = $('.site').width();
+        height = $('.site').height();
         target = {x: width/2, y: height/2};
         canvas = document.getElementById('header-canvas');
-        canvas.width = width;
-        canvas.height = height;
+        canvas.width = $('.site').width();
+        canvas.height = $('.site').height();
         ctx = canvas.getContext('2d');
 
         target.x = $(window).height()/3;
@@ -75,11 +74,8 @@
 
     // Event handling
     function addListeners() {
-        // if(!('ontouchstart' in window)) {
-        //     window.addEventListener('mousemove', mouseMove);
-        // }
         window.addEventListener('scroll', scrollCheck);
-        // $(window).on('resize', resize);
+        $(window).on('resize', resize);
     }
 
     function mouseMove(e) {
@@ -102,12 +98,12 @@
     }
 
     function resize() {
-        width = window.innerWidth;
-        height = window.innerHeight;
-        canvas.width = width;
-        canvas.height = height;
-        target.x = $(window).width()/3.3;
-        target.y = $(window).height()/2.2;
+        width = $('.site').width();
+        height = $('.site').height();
+        canvas.width = $('.site').width();
+        canvas.height = $('.site').height();
+        target.x = $('.site').width()/3.3;
+        target.y = $('.site').height()/2.2;
     }
 
     // animation
@@ -136,8 +132,6 @@
                     points[i].active = 0;
                     points[i].circle.active = 0;
                 }
-
-                // drawLines(points[i]);
                 points[i].circle.draw();
             }
         }

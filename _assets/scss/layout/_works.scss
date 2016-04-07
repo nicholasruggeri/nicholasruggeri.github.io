@@ -11,9 +11,9 @@
         }
     }
     &:nth-child(even) {
-        background: #252525;
+        background: $black2;
         a{
-            text-shadow: 3px 0px #252525, -3px 0px #252525;
+            text-shadow: 3px 0px $black2, -3px 0px $black2;
         }
     }
     .content-projects{

@@ -1,14 +1,16 @@
 (function(exports) {
 
-    var Preloader = (function() {
+    var PRELOADER = (function() {
 
         var $site = $('.site'),
             $header = $('.section-header'),
             $animatedText = $('h1,h2'),
-            $animatedMask = $('.header span'),
-            $image = $('.content-image img');
+            $animatedMask = $('.header span');
 
-        function _initPreloader() {
+        function _show() {
+        }
+
+        function _remove() {
             $site.removeClass('spinner');
             setTimeout(function () {
                 TweenLite.to($header, 1, {
@@ -30,63 +32,12 @@
             }, 0);
         }
 
-        function _loadImages() {
-            var _this, url;
-            $image.each(function(){
-                _this = $(this);
-                url = _this.attr( 'src');
-                _this.attr( 'srcset', url)
-            });
-        }
-
-        function _animation() {
-            var animationCtrl = new ScrollMagic.Controller();
-            var $workImage = $('.content-image');
-            var $tag = $('.section-info li');
-            $workImage.each(function(i, elem){
-                new ScrollMagic.Scene({
-                    triggerElement: $workImage[i],
-                    triggerHook: 'onEnter',
-                })
-                .setTween($(elem), {
-                    y: '0%',
-                    opacity: 1
-                })
-                .addTo(animationCtrl)
-                .reverse(false);
-            });
-
-            $tag.each(function(i, elem){
-                new ScrollMagic.Scene({
-                    triggerElement: $tag[i],
-                    triggerHook: 'onEnter'
-                })
-                .setTween($(elem), {
-                    y: '0%',
-                    opacity: 1,
-                    delay: 0.1*i
-                })
-                .addTo(animationCtrl)
-                .reverse(false);
-            });
-        }
-
-        function init() {
-            _initPreloader();
-            _loadImages();
-            _animation();
-        }
-
-
         return {
-            init: init
+            show: _show,
+            remove: _remove
         };
     }());
 
-    $(document).ready(function(){
-        $(this).scrollTop(0);
-    });
-
-    $(window).on('load', Preloader.init);
+    exports.PRELOADER = exports.PRELOADER || PRELOADER;
 
 }(window));
