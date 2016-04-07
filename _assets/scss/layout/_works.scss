@@ -1,19 +1,19 @@
 .section-content.section-works{
-    background: $black;
+    background: $primaryColor;
     position: relative;
     padding-bottom: 0;
     overflow: hidden;
     height: auto;
     &:nth-child(odd) {
-        background: $black;
+        background: $secondaryColor;
         a{
-            text-shadow: 3px 0px $black, -3px 0px $black;
+            text-shadow: 3px 0px $secondaryColor, -3px 0px $secondaryColor;
         }
     }
     &:nth-child(even) {
-        background: $black2;
+        background: $primaryColor;
         a{
-            text-shadow: 3px 0px $black2, -3px 0px $black2;
+            text-shadow: 3px 0px $primaryColor, -3px 0px $primaryColor;
         }
     }
     .content-projects{

@@ -1,11 +1,11 @@
 .section-content.section-header{
     overflow: hidden;
-    background-color: $primaryColor;
-    background: linear-gradient(90deg, $black 0%, #161719 100%);
+    background-color: $secondaryColor;
+    background: linear-gradient(90deg, $secondaryColor 0%, #161719 100%);
     background-image:
     radial-gradient(
       circle at center left,
-      $black,
+      $secondaryColor,
       #0C0C0C
     );
 
@@ -18,7 +18,7 @@
         height: 100%;
     }
     .vertical-line{
-        background: $black;
+        background: $secondaryColor;
     }
 }
 
