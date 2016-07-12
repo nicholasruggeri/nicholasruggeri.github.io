@@ -9,13 +9,69 @@
 
     {% include "_partials/info.html" %}
 
-    {# Agency, Client, Url, Title Project, Name image #}
-    {{ work.field(false, false, 'http://www.weatherymood.space/', 'WheateryMood', 'weatherymood') }}
-    {{ work.field('H-ART', 'Elica', 'http://snap.elica.com', 'Snap', 'elica') }}
-    {{ work.field('H-ART', 'Telecom Italia', 'http://companyprofile2015.telecomitalia.com/en/', 'Company Profile 2015', 'company-profile') }}
-    {{ work.field('H-ART', 'Telecom Italia', 'http://rete.telecomitalia.com/en/', 'The Network', 'the-network') }}
-    {{ work.field('H-ART', false, 'http://946.vespa.com', 'Vespa 946 EA', 'vespa-946-ea') }}
-    {{ work.field(false, 'Ridillo', 'http://www.ridillo.it', 'Official Site', 'ridillo') }}
+
+    {{ work.field
+        ({
+            url: 'http://www.ciak.space/',
+            title: 'Hello Ciak',
+            description: 'Ciak the lion is a chatbot that find theaters and movies showtimes near you.',
+            img: 'hello-ciak'
+        })
+    }}
+
+    {{ work.field
+        ({
+            url: 'http://www.weatherymood.space/',
+            title: 'Weathery Mood',
+            description: 'WeatheryMood is a Chrome extension that lets you discover new playlists based on the current weather in your city.',
+            img: 'weatherymood'
+        })
+    }}
+
+    {{ work.field
+        ({
+            agency: 'H-ART',
+            url: 'http://snap.elica.com',
+            title: 'Elica Snap',
+            img: 'elica'
+        })
+    }}
+
+    {{ work.field
+        ({
+            agency: 'H-ART',
+            url: 'http://companyprofile2015.telecomitalia.com/en/',
+            title: 'Telecom Company Profile 2015',
+            img: 'company-profile'
+        })
+    }}
+
+    {{ work.field
+        ({
+            agency: 'H-ART',
+            url: 'http://rete.telecomitalia.com/en/',
+            title: 'The Network',
+            img: 'the-network'
+        })
+    }}
+
+    {{ work.field
+        ({
+            agency: 'H-ART',
+            url: 'http://946.vespa.com',
+            title: ' Vespa 946 EA',
+            img: 'vespa-946-ea'
+        })
+    }}
+
+    {{ work.field
+        ({
+            url: 'http://www.ridillo.it',
+            title: 'Ridillo Official Site',
+            img: 'ridillo'
+        })
+    }}
+
 
     {# include "_partials/thoughts.html" #}
 

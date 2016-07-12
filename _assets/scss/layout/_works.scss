@@ -36,6 +36,19 @@
             background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 85%, rgba(255, 255, 255, 1) 85%);
             background-position: 0 90%;
         }
+        small{
+            font-variant: small-caps;
+            letter-spacing: .6px;
+            line-height: 1.1;
+            font-family: $primaryFont;
+            margin-top: 20px;
+            font-size: 16px;
+            display: block;
+            opacity: .6;
+            @media screen and (min-width: 500px) {
+                width: 70%;
+            }
+        }
     }
     p, a{
         color: $white;
