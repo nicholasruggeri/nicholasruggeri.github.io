@@ -7,20 +7,19 @@
         function _animation() {
 
             var animationCtrl = new ScrollMagic.Controller(),
-                $workImage = $('.project--content-image'),
+                $workImage = $('.project--content-cover'),
                 $tag = $('.section-info li');
 
             $workImage.each(function(i, elem){
                 new ScrollMagic.Scene({
                     triggerElement: $workImage[i],
-                    triggerHook: 'onEnter',
+                    duration: $(window).height(),
+                    triggerHook: 'onEnter'
                 })
                 .setTween($(elem), {
-                    y: '0%',
-                    opacity: 1
+                    width: 0
                 })
-                .addTo(animationCtrl)
-                .reverse(false);
+                .addTo(animationCtrl);
             });
 
             // $tag.each(function(i, elem){
