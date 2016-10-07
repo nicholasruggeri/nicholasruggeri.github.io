@@ -8,13 +8,11 @@ $primaryColor: #252525;
 $secondaryColor: #1d1d1d;
 $white: #fff;
 
-$primaryFont: 'Josefin Sans', sans-serif;
-$secondaryFont: 'Bitter', serif;
+$primaryFont: 'Roboto', sans-serif;
 
 
 @import 'mixins/rem';
 @import 'base/base';
-@import 'modules/spinner';
 @import 'modules/vertical-line';
 @import 'layout/generic';
 @import 'layout/header';

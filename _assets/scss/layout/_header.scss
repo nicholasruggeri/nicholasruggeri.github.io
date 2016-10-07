@@ -1,50 +1,53 @@
 .section-content.section-header{
-    overflow: hidden;
-    background-color: $secondaryColor;
-    background: linear-gradient(90deg, $secondaryColor 0%, #161719 100%);
-    background-image:
-    radial-gradient(
-      circle at center left,
-      $secondaryColor,
-      #0C0C0C
-    );
-
-    z-index: 1;
-    transform: translateX(-100%);
-    display: table;
-    height: 100%;
-    position: relative;
-    @media screen and (max-width: 600px) {
-        height: 100%;
-    }
-    .vertical-line{
-        background: $secondaryColor;
-    }
+    background: #101010;
+    padding: 0;
 }
 
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0%);
+  }
+}
 
 .header{
     height: 100%;
-    display: table-cell;
-    vertical-align: middle;
-    text-align: left;
-    font-size: 3.8vw;
-    @media screen and (min-width: 950px) {
-        font-size: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    &:before{
+        content: "";
+        display: block;
+        width: 1px;
+        height: 10%;
+        background: rgba(255,255,255,0.3);
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        animation: appear 3s ease-in-out;
     }
-    @media screen and (max-width: 480px) {
-        font-size: 4.5vw;
+    i{
+        font-style: normal;
     }
     h1, h2{
         display: inline-block;
         position: relative;
-        margin: 0;
-        cursor: default;
-        text-decoration: none;
+        padding: 2px 4px 0 6px;
         color: rgba(255,255,255,0);
+        letter-spacing: 4px;
         overflow: hidden;
+        text-transform: uppercase;
+        font-weight: 100;
+        font-size: 2em;
+        margin: 0;
         span{
-            transform: translateX(-100%);
+            transform: translateX(-101%);
             display: block;
             height: 100%;
             width: 100%;
@@ -54,25 +57,6 @@
             background: $white;
         }
     }
-    h1{
-        font-weight: 700;
-        font-size: 2em;
-        @media screen and (max-width: 480px) {
-            margin-bottom: rem(5);
-        }
-    }
-    h2{
-        font-size: 1.3em;
-        font-weight: 300;
-    }
-}
-
-
-#header-canvas{
-    opacity: .5;
-    top: 0;
-    left: 0;
-    position: absolute;
 }
 
 .opl {

@@ -35,11 +35,9 @@ var prod = false,
         vendorPath + '/GreenSock-JS/src/minified/plugins/CSSPlugin.min.js'
     ],
     jscustoms = [
-        customPath + '/raf.js',
         customPath + '/sharer.js',
         customPath + '/animations.js',
         customPath + '/preloader.js',
-        customPath + '/canvas.js',
         customPath + '/main.js'
     ]
 
