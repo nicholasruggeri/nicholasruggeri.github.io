@@ -2,20 +2,7 @@
 
     var MAIN = (function() {
 
-        function _loadImages() {
-
-            var _this, url, $image = $('.content-image img');
-
-            $image.each(function(){
-                _this = $(this);
-                url = _this.attr('src');
-                _this.attr('srcset', url)
-            });
-
-        }
-
         function _init() {
-            _loadImages()
             ANIMATIONS.init()
             PRELOADER.remove()
             SHARER.init()
