@@ -13,9 +13,8 @@ $primaryFont: 'Roboto', sans-serif;
 
 @import 'mixins/rem';
 @import 'base/base';
-@import 'modules/vertical-line';
+@import 'base/animations';
+@import 'modules/opl';
 @import 'layout/generic';
 @import 'layout/header';
-@import 'layout/info';
 @import 'layout/works';
-@import 'layout/end';

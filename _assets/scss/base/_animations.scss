@@ -1,0 +1,43 @@
+.animation-cover {
+  overflow: hidden;
+  &__text{
+    transform: translateY(100%);
+    display: block;
+  }
+  &__mask {
+    transform: translateX(-100%);
+  }
+}
+
+
+@keyframes scale {
+  0% {
+    transform: scale(.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0%);
+  }
+}
+
+@keyframes lineY {
+  0% {
+    transform: translateY(-100%);
+  }
+  80% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
