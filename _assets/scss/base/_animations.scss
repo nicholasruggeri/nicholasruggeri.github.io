@@ -1,11 +1,14 @@
 .animation-cover {
   overflow: hidden;
+  will-change: transform;
   &__text{
-    transform: translateY(100%);
     display: block;
+    transform: translateY(120%);
+    will-change: transform;
   }
   &__mask {
     transform: translateX(-100%);
+    will-change: transform;
   }
 }
 

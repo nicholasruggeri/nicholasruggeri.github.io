@@ -7,74 +7,84 @@
 
     {% include "_partials/header.html" %}
 
-    <!-- {% include "_partials/info.html" %} -->
+    {# include "_partials/info.html" #}
 
-    {{ work.field
-        ({
-            url: 'www.ciak.space',
-            title: 'Hello Ciak',
-            description: 'Ciak the lion is a chatbot that find theaters and movies showtimes near you.',
-            img: 'hello-ciak'
-        })
-    }}
+    <div class="list-projects">
+        {{ work.field
+            ({
+                url: 'www.ciak.space',
+                title: 'Hello Ciak',
+                description: 'Ciak the lion is a chatbot that find theaters and movies showtimes near you.',
+                img: 'ciak-large',
+                position: '1'
+            })
+        }}
 
-    {{ work.field
-        ({
-            url: 'www.weatherymood.space',
-            title: 'Weathery Mood',
-            description: 'WeatheryMood is a Chrome extension that lets you discover new playlists based on the current weather in your city.',
-            img: 'weatherymood'
-        })
-    }}
+        {{ work.field
+            ({
+                url: 'www.weatherymood.space',
+                title: 'Weathery Mood',
+                description: 'WeatheryMood is a Chrome extension that lets you discover new playlists based on the current weather in your city.',
+                img: 'weatherymood',
+                position: '2'
+            })
+        }}
 
-    {{ work.field
-        ({
-            agency: 'H-ART',
-            url: 'snap.elica.com',
-            description: 'WeatheryMood is a Chrome extension that lets you discover new playlists based on the current weather in your city.',
-            title: 'Elica Snap',
-            img: 'elica'
-        })
-    }}
+        {{ work.field
+            ({
+                agency: 'H-ART',
+                url: 'snap.elica.com',
+                description: 'WeatheryMood is a Chrome extension that lets you discover new playlists based on the current weather in your city.',
+                title: 'Elica Snap',
+                img: 'elica-large',
+                position: '3'
+            })
+        }}
 
-    {{ work.field
-        ({
-            agency: 'H-ART',
-            url: 'companyprofile2015.telecomitalia.com',
-            description: 'WeatheryMood is a Chrome extension that lets you discover new playlists based on the current weather in your city.',
-            title: 'Company Profile',
-            img: 'company-profile'
-        })
-    }}
+        {{ work.field
+            ({
+                agency: 'H-ART',
+                url: 'companyprofile2015.telecomitalia.com',
+                description: 'WeatheryMood is a Chrome extension that lets you discover new playlists based on the current weather in your city.',
+                title: 'Company Profile',
+                img: 'company-profile',
+                position: '4'
+            })
+        }}
 
-    {{ work.field
-        ({
-            agency: 'H-ART',
-            url: 'rete.telecomitalia.com',
-            description: 'WeatheryMood is a Chrome extension that lets you discover new playlists based on the current weather in your city.',
-            title: 'The Network',
-            img: 'the-network'
-        })
-    }}
+        {{ work.field
+            ({
+                agency: 'H-ART',
+                url: 'rete.telecomitalia.com',
+                description: 'WeatheryMood is a Chrome extension that lets you discover new playlists based on the current weather in your city.',
+                title: 'The Network',
+                img: 'the-network',
+                position: '5'
+            })
+        }}
 
-    {{ work.field
-        ({
-            agency: 'H-ART',
-            url: '946.vespa.com',
-            description: 'WeatheryMood is a Chrome extension that lets you discover new playlists based on the current weather in your city.',
-            title: ' Vespa 946 EA',
-            img: 'vespa-946-ea'
-        })
-    }}
+        {{ work.field
+            ({
+                agency: 'H-ART',
+                url: '946.vespa.com',
+                description: 'WeatheryMood is a Chrome extension that lets you discover new playlists based on the current weather in your city.',
+                title: ' Vespa 946 EA',
+                img: 'vespa-946-ea',
+                position: '6'
+            })
+        }}
 
-    {{ work.field
-        ({
-            url: 'www.ridillo.it',
-            title: 'Ridillo',
-            description: 'WeatheryMood is a Chrome extension that lets you discover new playlists based on the current weather in your city.',
-            img: 'ridillo'
-        })
-    }}
+        {{ work.field
+            ({
+                url: 'www.ridillo.it',
+                title: 'Ridillo',
+                description: 'WeatheryMood is a Chrome extension that lets you discover new playlists based on the current weather in your city.',
+                img: 'ridillo-large',
+                position: '7'
+            })
+        }}
+    </div>
+
 
 
     {# include "_partials/thoughts.html" #}

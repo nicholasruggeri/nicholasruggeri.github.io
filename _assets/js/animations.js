@@ -4,105 +4,71 @@
 
     var ANIMATIONS = (function() {
 
-        var animationCtrl = new ScrollMagic.Controller();
+        var animationCtrl   = new ScrollMagic.Controller(),
+            $animationCover = $('.animation-cover'),
+            tl              = [];
 
-
-        function _initAnimation() {
-            _animation()
-        }
-
-        function _animation() {
-
-            var $workImage = $('.project__content-cover');
-
-            var $headerLetters = $('.header i'),
-                $title = $('.header__title'),
-                $titleMask = $('.header__title span'),
-                $subTitle = $('.header__subtitle'),
-                $subTitleMask = $('.header__subtitle span');
-
-            var $animationCover = $('.animation-cover');
+        function _maskText() {
 
             $animationCover.each(function(i, elem){
+
+                tl[i] = new TimelineLite({ paused: false });
+
+                tl[i].to($(elem).children('.animation-cover__mask'), .5, {
+                    x: 0,
+                    ease: Expo.easeOut
+                }).to($(elem).children('.animation-cover__text'), .3, {
+                    y: '0%',
+                    ease: Expo.easeOut
+                }).to($(elem).next('.project__description').children('span'), .3, {
+                    y: '0%',
+                    ease: Expo.easeOut
+                }, "-=.2")
+
                 new ScrollMagic.Scene({
                     triggerElement: $animationCover[i],
-                    triggerHook: 'onEnter'
+                    offset: - $(window).height()/3
                 })
-                .setTween($(elem).children('.animation-cover__mask'), 0.5, {
-                    x: 0,
-                    ease: Expo.easeOut,
-                    onComplete: function(){
-                        TweenLite.to($(elem).children('.animation-cover__text'), 0.5, {
-                            y: '0%',
-                            ease: Expo.easeOut
-                        })
-                    }
-                })
-                .reverse(false)
+                .setTween(tl[i])
                 .addTo(animationCtrl);
+
             });
 
-            $workImage.each(function(i, elem){
-                new ScrollMagic.Scene({
-                    triggerElement: $workImage[i],
-                    duration: $(window).height()/2,
-                    triggerHook: 'onEnter'
-                })
-                .setTween($(elem).children('div'), {
-                    scale: 1
-                })
-                .on("end", function (event) {
-                    $(elem).addClass('is-active')
-                })
-                .addTo(animationCtrl);
-            });
+        }
 
-
-            $headerLetters.each(function(i, elem){
+        function _parallaxnumber() {
+            $('.project__number').each(function(i, elem){
                 new ScrollMagic.Scene({
-                    duration: $(window).height()/2,
+                    triggerElement: $('.project__number')[i],
+                    duration: $(window).height()
                 })
                 .setTween($(elem), {
-                    y: - Math.floor(Math.random() * 100) + 1,
-                    opacity: 0
+                    y: '10%'
+                })
+                .addTo(animationCtrl);
+            });
+        }
+
+        function _parallaxtext() {
+
+            $('.project__content').each(function(i, elem){
+                new ScrollMagic.Scene({
+                    triggerElement: $('.project__content')[i],
+                    triggerHook: 'onEnter',
+                    duration: $(window).height()
+                })
+                .setTween($(elem), {
+                    y: '-25%',
                 })
                 .addTo(animationCtrl);
             });
 
-            TweenLite.to($titleMask, 0.5, {
-                x: 0,
-                delay: 0.3,
-                ease: Expo.easeIn,
-                onComplete: function(){
-                    $title.css({
-                        'color': 'rgba(0,0,0,1)'
-                    })
+        }
 
-                    TweenLite.to($title.find('i'), 0.5, {
-                        y: '0%',
-                        ease: Expo.easeOut
-                    });
-                }
-            });
-
-            TweenLite.to($subTitleMask, 0.5, {
-                x: 0,
-                delay: 1,
-                ease: Expo.easeIn,
-                onComplete: function(){
-                    $subTitle.css({
-                        'color': 'rgba(0,0,0,1)'
-                    })
-                    TweenLite.to($subTitle.find('i'), 0.5, {
-                        y: '0%',
-                        ease: Expo.easeOut
-                    });
-                    TweenLite.to('.header__extra', 1, {
-                        opacity: 1,
-                        x: 0
-                    });
-                }
-            });
+        function _initAnimation() {
+            _parallaxnumber()
+            _parallaxtext()
+            _maskText()
         }
 
         return {

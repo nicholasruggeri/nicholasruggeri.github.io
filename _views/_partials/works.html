@@ -10,22 +10,27 @@
 
 <section class="section-works  project">
 
-    <div class="project--content">
-        <a href="http://{{ prj.url }}" class="project--title">
-            {{ prj.title }}
-            <span class="project--url">
-                {{ prj.url }}
+    <div class="project__number">
+        <span>{{ prj.position }}</span>
+    </div>
+
+    <div class="project__content">
+        <a href="http://{{ prj.url }}" class="project__title  animation-cover">
+            <span class="project__title-name  animation-cover__text">
+                {{ prj.title }}
             </span>
+            <span class="project__title-cover  animation-cover__mask"></span>
         </a>
         {% if prj.description %}
-        <p class="project--description">
-            {{ prj.description }}
+        <p class="project__description">
+            <span>
+                {{ prj.description }}
+            </span>
         </p>
         {% endif %}
     </div>
-    <div class="project--content-image">
-        <div class="project--content-wrapper">
-            <div class="project--content-cover"></div>
+    <div class="project__content-image">
+        <div class="project__content-wrapper">
             <img class="content-image" src="img/{{ prj.img }}.jpg" alt="">
         </div>
     </div>

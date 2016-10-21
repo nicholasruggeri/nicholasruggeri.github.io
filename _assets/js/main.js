@@ -1,23 +1,27 @@
-(function(exports) {
+(function(exports, undefined) {
+
+    'use strict';
 
     var MAIN = (function() {
 
-        function _init() {
+        function _callback() {
+            WIDGETSECTION.init()
             ANIMATIONS.init()
-            PRELOADER.remove()
-            SHARER.init()
+            HEADER.init()
         }
 
+        function _init() {
+            PRELOADER.remove(_callback)
+        }
 
         return {
             init: _init
-        };
+        }
+
     }());
 
-    $(document).ready(function(){
-        $(this).scrollTop(0);
-    });
-
-    $(window).on('load', MAIN.init);
+    window.onload = function(){
+        MAIN.init()
+    };
 
 }(window));
