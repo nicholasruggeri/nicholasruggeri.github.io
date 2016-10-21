@@ -1,33 +1,39 @@
-(function($, exports) {
+(function(exports) {
 
     'use strict';
 
     var ANIMATIONS = (function() {
 
-        var animationCtrl   = new ScrollMagic.Controller(),
-            $animationCover = $('.animation-cover'),
-            tl              = [];
+        var _w = window,
+            _d = document;
+
+        var _animationCovers = _d.querySelectorAll('.animation-cover'),
+            _projectContent  = _d.querySelectorAll('.project__content'),
+            _projectNumber   = _d.querySelectorAll('.project__number');
+
+        var animationCtrl = new ScrollMagic.Controller(),
+            tl            = [];
 
         function _maskText() {
 
-            $animationCover.each(function(i, elem){
+            Array.prototype.forEach.call(_animationCovers, function(el, i){
 
                 tl[i] = new TimelineLite({ paused: false });
 
-                tl[i].to($(elem).children('.animation-cover__mask'), .5, {
+                tl[i].to(el.querySelector('.animation-cover__mask'), .5, {
                     x: 0,
                     ease: Expo.easeOut
-                }).to($(elem).children('.animation-cover__text'), .3, {
+                }).to(el.querySelector('.animation-cover__text'), .3, {
                     y: '0%',
                     ease: Expo.easeOut
-                }).to($(elem).next('.project__description').children('span'), .3, {
+                }).to(el.nextElementSibling.children, .3, {
                     y: '0%',
                     ease: Expo.easeOut
                 }, "-=.2")
 
                 new ScrollMagic.Scene({
-                    triggerElement: $animationCover[i],
-                    offset: - $(window).height()/3
+                    triggerElement: _animationCovers[i],
+                    offset: - _w.innerHeight/3
                 })
                 .setTween(tl[i])
                 .addTo(animationCtrl);
@@ -36,46 +42,55 @@
 
         }
 
-        function _parallaxnumber() {
-            $('.project__number').each(function(i, elem){
+        function _parallaxNumber() {
+
+            Array.prototype.forEach.call(_projectNumber, function(el, i){
+
                 new ScrollMagic.Scene({
-                    triggerElement: $('.project__number')[i],
-                    duration: $(window).height()
+                    triggerElement: _projectNumber[i],
+                    duration: _w.innerHeight
                 })
-                .setTween($(elem), {
+                .setTween(el, {
                     y: '10%'
                 })
                 .addTo(animationCtrl);
+
             });
+
         }
 
-        function _parallaxtext() {
+        function _parallaxText() {
 
-            $('.project__content').each(function(i, elem){
+            Array.prototype.forEach.call(_projectContent, function(el, i){
+
                 new ScrollMagic.Scene({
-                    triggerElement: $('.project__content')[i],
+                    triggerElement: _projectContent[i],
                     triggerHook: 'onEnter',
-                    duration: $(window).height()
+                    duration: _w.innerHeight
                 })
-                .setTween($(elem), {
-                    y: '-25%',
+                .setTween(el, {
+                    y: '-25%'
                 })
                 .addTo(animationCtrl);
+
             });
 
         }
 
         function _initAnimation() {
-            _parallaxnumber()
-            _parallaxtext()
+
+            _parallaxNumber()
+            _parallaxText()
             _maskText()
+
         }
 
         return {
             init: _initAnimation
         };
+
     }());
 
     exports.ANIMATIONS = exports.ANIMATIONS || ANIMATIONS;
 
-}(jQuery, window));
+}(window));

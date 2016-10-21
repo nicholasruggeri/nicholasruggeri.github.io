@@ -1,17 +1,21 @@
-(function(exports, undefined) {
+(function(exports) {
 
     'use strict';
 
     var MAIN = (function() {
 
         function _callback() {
+
             WIDGETSECTION.init()
             ANIMATIONS.init()
             HEADER.init()
+
         }
 
         function _init() {
+
             PRELOADER.remove(_callback)
+
         }
 
         return {

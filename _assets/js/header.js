@@ -1,26 +1,28 @@
-(function(exports, $) {
+(function(exports) {
 
     'use strict';
 
     var HEADER = (function() {
 
-        var animationCtrl = new ScrollMagic.Controller();
+        var _headerLetters = document.querySelectorAll('.header i'),
+            _w             = window;
 
-        var $headerLetters = $('.header i'),
-            $window        = $(window);
+        var animationCtrl  = new ScrollMagic.Controller();
 
         function _init() {
 
-            $headerLetters.each(function(i, elem){
+            Array.prototype.forEach.call(_headerLetters, function(el, i){
+
                 new ScrollMagic.Scene({
-                    duration: $window.height()/2,
+                    duration: _w.innerHeight/2,
                 })
-                .setTween($(elem), {
+                .setTween(el, {
                     y: - Math.floor(Math.random() * 100) + 1,
                     opacity: 0
                 })
                 .addTo(animationCtrl);
-            });
+
+            })
 
         }
 
@@ -32,4 +34,4 @@
 
     exports.HEADER = exports.HEADER || HEADER;
 
-}(window, jQuery));
+}(window));

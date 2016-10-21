@@ -29,7 +29,6 @@ var prod = false,
     vendorPath = '_assets/vendor',
     customPath = '_assets/js',
     jsplugins = [
-        vendorPath + '/jquery/dist/jquery.js',
         vendorPath + '/GreenSock-JS/src/minified/TimelineLite.min.js',
         vendorPath + '/GreenSock-JS/src/minified/TweenLite.min.js',
         vendorPath + '/GreenSock-JS/src/minified/easing/EasePack.min.js',
@@ -37,8 +36,8 @@ var prod = false,
     ],
     jscustoms = [
         customPath + '/widget-section.js',
-        customPath + '/preloader.js',
         customPath + '/animations.js',
+        customPath + '/preloader.js',
         customPath + '/header.js',
         customPath + '/main.js'
     ]

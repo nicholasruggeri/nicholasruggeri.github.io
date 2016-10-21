@@ -1,4 +1,4 @@
-(function(exports, undefined) {
+(function(exports) {
 
     'use strict';
 
@@ -7,6 +7,7 @@
         var animationCtrl = new ScrollMagic.Controller();
 
         function _init() {
+
             new ScrollMagic.Scene({
                 triggerElement: '.list-projects',
             })
@@ -14,6 +15,7 @@
                 y: '0%',
             })
             .addTo(animationCtrl);
+
         }
 
         return {

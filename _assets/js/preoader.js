@@ -1,19 +1,21 @@
-(function(exports, undefined) {
+(function(exports) {
 
     'use strict';
 
     var PRELOADER = (function() {
 
-        var _body              = document.getElementsByTagName('body')[0],
-            _preloader         = document.getElementsByClassName('preloader')[0],
-            _cPreoader         = document.getElementsByClassName('content-preloader')[0],
-            _titleLetters      = document.querySelectorAll('.header__title i'),
-            _titleMask         = document.getElementsByClassName('header__title-mask')[0],
-            _subTitleLetters   = document.querySelectorAll('.header__subtitle i'),
-            _subTitleMask      = document.getElementsByClassName('header__subtitle-mask')[0],
-            _contPreloaderMask = document.getElementsByClassName('content-preloader__mask');
+        var _d                 = document,
+            _body              = _d.getElementsByTagName('body')[0],
+            _preloader         = _d.getElementsByClassName('preloader')[0],
+            _cPreoader         = _d.getElementsByClassName('content-preloader')[0],
+            _titleLetters      = _d.querySelectorAll('.header__title i'),
+            _titleMask         = _d.getElementsByClassName('header__title-mask')[0],
+            _subTitleLetters   = _d.querySelectorAll('.header__subtitle i'),
+            _subTitleMask      = _d.getElementsByClassName('header__subtitle-mask')[0],
+            _contPreloaderMask = _d.getElementsByClassName('content-preloader__mask');
 
         function _remove(cb) {
+
             var tl = new TimelineLite({
                 paused: true,
                 onComplete: function(){
@@ -65,6 +67,7 @@
             setTimeout(function () {
                 tl.play()
             }, 0);
+
         }
 
         return {
