@@ -1,0 +1,127 @@
+
+.scroll-to{
+    svg{
+        display: block;
+        height: 30px;
+        width: 30px;
+        transform: rotate(90deg);
+        path{
+            fill: $white;
+        }
+    }
+}
+
+.list-social{
+    display: flex;
+    align-items: center;
+    margin-top: 10%;
+    @media screen and (min-width: 780px) {
+        justify-content: center;
+        padding: 0;
+        margin-top: 30px;
+        position: absolute;
+        bottom: 10%;
+        left: 5%;
+    }
+    a{
+        display: block;
+        margin-right: 30px;
+        opacity: .5;
+        transition: opacity .5s ease-in-out;
+        &:hover {
+            opacity: 1;
+        }
+    }
+    svg{
+        display: block;
+        width: 25px;
+        height: 25px;
+        fill: $white;
+    }
+}
+
+.footer {
+    background: $black;
+    color: $white;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: left;
+    position: relative;
+    padding: 20% 10%;
+    @media screen and (min-width: 780px) {
+        padding: 0;
+    }
+    &:before{
+        content: "";
+        width: 1px;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #fff;
+        opacity: .1;
+        display: none;
+        @media screen and (min-width: 780px) {
+            display: block;
+        }
+    }
+    &__wrapper{
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+        @media screen and (min-width: 780px) {
+            align-items: center;
+            flex-direction: row;
+        }
+        > div{
+            @media screen and (min-width: 780px) {
+                width: 50%;
+            }
+        }
+    }
+    &__info{
+        @media screen and (min-width: 780px) {
+            padding: 5%;
+        }
+    }
+    .animation-cover__text{
+        color: $black;
+        position: relative;
+        z-index: 2;
+        font-variant: small-caps;
+    }
+    .project__title-cover{
+        background: $white;
+    }
+    .scroll-to{
+        top: 0;
+        right: 0;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: background .2s ease-in-out;
+        display: none;
+        @media screen and (min-width: 780px) {
+            display: flex;
+            padding: 20%;
+            &:hover{
+                background: lighten($black, 2);
+            }
+        }
+    }
+    p{
+        a{
+            text-decoration: underline;
+        }
+    }
+}
+
+.footer__title{
+    margin-bottom: 3vw;
+    display: inline-block;
+    position: relative;
+    padding: 8px 14px;
+}
