@@ -29,16 +29,20 @@ var prod = false,
     vendorPath = '_assets/vendor',
     customPath = '_assets/js',
     jsplugins = [
+        vendorPath + '/Barba/barba.min.js',
         vendorPath + '/GreenSock-JS/src/minified/TimelineLite.min.js',
         vendorPath + '/GreenSock-JS/src/minified/TweenLite.min.js',
         vendorPath + '/GreenSock-JS/src/minified/easing/EasePack.min.js',
-        vendorPath + '/GreenSock-JS/src/minified/plugins/CSSPlugin.min.js'
+        vendorPath + '/GreenSock-JS/src/minified/plugins/CSSPlugin.min.js',
+        vendorPath + '/GreenSock-JS/src/minified/plugins/ScrollToPlugin.min.js'
     ],
     jscustoms = [
-        customPath + '/widget-section.js',
-        customPath + '/animations.js',
+        customPath + '/intro.js',
         customPath + '/preloader.js',
-        customPath + '/header.js',
+        customPath + '/page-projects.js',
+        customPath + '/page-about.js',
+        customPath + '/page-hp.js',
+        customPath + '/view.js',
         customPath + '/main.js'
     ]
 
@@ -76,7 +80,7 @@ gulp.task('scripts', function() {
     gulp.src('_assets/js/**/*.js')
         .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
         .pipe(concat('scripts.js'))
-        .pipe(uglify())
+        //.pipe(uglify())
         .pipe(gulp.dest('web/js'))
         .pipe(browserSync.stream());
 });

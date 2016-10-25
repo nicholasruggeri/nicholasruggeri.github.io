@@ -1,18 +1,21 @@
+
+{% macro field({
+    prj: title
+})%}
+
 <section class="section-content section-header">
+
     <header class="header">
         <div class="header__box">
-            <h1 class="header__title">
-                <i>Nicholas&nbsp;Ruggeri</i>
+            <h1 class="header__title  no-width">
+                <i>{{ prj.title }}</i>
                 <span class="header__title-mask"></span>
             </h1>
-            <h2 class="header__subtitle">
-                <i>Frontend&nbsp;Developer</i>
-                <span class="header__subtitle-mask"></span>
-            </h2>
         </div>
         <div class="header__line">
             <div></div>
         </div>
     </header>
-
 </section>
+
+{% endmacro %}

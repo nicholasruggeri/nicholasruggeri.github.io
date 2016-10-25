@@ -3,7 +3,7 @@
   will-change: transform;
   &__text{
     display: block;
-    transform: translateY(120%);
+    transform: translateY(150%);
     will-change: transform;
   }
   &__mask {
@@ -28,7 +28,7 @@
     transform: translate(-50%, 100%);
   }
   100% {
-    opacity: 1;
+    opacity: .5;
     transform: translate(-50%, 0%);
   }
 }

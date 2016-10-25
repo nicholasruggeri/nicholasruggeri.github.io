@@ -2,17 +2,24 @@
 
     'use strict';
 
-    var ANIMATIONS = (function() {
+    var PAGE_PROJECTS = (function() {
 
         var _w = window,
             _d = document;
 
-        var _animationCovers = _d.querySelectorAll('.animation-cover'),
-            _projectContent  = _d.querySelectorAll('.project__content'),
-            _projectNumber   = _d.querySelectorAll('.project__number');
+        var _animationCovers,
+            _projectContent,
+            _projectNumber;
 
-        var animationCtrl = new ScrollMagic.Controller(),
-            tl            = [];
+        var animationCtrl, tl;
+
+        function _initialize() {
+            tl = [];
+            animationCtrl = new ScrollMagic.Controller();
+            _animationCovers = _d.querySelectorAll('.animation-cover');
+            _projectContent  = _d.querySelectorAll('.project__content');
+            _projectNumber   = _d.querySelectorAll('.project__number');
+        }
 
         function _maskText() {
 
@@ -53,25 +60,8 @@
                 .setTween(el, {
                     y: '10%'
                 })
-                .addTo(animationCtrl);
-
-            });
-
-        }
-
-        function _parallaxText() {
-
-            Array.prototype.forEach.call(_projectContent, function(el, i){
-
-                new ScrollMagic.Scene({
-                    triggerElement: _projectContent[i],
-                    triggerHook: 'onEnter',
-                    duration: _w.innerHeight
-                })
-                .setTween(el, {
-                    y: '-25%'
-                })
-                .addTo(animationCtrl);
+                .addTo(animationCtrl)
+                .update()
 
             });
 
@@ -79,8 +69,8 @@
 
         function _initAnimation() {
 
+            _initialize()
             _parallaxNumber()
-            _parallaxText()
             _maskText()
 
         }
@@ -91,6 +81,6 @@
 
     }());
 
-    exports.ANIMATIONS = exports.ANIMATIONS || ANIMATIONS;
+    exports.PAGE_PROJECTS = exports.PAGE_PROJECTS || PAGE_PROJECTS;
 
 }(window));

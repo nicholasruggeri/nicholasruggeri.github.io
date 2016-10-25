@@ -1,0 +1,21 @@
+<!-- about.html -->
+
+{% extends "layout.html" %}
+{% import "_partials/works.html" as work %}
+{% import "_partials/intro.html" as intro %}
+
+{% block content %}
+
+<div class="barba-container" data-namespace="about">
+
+    {{ intro.field
+        ({
+            title: 'ABOUT ME'
+        })
+    }}
+
+    {% include "_partials/footer.html" %}
+
+</div>
+
+{% endblock %}

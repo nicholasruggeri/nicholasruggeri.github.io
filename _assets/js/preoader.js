@@ -14,18 +14,97 @@
             _subTitleMask      = _d.getElementsByClassName('header__subtitle-mask')[0],
             _contPreloaderMask = _d.getElementsByClassName('content-preloader__mask');
 
+        function _show(cb) {
+
+            _preloader.style.height = '100%';
+
+            var tl = new TimelineLite({
+                paused: true,
+                onComplete: function(){
+                    if (cb)
+                        cb()
+                }
+            });
+
+
+            tl.set(_cPreoader, {
+                zIndex: 9999999999,
+            })
+            tl.to(_preloader, 1, {
+                opacity: 1,
+                ease: Expo.easeInOut,
+            }, "-=1")
+            tl.to(_contPreloaderMask, 1, {
+                x: '0%',
+                ease: Expo.easeInOut,
+                onComplete: function(){
+                    TweenLite.to(window, 0.2, {scrollTo:0});
+                }
+            })
+            tl.to(_preloader, 1.5, {
+                height: '20%',
+                ease: Expo.easeInOut
+            })
+            setTimeout(function () {
+                tl.play()
+            }, 0);
+
+        }
+
         function _remove(cb) {
 
             var tl = new TimelineLite({
                 paused: true,
                 onComplete: function(){
-                    _body.className += 'is-load'
-                    cb()
+                    var _className = 'is-load';
+
+                    if (cb)
+                        cb()
+
+                    if (_body.classList)
+                        _body.classList.add(_className);
+                    else
+                        _body.className += ' ' + _className;
                 }
             });
 
-            tl.to(_preloader, 1.5, {
+            tl.to(_preloader, 1, {
                 height: '100%',
+                ease: Expo.easeIn
+            })
+            tl.to(_contPreloaderMask, 1, {
+                x: '101%',
+                ease: Expo.easeOut
+            })
+            tl.to(_preloader, 1, {
+                opacity: 0,
+                ease: Expo.easeInOut
+            }, "-=1")
+            tl.set(_cPreoader, {
+                zIndex: -1,
+            })
+            setTimeout(function () {
+                tl.play()
+            }, 0);
+
+        }
+
+        function _init() {
+
+            var tl = new TimelineLite({
+                paused: true,
+                onComplete: function(){
+                    alert()
+                    var _className = 'is-load';
+                    if (_body.classList)
+                        _body.classList.add(_className);
+                    else
+                        _body.className += ' ' + _className;
+                }
+            });
+
+            tl.to(_preloader, 1, {
+                height: '95%',
                 ease: Expo.easeInOut
             })
             tl.to(_contPreloaderMask, 1, {
@@ -34,10 +113,7 @@
             })
             tl.to(_preloader, 1, {
                 opacity: 0,
-                ease: Expo.easeInOut,
-                onComplete: function(){
-                    _cPreoader.parentNode.removeChild(_cPreoader)
-                }
+                ease: Expo.easeInOut
             }, "-=1")
             tl.to(_titleMask, .5, {
                 x: 0,
@@ -58,12 +134,11 @@
                         y: '0%',
                         ease: Expo.easeOut
                     });
-                    TweenLite.to('.header__extra', 1, {
-                        opacity: 1,
-                        x: 0
-                    });
                 }
             }, "-=0.5")
+            tl.set(_cPreoader, {
+                zIndex: -1,
+            })
             setTimeout(function () {
                 tl.play()
             }, 0);
@@ -71,7 +146,9 @@
         }
 
         return {
-            remove: _remove
+            init: _init,
+            remove: _remove,
+            show: _show
         };
 
     }());
