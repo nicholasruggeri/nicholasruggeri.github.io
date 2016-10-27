@@ -7,7 +7,9 @@
 $primaryColor: #252525;
 $secondaryColor: #1d1d1d;
 $white: #f9f9f9;
-$black: #101010;
+$black: #1a1a1a;
+$red: #DA0D34;
+$ease: cubic-bezier(0.785, 0.135, 0.150, 0.860);
 
 $primaryFont: 'Roboto', sans-serif;
 
@@ -16,6 +18,7 @@ $primaryFont: 'Roboto', sans-serif;
 @import 'base/base';
 @import 'base/animations';
 @import 'modules/opl';
+@import 'modules/scroll-to';
 @import 'layout/generic';
 @import 'layout/header';
 @import 'layout/works';

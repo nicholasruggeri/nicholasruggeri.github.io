@@ -1,0 +1,46 @@
+.scroll-to{
+    display: block;
+}
+
+.section-header{
+    .scroll-to{
+        position: absolute;
+        background: #fff;
+        z-index: 9999;
+        bottom: 5%;
+        left: 50%;
+        border-radius: 100%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(-50%) scale(0);
+        &:hover{
+            transform: translateX(-50%);
+        }
+        svg{
+            display: block;
+            height: 17px;
+            width: 17px;
+            transform: rotate(-90deg);
+            path{
+                fill: $black;
+            }
+        }
+    }
+}
+
+.footer{
+    .scroll-to{
+        svg{
+            display: block;
+            height: 30px;
+            width: 30px;
+            transform: rotate(90deg);
+            path{
+                fill: $white;
+            }
+        }
+    }
+}

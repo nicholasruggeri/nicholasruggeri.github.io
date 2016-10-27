@@ -17,51 +17,6 @@
             _titleMask    = _d.getElementsByClassName('header__title-mask')[0];
         }
 
-        function _hoverSection() {
-
-            var elements = _d.getElementsByClassName('section-links__element'),
-                _headerBox = _d.querySelectorAll('.header__box'),
-                _line = _d.querySelectorAll('section-links__line');
-
-            for (var i=0; i < elements.length; i++){
-                elements[i].addEventListener( 'mouseover', function() {
-                    TweenLite.to(this, 2, {
-                        width: '70%',
-                        ease: Expo.easeOut
-                    });
-
-                    if (this.classList.contains('section-links__left')) {
-                        TweenLite.to(_headerBox, 2, {
-                            x:  window.innerWidth/8 + 'px',
-                            ease: Expo.easeOut
-                        })
-                    } else {
-                        TweenLite.to(_headerBox, 2, {
-                            x:  - window.innerWidth/8 + 'px',
-                            ease: Expo.easeOut
-                        })
-                    }
-
-                });
-                elements[i].addEventListener( 'mouseout', function() {
-                    TweenLite.to(this, 2, {
-                        width: '50%',
-                        ease: Expo.easeOut
-                    });
-                    TweenLite.to(_headerBox, 2, {
-                        x: '0px',
-                        opacity: 2,
-                        ease: Expo.easeOut
-                    });
-                    TweenLite.to(_line, 2, {
-                        x: '0px',
-                        ease: Expo.easeOut
-                    })
-                });
-            }
-
-        }
-
         function _headerAnimation() {
 
             var tl = new TimelineLite({
@@ -90,7 +45,6 @@
         function _initAnimation() {
             _initialize()
             _headerAnimation()
-            // _hoverSection()
         }
 
         return {

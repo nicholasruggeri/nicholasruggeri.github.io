@@ -85,71 +85,6 @@ body {
     }
 }
 
-.section--about{
-    background: $black;
-    position: fixed;
-    z-index: 999;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    visibility: hidden;
-    transition: visibility 0s linear 1s, opacity 0.5s linear 0s;
-    opacity: 0;
-    &-left, &-right {
-        position: absolute;
-        width: 50%;
-        height: 100%;
-        top: 0;
-        overflow: hidden;
-        > div {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #fff;
-            will-change: transform;
-            transform: translateX(-100%);
-            transition: transform 1s cubic-bezier(0.785, 0.135, 0.150, 0.860);
-        }
-    }
-    &-left{
-        left: 0;
-    }
-
-    &-right{
-        right: 0;
-    }
-}
-.section--about-wrapper{
-    position: relative;
-    position: absolute;
-    top: 5%;
-    left: 5%;
-    width: 90%;
-    height: 90%;
-}
-
-.section--about-content-wrapper{
-    > div {
-        margin: 10%;
-    }
-}
-
-#about:target {
-    visibility: visible;
-    opacity: 1;
-    transition: visibility 0s linear 0s, opacity 0.5s linear 0s;
-    .section--about-left, .section--about-right {
-        > div {
-            transform: translateX(0);
-            will-change: transform;
-        }
-    }
-}
-
-
 p {
     margin: 0;
     display: block;
@@ -172,13 +107,4 @@ ul, li{
 
 li{
     list-style-type: none;
-}
-
-.list-skills{
-    li {
-        display: inline-block;
-        padding: 3px 6px 2px;
-        border: 1px solid #000;
-        margin: 0 3px 6px 0;
-    }
 }

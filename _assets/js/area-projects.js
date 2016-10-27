@@ -2,13 +2,12 @@
 
     'use strict';
 
-    var PAGE_PROJECTS = (function() {
+    var AREA_PROJECTS = (function() {
 
         var _w = window,
             _d = document;
 
         var _animationCovers,
-            _projectContent,
             _projectNumber;
 
         var animationCtrl, tl;
@@ -17,7 +16,6 @@
             tl = [];
             animationCtrl = new ScrollMagic.Controller();
             _animationCovers = _d.querySelectorAll('.animation-cover');
-            _projectContent  = _d.querySelectorAll('.project__content');
             _projectNumber   = _d.querySelectorAll('.project__number');
         }
 
@@ -61,18 +59,16 @@
                     y: '10%'
                 })
                 .addTo(animationCtrl)
-                .update()
 
             });
 
         }
 
         function _initAnimation() {
-
+            console.log('AREA_PROJECTS init')
             _initialize()
             _parallaxNumber()
             _maskText()
-
         }
 
         return {
@@ -81,6 +77,6 @@
 
     }());
 
-    exports.PAGE_PROJECTS = exports.PAGE_PROJECTS || PAGE_PROJECTS;
+    exports.AREA_PROJECTS = exports.AREA_PROJECTS || AREA_PROJECTS;
 
 }(window));

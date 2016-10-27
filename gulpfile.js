@@ -38,11 +38,13 @@ var prod = false,
     ],
     jscustoms = [
         customPath + '/intro.js',
+        customPath + '/sharer.js',
         customPath + '/preloader.js',
-        customPath + '/page-projects.js',
+        customPath + '/scroll-to.js',
+        customPath + '/area-projects.js',
         customPath + '/page-about.js',
         customPath + '/page-hp.js',
-        customPath + '/view.js',
+        customPath + '/routing.js',
         customPath + '/main.js'
     ]
 
