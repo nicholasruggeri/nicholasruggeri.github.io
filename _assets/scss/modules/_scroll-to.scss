@@ -1,31 +1,65 @@
 .scroll-to{
     display: block;
+    cursor: pointer;
 }
 
 .section-header{
     .scroll-to{
         position: absolute;
-        background: #fff;
-        z-index: 9999;
+        z-index: 99999;
         bottom: 5%;
         left: 50%;
-        border-radius: 100%;
         width: 40px;
         height: 40px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         transform: translateX(-50%) scale(0);
-        &:hover{
-            transform: translateX(-50%);
+        &:focus{
+            outline: none;
+            .scroll-to-mask{
+                &:after{
+                    transform: translate(-50%,-50%) scale(1);
+                }
+            }
         }
         svg{
+            position: absolute;
+            top: 50%;
+            left: 50%;
             display: block;
             height: 17px;
             width: 17px;
-            transform: rotate(-90deg);
+            transform: translate(-50%,-250%) rotate(-90deg);
+            opacity: 0;
             path{
                 fill: $black;
+            }
+        }
+    }
+    .scroll-to-mask{
+        top: 0;
+        left: 0;
+        position: absolute;
+        border-radius: 100%;
+        width: 40px;
+        height: 40px;
+        background: #fff;
+        &:after{
+            content: "";
+            display: block;
+            width: 50px;
+            height: 50px;
+            background: $red;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: -1;
+            border-radius: 100%;
+            transform: translate(-50%,-50%) scale(.6);
+            transform-origin: center;
+            transition: all .5s $ease;
+        }
+        &:hover{
+            &:after{
+                transform: translate(-50%,-50%) scale(1);
             }
         }
     }
@@ -33,6 +67,9 @@
 
 .footer{
     .scroll-to{
+        &:focus{
+            outline: none;
+        }
         svg{
             display: block;
             height: 30px;

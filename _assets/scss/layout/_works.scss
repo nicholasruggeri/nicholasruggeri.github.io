@@ -99,7 +99,8 @@
         display: inline-block;
         position: relative;
         padding: 8px 14px;
-        &:hover{
+        &:hover, &:focus{
+            outline: none;
             .project__title-cover:after{
                 transform: translateX(0%);
             }
@@ -107,7 +108,7 @@
     }
     &__title-name{
         text-transform: uppercase;
-        font-size: calc(12px + 0.7vw);
+        font-size: calc(10px + 0.5vw);
         color: #fff;
         position: relative;
         z-index: 2;

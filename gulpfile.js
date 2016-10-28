@@ -42,8 +42,8 @@ var prod = false,
         customPath + '/preloader.js',
         customPath + '/scroll-to.js',
         customPath + '/area-projects.js',
+        customPath + '/area-bigtext.js',
         customPath + '/page-about.js',
-        customPath + '/page-hp.js',
         customPath + '/routing.js',
         customPath + '/main.js'
     ]

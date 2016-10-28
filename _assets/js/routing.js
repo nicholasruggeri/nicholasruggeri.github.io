@@ -41,7 +41,8 @@
             },
             onEnterCompleted: function() {
                 SCROLLTO.init()
-                PAGE_HP.init()
+                INTRO.init()
+                AREA_BIGTEXT.init()
                 // The Transition has just finished.
             },
             onLeave: function() {
@@ -58,8 +59,8 @@
             onEnter: function() {
             },
             onEnterCompleted: function() {
-                PAGE_ABOUT.init()
-                // INTRO.init()
+                INTRO.init()
+                AREA_BIGTEXT.init()
             }
         });
 

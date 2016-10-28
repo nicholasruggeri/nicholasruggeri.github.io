@@ -1,0 +1,18 @@
+{% macro field({
+    text: text
+})%}
+
+<div class="block__big-text">
+    <div>
+        <span class="big-text big-text--1">
+            {{ text.text }}
+        </span>
+    </div>
+    <div>
+        <span class="big-text big-text--2">
+            {{ text.text }}
+        </span>
+    </div>
+</div>
+
+{% endmacro %}

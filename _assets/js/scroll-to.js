@@ -19,7 +19,14 @@
         function _showArrow() {
             TweenLite.to(_scrollToArrow, 0.5, {
                 scale: 1,
-                ease: Expo.easeOut
+                ease: Expo.easeOut,
+                onComplete: function(){
+                     TweenLite.to(_scrollToArrow[0].querySelectorAll('.svg-icon'), 0.5, {
+                        y: '-50%',
+                        opacity: 1,
+                        ease: Expo.easeOut
+                    });
+                }
             });
         }
 

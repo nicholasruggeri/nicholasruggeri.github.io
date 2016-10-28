@@ -1,50 +1,39 @@
-<section class="section--about" id="about">
-    <div class="section--about-wrapper">
-        <div class="section--about-left">
-            <div class="section--about-content-wrapper">
-                <div>
-                    <p class="project__title  animation-cover">
-                        <span class="project__title-name  animation-cover__text">
-                            about me
-                        </span>
-                        <span class="project__title-cover  animation-cover__mask"></span>
-                    </p>
-                    <p>Nicholas Ruggeri works in <a href="http://www.h-art.com">H-ART</a>, one of the best agencies in Italy, as frontend developer.</p>
-                    <p>In the past years he worked for <a href="http://www.lazzurro.it/">L’Azzurro</a> and <a href="http://www.ntnext.it">New Target Web</a>.</p>
-                    <br><br>
-                    <p class="project__title  animation-cover">
-                        <span class="project__title-name  animation-cover__text">
-                            skills
-                        </span>
-                        <span class="project__title-cover  animation-cover__mask"></span>
-                    </p>
-                    <!-- <p>He also has these fantastic skills:</p> -->
-                    <a href="https://www.linkedin.com/in/nicholasruggeri#background-skills" target="_blank">
-                        <ul class="list-skills">
-                            <li>RESPONSIVE DESIGN</li>
-                            <li>HTML5</li>
-                            <li>CSS3</li>
-                            <li>SASS</li>
-                            <li>JAVASCRIPT</li>
-                            <li>JQUERY</li>
-                            <li>ANGULARJS</li>
-                            <li>NODEJS</li>
-                            <li>GULP</li>
-                            <li>GRUNT</li>
-                            <li>GIT</li>
-                            <li>SVN</li>
-                            <li>PHOTOSHOP</li>
-                            <li>ILLUSTRATOR</li>
-                            <li>MARIOKART</li>
-                            <li>SNOWBOARDING</li>
-                            <li>...</li>
-                        </ul>
-                    </a>
-                </div>
-            </div>
+{% import "_macro/bigtext.html" as bigtext %}
+
+<section class="section-content section-header">
+
+    {{ bigtext.field
+        ({
+            text: 'About'
+        })
+    }}
+
+    <header class="header">
+        <div class="header__box">
+            <h1 class="header__title">
+                <i>Nicholas&nbsp;Ruggeri</i>
+                <span class="header__title-mask"></span>
+            </h1>
+            <h2 class="header__subtitle">
+                <i>Frontend&nbsp;Developer</i>
+                <span class="header__subtitle-mask"></span>
+            </h2>
         </div>
-        <div class="section--about-right">
+        <div class="header__line">
             <div></div>
         </div>
+    </header>
+
+    <div class="scroll-to">
+        <span class="scroll-to-mask">
+            <svg class="svg-icon" viewBox="0 0 20 20">
+                <path fill="none" d="M18.271,9.212H3.615l4.184-4.184c0.306-0.306,0.306-0.801,0-1.107c-0.306-0.306-0.801-0.306-1.107,0
+                L1.21,9.403C1.194,9.417,1.174,9.421,1.158,9.437c-0.181,0.181-0.242,0.425-0.209,0.66c0.005,0.038,0.012,0.071,0.022,0.109
+                c0.028,0.098,0.075,0.188,0.142,0.271c0.021,0.026,0.021,0.061,0.045,0.085c0.015,0.016,0.034,0.02,0.05,0.033l5.484,5.483
+                c0.306,0.307,0.801,0.307,1.107,0c0.306-0.305,0.306-0.801,0-1.105l-4.184-4.185h14.656c0.436,0,0.788-0.353,0.788-0.788
+                S18.707,9.212,18.271,9.212z"></path>
+            </svg>
+        </span>
     </div>
+
 </section>

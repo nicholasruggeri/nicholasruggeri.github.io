@@ -27,6 +27,7 @@
         };
 
         function _init() {
+            console.log('SHARER init')
             if (_trigger === undefined) return false;
             _trigger.addEventListener('click', function(evt){
                 url = evt.target.getAttribute('href');

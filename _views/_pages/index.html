@@ -1,7 +1,8 @@
 <!-- index.html -->
 
 {% extends "layout.html" %}
-{% import "_partials/works.html" as work %}
+{% import "_macro/works.html" as work %}
+{% import "_macro/bigtext.html" as bigtext %}
 
 {% block content %}
     <div class="barba-container" data-namespace="homepage">
@@ -63,6 +64,17 @@
 
         </div>
 
+        <a href="about.html">
+            <section class="section-about">
+                {{ bigtext.field
+                    ({
+                        text: 'About'
+                    })
+                }}
+            </section>
+        </a>
+
         {% include "_partials/footer.html" %}
     </div>
+
 {% endblock %}
