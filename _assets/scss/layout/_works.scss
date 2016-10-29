@@ -28,11 +28,9 @@
         height: 130%;
         width: 50%;
         top: -15%;
-        text-shadow: -50px -50px 0px rgba(0,0,0,0.05), 50px 50px 0px rgba(0,0,0,0.05);
+        text-shadow: 20px 20px 0 rgba(0,0,0,0.1);
         span{
-            color: #efefef;
-            color: $white;
-            color: rgba(#efefef, .2);
+            color: rgba(#efefef, 1);
             font-size: 110vw;
             font-weight: 900;
             position: absolute;
@@ -98,32 +96,28 @@
         margin-bottom: 2vw;
         display: inline-block;
         position: relative;
-        padding: 8px 14px;
-        &:hover, &:focus{
-            outline: none;
-            .project__title-cover:after{
-                transform: translateX(0%);
-            }
-        }
     }
-    &__title-name{
+    &__title-letter{
         text-transform: uppercase;
-        font-size: calc(10px + 0.5vw);
+        font-size: calc(40px + 5vw);
         color: #fff;
         position: relative;
         z-index: 2;
-        letter-spacing: 4px;
-        font-weight: 100;
+        font-weight: 900;
+        color: $black;
+        line-height: 1;
+        padding: 0 10px;
     }
     &__title-cover{
         position: absolute;
         overflow: hidden;
-        background: $black;
+        background: transparent;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
         z-index: 1;
+        border-bottom: 2px solid $black;
         &:after{
             content:"";
             display: block;
@@ -143,6 +137,38 @@
         text-transform: uppercase;
         overflow: hidden;
         text-overflow: ellipsis;
+    }
+    &__name{
+        display: inline-block;
+        text-transform: uppercase;
+        overflow: hidden;
+        margin-bottom: 2vw;
+        padding-bottom: 5px;
+        position: relative;
+        &:hover{
+            &:after{
+                transform: translateX(0);
+            }
+        }
+        &:after{
+            content:"";
+            display: block;
+            height: 2px;
+            width: 100%;
+            background: $red;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            transform: translateX(-105%);
+            transition: transform .5s $ease;
+        }
+        span{
+            letter-spacing: 3px;
+            font-size: calc(13px + 0.1vw);
+            display: block;
+        }
+        &:hover{
+        }
     }
     &__description{
         overflow: hidden;

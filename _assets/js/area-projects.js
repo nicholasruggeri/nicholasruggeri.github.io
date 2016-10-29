@@ -8,6 +8,7 @@
             _d = document;
 
         var _animationCovers,
+            _animationElY,
             _projectNumber;
 
         var animationCtrl, tl;
@@ -16,10 +17,31 @@
             tl = [];
             animationCtrl = new ScrollMagic.Controller();
             _animationCovers = _d.querySelectorAll('.animation-cover');
+            _animationElY = _d.querySelectorAll('.animation-y');
             _projectNumber   = _d.querySelectorAll('.project__number');
         }
 
-        function _maskText() {
+        function _animationY() {
+            Array.prototype.forEach.call(_animationElY, function(el, i){
+
+                tl[i] = new TimelineLite({ paused: false });
+
+                tl[i].to(el.children, .3, {
+                    y: '0%',
+                    ease: Expo.easeOut
+                })
+
+                new ScrollMagic.Scene({
+                    triggerElement: _animationElY[i],
+                    offset: - _w.innerHeight/5
+                })
+                .setTween(tl[i])
+                .addTo(animationCtrl);
+
+            });
+        }
+
+        function _animationCover() {
 
             Array.prototype.forEach.call(_animationCovers, function(el, i){
 
@@ -31,10 +53,7 @@
                 }).to(el.querySelector('.animation-cover__text'), .3, {
                     y: '0%',
                     ease: Expo.easeOut
-                }).to(el.nextElementSibling.children, .3, {
-                    y: '0%',
-                    ease: Expo.easeOut
-                }, "-=.2")
+                })
 
                 new ScrollMagic.Scene({
                     triggerElement: _animationCovers[i],
@@ -68,7 +87,8 @@
             console.log('AREA_PROJECTS init')
             _initialize()
             _parallaxNumber()
-            _maskText()
+            _animationCover()
+            _animationY()
         }
 
         return {

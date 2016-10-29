@@ -175,6 +175,10 @@
     background: $red;
     position: relative;
     padding: 14%;
+    transition: background .5s ease-out;
+    &:hover{
+        background: lighten($red, 5);
+    }
     &:after{
         content: "";
         width: 1px;

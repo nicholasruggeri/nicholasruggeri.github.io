@@ -5,6 +5,7 @@
     prj: url,
     prj: title,
     prj: description,
+    prj: letter,
     prj: img
 })%}
 
@@ -15,14 +16,21 @@
     </div>
 
     <div class="project__content">
-        <a href="http://{{ prj.url }}" class="project__title  animation-cover">
-            <span class="project__title-name  animation-cover__text">
-                {{ prj.title }}
+        <div class="project__title  animation-cover">
+            <span class="project__title-letter  animation-cover__text">
+                {{ prj.letter }}
             </span>
             <span class="project__title-cover  animation-cover__mask"></span>
-        </a>
+        </div>
+        <div>
+            <a href="http://{{ prj.url }}" class="project__name  animation-y">
+                <span>
+                    {{ prj.title }}
+                </span>
+            </a>
+        </div>
         {% if prj.description %}
-        <p class="project__description">
+        <p class="project__description  animation-y">
             <span>
                 {{ prj.description }}
             </span>
