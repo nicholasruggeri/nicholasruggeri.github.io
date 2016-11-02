@@ -36,16 +36,17 @@
                 triggerHook: 'onLeave',
                 offset: - _w.innerHeight/3
             })
-            .setTween(_scrollToArrow, .5, {
-                scale: 0,
-                ease: Expo.easeOut
+            .setTween(_scrollToArrow, 1, {
+                y: '-100%',
+                opacity: 0,
+                ease: Expo.easeInOut
             })
             .reverse(false)
             .addTo(animationCtrl);
 
             _scrollToArrow[0].addEventListener('click', function(){
                 TweenLite.to(_w, 2, {
-                    scrollTo: _w.innerHeight,
+                    scrollTo: _w.innerHeight/1.25,
                     ease: Expo.easeInOut
                 });
             })
@@ -60,7 +61,7 @@
         }
 
         function _init(){
-            console.log('SCROLLTO init')
+            // console.log('SCROLLTO init')
             _initialize()
             setTimeout(function(){
                 _showArrow()

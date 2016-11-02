@@ -63,7 +63,7 @@
         }
 
         function _initAnimation() {
-            console.log('INTRO init')
+            // console.log('INTRO init')
             _initialize()
             _headerAnimation()
         }

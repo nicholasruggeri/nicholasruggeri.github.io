@@ -9,7 +9,7 @@
 
         var _animationCovers,
             _animationElY,
-            _projectNumber;
+            _sectionParallax;
 
         var animationCtrl, tl;
 
@@ -18,7 +18,7 @@
             animationCtrl = new ScrollMagic.Controller();
             _animationCovers = _d.querySelectorAll('.animation-cover');
             _animationElY = _d.querySelectorAll('.animation-y');
-            _projectNumber   = _d.querySelectorAll('.project__number');
+            _sectionParallax   = _d.querySelectorAll('.section-parallax');
         }
 
         function _animationY() {
@@ -26,8 +26,9 @@
 
                 tl[i] = new TimelineLite({ paused: false });
 
-                tl[i].to(el.children, .3, {
+                tl[i].to(el.children, 1, {
                     y: '0%',
+                    opacity: 1,
                     ease: Expo.easeOut
                 })
 
@@ -36,6 +37,7 @@
                     offset: - _w.innerHeight/5
                 })
                 .setTween(tl[i])
+                .reverse(false)
                 .addTo(animationCtrl);
 
             });
@@ -57,9 +59,10 @@
 
                 new ScrollMagic.Scene({
                     triggerElement: _animationCovers[i],
-                    offset: - _w.innerHeight/3
+                    offset: - _w.innerHeight/4
                 })
                 .setTween(tl[i])
+                .reverse(false)
                 .addTo(animationCtrl);
 
             });
@@ -68,14 +71,15 @@
 
         function _parallaxNumber() {
 
-            Array.prototype.forEach.call(_projectNumber, function(el, i){
+            Array.prototype.forEach.call(_sectionParallax, function(el, i){
 
                 new ScrollMagic.Scene({
-                    triggerElement: _projectNumber[i],
-                    duration: _w.innerHeight
+                    triggerElement: el,
+                    duration: _w.innerHeight*2,
+                    triggerHook: 'onEnter'
                 })
-                .setTween(el, {
-                    y: '10%'
+                .setTween(el.querySelector('.project__number'), {
+                    y: '-45%'
                 })
                 .addTo(animationCtrl)
 
@@ -84,7 +88,7 @@
         }
 
         function _initAnimation() {
-            console.log('AREA_PROJECTS init')
+            // console.log('AREA_PROJECTS init')
             _initialize()
             _parallaxNumber()
             _animationCover()

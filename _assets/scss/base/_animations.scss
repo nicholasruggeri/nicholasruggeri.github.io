@@ -13,9 +13,13 @@
 }
 
 .animation-y {
+    overflow: hidden;
     span {
+        display: block;
+        opacity: 0;
         transform: translateY(115%);
         will-change: transform;
+        backface-visibility: hidden;
     }
 }
 

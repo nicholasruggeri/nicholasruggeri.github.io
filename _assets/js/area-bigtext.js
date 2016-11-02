@@ -69,7 +69,7 @@
 
 
         function _initAnimation() {
-            console.log('AREA_BIGTEXT init')
+            // console.log('AREA_BIGTEXT init')
             _initialize()
             _maskText()
         }

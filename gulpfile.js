@@ -29,6 +29,7 @@ var prod = false,
     vendorPath = '_assets/vendor',
     customPath = '_assets/js',
     jsplugins = [
+        vendorPath + '/ConsoleStyles/console.style.min.js',
         vendorPath + '/Barba/barba.min.js',
         vendorPath + '/GreenSock-JS/src/minified/TimelineLite.min.js',
         vendorPath + '/GreenSock-JS/src/minified/TweenLite.min.js',

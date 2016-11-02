@@ -6,35 +6,40 @@
     prj: title,
     prj: description,
     prj: letter,
-    prj: img
+    prj: img,
+    prj: online
 })%}
 
-<section class="section-works  project">
+<section class="section-works  section-parallax  project">
 
     <div class="project__number">
-        <span>{{ prj.position }}</span>
+        {{ prj.position }}
     </div>
 
     <div class="project__content">
         <div class="project__title  animation-cover">
-            <span class="project__title-letter  animation-cover__text">
-                {{ prj.letter }}
-            </span>
+            <span class="project__title-letter  animation-cover__text">{{ prj.letter }}</span>
             <span class="project__title-cover  animation-cover__mask"></span>
         </div>
         <div>
             <a href="http://{{ prj.url }}" class="project__name  animation-y">
-                <span>
-                    {{ prj.title }}
-                </span>
+                <span>{{ prj.title }}</span>
             </a>
         </div>
         {% if prj.description %}
-        <p class="project__description  animation-y">
-            <span>
-                {{ prj.description }}
-            </span>
-        </p>
+        <div class="project__description  animation-y">
+            <p>
+                {% if prj.role %}
+                    {{ prj.role }}.<br>
+                {% endif %}
+                {{prj.description}}<br>
+                {% if prj.agency %}
+                    Built in <a href="http://h-art.com" target="_blank">{{ prj.agency }}</a> for {{ prj.client }}.
+                {% else %}
+                    Built just for fun.
+                {% endif %}
+            </p>
+        </div>
         {% endif %}
     </div>
     <div class="project__content-image">

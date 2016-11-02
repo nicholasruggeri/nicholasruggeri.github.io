@@ -5,7 +5,7 @@
     var PAGE_ABOUT = (function() {
 
         function _init() {
-            console.log('PAGE_ABOUT init')
+            // console.log('PAGE_ABOUT init')
         }
 
         return {

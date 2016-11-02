@@ -65,7 +65,7 @@
         });
 
         function _init() {
-            console.log('ROUTING init')
+            // console.log('ROUTING init')
             Homepage.init();
             About.init();
             Barba.Pjax.start();
