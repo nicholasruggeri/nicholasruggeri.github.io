@@ -25,6 +25,7 @@
         }
     }
     &__content {
+        overflow: hidden;
         position: absolute;
         top: 0;
         right: 0;
@@ -70,7 +71,7 @@
             background: linear-gradient(135deg,  #2c539e 0%,#3da4db 100%);
             filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2c539e', endColorstr='#3da4db',GradientType=1 );
             img {
-                width: 60%;
+                width: 50%;
             }
         }
         &-molteni {
@@ -91,6 +92,7 @@
     &__number{
         will-change: transform;
         position: absolute;
+        left: 0;
         top: 50%;
         transform: translateY(-70%);
         text-shadow: 20px 20px 0 rgba(0,0,0,0.1);
@@ -194,6 +196,10 @@
     &__description{
         overflow: hidden;
         display: none;
+        margin-bottom: 5%;
+        &:last-of-type {
+            margin-bottom: 0;
+        }
         @media screen and (min-width: 560px) {
             display: inline-block;
             max-width: 300px;

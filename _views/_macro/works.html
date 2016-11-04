@@ -35,18 +35,33 @@
                     </svg>
                 </span>
             </span>
+
             {% if prj.description %}
             <div class="project__description  animation-y">
                 <p>
                     {{prj.description}}
-                    {% if prj.agency %}
-                        <br>Built in {{ prj.agency }} for {{ prj.client }}.
-                    {% else %}
-                        <br><br>Built just for fun.
-                    {% endif %}
-                    {% if prj.offline %}
-                        <br><br>This project is no longer online.
-                    {% endif %}
+                </p>
+            </div>
+            {% endif %}
+
+            {% if prj.agency %}
+                <div class="project__description  animation-y">
+                    <p>
+                        Built in {{ prj.agency }} for {{ prj.client }}.
+                    </p>
+                </div>
+            {% else %}
+                <div class="project__description  animation-y">
+                    <p>
+                        Built just for fun.
+                    </p>
+                </div>
+            {% endif %}
+
+            {% if prj.offline %}
+            <div class="project__description  animation-y">
+                <p>
+                    This project is no longer online.
                 </p>
             </div>
             {% endif %}

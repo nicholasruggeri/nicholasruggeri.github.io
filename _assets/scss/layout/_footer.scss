@@ -1,16 +1,7 @@
 
 .list-social{
     display: flex;
-    align-items: center;
-    margin-top: 25%;
-    @media screen and (min-width: 780px) {
-        justify-content: center;
-        padding: 0;
-        margin-top: 30px;
-        position: absolute;
-        bottom: 10%;
-        left: 5%;
-    }
+    padding-top: 10%;
     a{
         display: block;
         margin-right: 30px;
@@ -32,12 +23,8 @@
 .footer {
     background: $black;
     color: $white;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: left;
     position: relative;
-    padding: 20% 10%;
+    padding: 10%;
     @media screen and (min-width: 780px) {
         padding: 0;
     }
@@ -57,23 +44,15 @@
         }
     }
     &__wrapper{
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        flex-direction: column;
-        @media screen and (min-width: 780px) {
-            align-items: center;
-            flex-direction: row;
-        }
-        > div{
-            @media screen and (min-width: 780px) {
-                width: 50%;
-            }
-        }
+        width: 100%;
     }
     &__info{
         @media screen and (min-width: 780px) {
+            width: 50%;
             padding: 5%;
+        }
+        p:not(.footer__title) {
+            font-size: calc(12px + 0.1vw);
         }
     }
     .animation-cover__text{
@@ -87,16 +66,18 @@
         border-bottom: 0;
     }
     .scroll-to{
-        top: 0;
-        right: 0;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        transition: background .2s ease-in-out;
         display: none;
         @media screen and (min-width: 780px) {
+            width: 50%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background .2s ease-in-out;
+            position: absolute;
+            top: 0;
+            right: 0;
             display: flex;
-            padding: 20%;
             &:hover, &:focus{
                 background: lighten($black, 2);
             }
@@ -116,5 +97,8 @@
     margin-bottom: 15%;
     @media screen and (min-width: 780px) {
         margin-bottom: 3vw;
+    }
+    span {
+        font-size: 12px;
     }
 }
