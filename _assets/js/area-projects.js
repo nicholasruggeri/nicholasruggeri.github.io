@@ -28,9 +28,7 @@
 
                 tl[i] = new TimelineLite({ paused: false });
 
-                tl[i].to(el, 1, {
-                    y: '-50%',
-                    x: '-50%',
+                tl[i].to(el, 2, {
                     opacity: 1,
                     ease: Expo.easeOut
                 })

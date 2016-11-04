@@ -14,7 +14,6 @@
 
 .animation-fade-y {
     opacity: 0;
-    transform: translateY(-200px);
     backface-visibility: hidden;
     will-change: transform, opacity;
 }
