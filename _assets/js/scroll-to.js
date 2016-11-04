@@ -21,7 +21,7 @@
                 scale: 1,
                 ease: Expo.easeOut,
                 onComplete: function(){
-                     TweenLite.to(_scrollToArrow[0].querySelectorAll('.svg-icon'), 0.5, {
+                     TweenLite.to(_scrollToArrow[0].querySelector('.svg-icon'), 0.5, {
                         y: '-50%',
                         opacity: 1,
                         ease: Expo.easeOut
@@ -39,22 +39,25 @@
             .setTween(_scrollToArrow, 1, {
                 y: '-100%',
                 opacity: 0,
-                ease: Expo.easeInOut
+                ease: Expo.easeInOut,
+                onComplete: function(){
+                    _scrollToArrow[0].style.display = 'none';
+                }
             })
             .reverse(false)
             .addTo(animationCtrl);
 
             _scrollToArrow[0].addEventListener('click', function(){
-                TweenLite.to(_w, 2, {
+                TweenLite.to(_w, 1, {
                     scrollTo: _w.innerHeight/1.25,
-                    ease: Expo.easeInOut
+                    ease: Quint.easeInOut
                 });
             })
 
             _elements[1].addEventListener('click', function(){
-                TweenLite.to(_w, 2, {
+                TweenLite.to(_w, 1, {
                     scrollTo: 0,
-                    ease: Expo.easeInOut
+                    ease: Quint.easeInOut
                 });
             })
 

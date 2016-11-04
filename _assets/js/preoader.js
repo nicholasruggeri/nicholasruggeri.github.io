@@ -56,15 +56,8 @@
             var tl = new TimelineLite({
                 paused: true,
                 onComplete: function(){
-                    var _className = 'is-load';
-
                     if (cb)
                         cb()
-
-                    if (_body.classList)
-                        _body.classList.add(_className);
-                    else
-                        _body.className += ' ' + _className;
                 }
             });
 

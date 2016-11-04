@@ -7,29 +7,95 @@
     background: #f9f9f9;
     position: relative;
     overflow: hidden;
-    display: flex;
-    align-items: center;
     min-height: 40vh;
-    @media screen and (min-width: 450px) {
-        padding: 10% 0;
-        min-height: 50vh;
-    }
     @media screen and (min-width: 800px) {
-        min-height: 100vh;
+        min-height: 600px;
+        height: 100vh;
     }
-    .project__content {
-        position: relative;
+    &:nth-child(even) {
+        .project__content {
+            left: 0;
+            right: auto;
+            // text-align: right;
+            align-items: flex-end;
+        }
+        .project__content-image {
+            right: 0;
+            left: auto;
+        }
+    }
+    &__content {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 50%;
         z-index: 9;
         padding: 2% 7% 2% 7%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
+    &__content-image{
+        background-size: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 100%;
+        overflow: hidden;
+        img {
+            position: absolute;
+            width: 40%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-70%);
+        }
+        &-ciak {
+            background: #5b2130;
+            background: linear-gradient(135deg,  #5b2130 0%,#3e7d6c 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5b2130', endColorstr='#3e7d6c',GradientType=1 );
+        }
+        &-weatherymood {
+            background: #2b4a69;
+            background: linear-gradient(135deg,  #2b4a69 0%,#3e7d6c 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2b4a69', endColorstr='#3e7d6c',GradientType=1 );
+            img {
+                box-shadow: 0 0 0 10px rgba(0,0,0,0.1);
+                width: 45%;
+            }
+        }
+        &-snap {
+            background: #2c539e;
+            background: linear-gradient(135deg,  #2c539e 0%,#3da4db 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2c539e', endColorstr='#3da4db',GradientType=1 );
+            img {
+                width: 60%;
+            }
+        }
+        &-molteni {
+            background: #a90329;
+            background: linear-gradient(135deg, #a90329 0%,#6d0019 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019',GradientType=1 );
+            img {
+                width: 80%;
+            }
+        }
+        img{
+            display: block;
+            max-width: 100%;
+        }
+    }
+
+
     &__number{
         will-change: transform;
         position: absolute;
         top: 50%;
-        transform: translateY(-50%);
+        transform: translateY(-70%);
         text-shadow: 20px 20px 0 rgba(0,0,0,0.1);
         color: rgba(#efefef, 1);
-        font-size: 110vw;
+        font-size: 80vw;
         line-height: 1;
         font-weight: 900;
         display: block;
@@ -45,34 +111,7 @@
         left: 50%;
         transform: translateX(-50%);
     }
-    &:nth-child(even) {
-        .project__number{
-            left: -20%;
-        }
-        .project__content{
-            text-align: right;
-        }
-        .project__content-cover{
-            left: 0;
-        }
-    }
-    &:nth-child(odd) {
-        flex-direction: row-reverse;
-        .project__number{
-            right: -20%;
-        }
-        .project__content{
-            text-align: left;
-        }
-        .project__content-cover{
-            right: 0;
-        }
-        .project__content-image{
-            img {
-                float: right;
-            }
-        }
-    }
+
     &__title{
         margin-bottom: 2vw;
         display: inline-block;
@@ -127,37 +166,28 @@
         margin-bottom: 1.2vw;
         padding-bottom: 5px;
         position: relative;
-        &:hover, &:focus{
-            outline: none;
-            &:after, &:before{
-                transform: translateX(0);
-            }
-        }
-        &:before, &:after{
-            content:"";
-            display: block;
-            height: 2px;
-            width: 100%;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            transform: translateX(-105%);
-            transition: transform .5s $ease;
-            will-change: transform;
-        }
-        &:before{
-            background: lighten($black, 50);
-        }
-        &:after{
-            background: $black;
-            transition-delay: .2s;
-        }
+        padding-right: 30px;
         span{
+            display: inline-block;
+            font-weight: 600;
             letter-spacing: 3px;
-            display: block;
             font-size: 8px;
             @media screen and (min-width: 560px) {
                 font-size: calc(10px + 0.1vw);
+            }
+        }
+        .svg-icon-link {
+            transition: all .2s $ease;
+            will-change: transform, opacity;
+            position: absolute;
+            display: block;
+            width: 13px;
+            top: 0px;
+            right: -16px;
+            opacity: 0;
+            transform: translateX(-100%);
+            path {
+                fill: $black;
             }
         }
     }
@@ -179,23 +209,18 @@
             text-decoration: underline;
         }
     }
-    &__content{
-        width: 50%;
-    }
-    &__content-image{
-        width: 50%;
-        height: 0;
-        overflow: hidden;
-        padding-bottom: 36%;
-        position: relative;
-        img{
-            display: block;
-            max-width: 100%;
+    &__content-text {
+        display: flex;
+        flex-direction: column;
+        &:hover {
+            .svg-icon-link {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
     }
     &__content-wrapper{
         position: absolute;
-        overflow: hidden;
         top: 0;
         left: 0;
         width: 100%;

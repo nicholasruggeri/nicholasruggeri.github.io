@@ -9,6 +9,7 @@
 
         var _animationCovers,
             _animationElY,
+            _animationElFadeY,
             _sectionParallax;
 
         var animationCtrl, tl;
@@ -18,7 +19,30 @@
             animationCtrl = new ScrollMagic.Controller();
             _animationCovers = _d.querySelectorAll('.animation-cover');
             _animationElY = _d.querySelectorAll('.animation-y');
+            _animationElFadeY = _d.querySelectorAll('.animation-fade-y');
             _sectionParallax   = _d.querySelectorAll('.section-parallax');
+        }
+
+        function _animationFadeY() {
+            Array.prototype.forEach.call(_animationElFadeY, function(el, i){
+
+                tl[i] = new TimelineLite({ paused: false });
+
+                tl[i].to(el, 1, {
+                    y: '-50%',
+                    x: '-50%',
+                    opacity: 1,
+                    ease: Expo.easeOut
+                })
+
+                new ScrollMagic.Scene({
+                    triggerElement: _animationElFadeY[i]
+                })
+                .setTween(tl[i])
+                .reverse(false)
+                .addTo(animationCtrl);
+
+            });
         }
 
         function _animationY() {
@@ -79,7 +103,7 @@
                     triggerHook: 'onEnter'
                 })
                 .setTween(el.querySelector('.project__number'), {
-                    y: '-45%'
+                    y: '-40%'
                 })
                 .addTo(animationCtrl)
 
@@ -93,6 +117,7 @@
             _parallaxNumber()
             _animationCover()
             _animationY()
+            _animationFadeY()
         }
 
         return {

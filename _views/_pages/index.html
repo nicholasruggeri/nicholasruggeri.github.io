@@ -59,10 +59,26 @@
         <div class="list-projects">
             {{ work.field
                 ({
+                    agency: 'H-ART',
+                    client: 'Molteni&C',
+                    role: 'Lead frontend developer',
+                    url: 'www.molteni.it',
+                    title: "Molteni&C Restyle",
+                    description: 'JavaScripts, styles, optimization and frontend engineering.',
+                    label: 'molteni',
+                    image: 'molteni.png',
+                    position: '4',
+                    letter: 'M'
+                })
+            }}
+            {{ work.field
+                ({
                     url: 'www.ciak.space',
                     title: 'ciak.space',
                     description: 'Ciak is an opensource project for Telegram built with Node.js. This Bot will find movie theaters and show times based on your current location.',
-                    img: 'ciak',
+                    offline: true,
+                    label: 'ciak',
+                    image: 'ciak-in.png',
                     position: '1',
                     letter: 'C'
                 })
@@ -73,7 +89,8 @@
                     url: 'www.weatherymood.space',
                     title: 'weatherymood',
                     description: 'WeatheryMood is a Chrome extension that lets you discover new playlists based on the current weather in your city.',
-                    img: 'weatherymood',
+                    label: 'weatherymood',
+                    image: 'weatherymood-in.jpg',
                     position: '2',
                     letter: 'W'
                 })
@@ -87,23 +104,10 @@
                     url: 'snap.elica.com',
                     description: 'JavaScripts, styles, optimization and frontend engineering.',
                     title: 'snap.elica.com',
-                    img: 'snap',
+                    label: 'snap',
+                    image: 'snap.png',
                     position: '3',
                     letter: 'S'
-                })
-            }}
-
-            {{ work.field
-                ({
-                    agency: 'H-ART',
-                    client: 'Molteni&C',
-                    role: 'Lead frontend developer',
-                    url: 'www.molteni.it',
-                    title: "Molteni&C Restyle",
-                    description: 'JavaScripts, styles, optimization and frontend engineering.',
-                    img: 'molteni',
-                    position: '4',
-                    letter: 'M'
                 })
             }}
 

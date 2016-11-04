@@ -6,45 +6,56 @@
     prj: title,
     prj: description,
     prj: letter,
-    prj: img,
-    prj: online
+    prj: label,
+    prj: image,
+    prj: offline
 })%}
 
 <section class="section-works  section-parallax  project">
 
-    <div class="project__number">
-        {{ prj.position }}
-    </div>
 
     <div class="project__content">
-        <div class="project__title  animation-cover">
+        <div class="project__number">
+            {{ prj.letter }}
+        </div>
+        <!-- <div class="project__title  animation-cover">
             <span class="project__title-letter  animation-cover__text">{{ prj.letter }}</span>
             <span class="project__title-cover  animation-cover__mask"></span>
-        </div>
-        <div>
-            <a href="http://{{ prj.url }}" class="project__name  animation-y">
-                <span>{{ prj.title }}</span>
-            </a>
-        </div>
-        {% if prj.description %}
-        <div class="project__description  animation-y">
-            <p>
-                {% if prj.role %}
-                    {{ prj.role }}.<br>
-                {% endif %}
-                {{prj.description}}<br>
-                {% if prj.agency %}
-                    Built in <a href="http://h-art.com" target="_blank">{{ prj.agency }}</a> for {{ prj.client }}.
-                {% else %}
-                    Built just for fun.
-                {% endif %}
-            </p>
-        </div>
-        {% endif %}
+        </div> -->
+        <a href="http://{{ prj.url }}" class="project__content-text">
+            <span class="project__name animation-y">
+                <span>
+                    {{ prj.title }}
+                    <svg class="svg-icon-link" viewBox="0 0 20 20">
+                        <path fill="none" d="M1.729,9.212h14.656l-4.184-4.184c-0.307-0.306-0.307-0.801,0-1.107c0.305-0.306,0.801-0.306,1.106,0
+                        l5.481,5.482c0.018,0.014,0.037,0.019,0.053,0.034c0.181,0.181,0.242,0.425,0.209,0.66c-0.004,0.038-0.012,0.071-0.021,0.109
+                        c-0.028,0.098-0.075,0.188-0.143,0.271c-0.021,0.026-0.021,0.061-0.045,0.085c-0.015,0.016-0.034,0.02-0.051,0.033l-5.483,5.483
+                        c-0.306,0.307-0.802,0.307-1.106,0c-0.307-0.305-0.307-0.801,0-1.105l4.184-4.185H1.729c-0.436,0-0.788-0.353-0.788-0.788
+                        S1.293,9.212,1.729,9.212z"></path>
+                    </svg>
+                </span>
+            </span>
+            {% if prj.description %}
+            <div class="project__description  animation-y">
+                <p>
+                    {{prj.description}}
+                    {% if prj.agency %}
+                        <br>Built in {{ prj.agency }} for {{ prj.client }}.
+                    {% else %}
+                        <br><br>Built just for fun.
+                    {% endif %}
+                    {% if prj.offline %}
+                        <br><br>This project is no longer online.
+                    {% endif %}
+                </p>
+            </div>
+            {% endif %}
+        </a>
     </div>
-    <div class="project__content-image">
+
+    <div class="project__content-image  project__content-image-{{ prj.label }}">
         <div class="project__content-wrapper">
-            <img class="content-image" src="img/{{ prj.img }}.jpg" alt="">
+            <img class="content-image  animation-fade-y" src="img/{{ prj.image }}" alt="">
         </div>
     </div>
 
