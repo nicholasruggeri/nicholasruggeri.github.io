@@ -169,13 +169,59 @@
         padding-bottom: 5px;
         position: relative;
         padding-right: 30px;
+        &-molteni {
+            span{
+                &:after {
+                    background: #a90329;
+                }
+            }
+        }
+        &-ciak {
+            span{
+                &:after {
+                    background: #3e7d6c;
+                }
+            }
+        }
+        &-weatherymood {
+            span{
+                &:after {
+                    background: #2b4a69;
+                }
+            }
+        }
+        &-snap {
+            span{
+                &:after {
+                    background: #3da4db;
+                }
+            }
+        }
         span{
             display: inline-block;
             font-weight: 600;
             letter-spacing: 3px;
             font-size: 8px;
+            position: relative;
+            padding-left: 3px;
+            padding-right: 1px;
+            color: $black;
             @media screen and (min-width: 560px) {
-                font-size: calc(10px + 0.1vw);
+                font-size: calc(12px + 0.1vw);
+            }
+            &:after {
+                content: "";
+                display: block;
+                position: absolute;
+                width: 100%;
+                height: 50%;
+                bottom: 0;
+                left: 0px;
+                z-index: -1;
+                opacity: .3;
+                transform: translateX(-105%);
+                transition: transform .5s $ease;
+                will-change: transform;
             }
         }
         .svg-icon-link {
@@ -222,6 +268,13 @@
             .svg-icon-link {
                 opacity: 1;
                 transform: translateX(0);
+            }
+            .project__name {
+                span{
+                    &:after{
+                        transform: translateX(0);
+                    }
+                }
             }
         }
     }
