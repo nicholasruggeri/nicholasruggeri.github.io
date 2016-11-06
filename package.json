@@ -12,10 +12,12 @@
     "gulp-concat": "latest",
     "gulp-gh-pages": "^0.5.4",
     "gulp-if": "latest",
+    "gulp-inline-source": "^3.0.0",
     "gulp-minify-html": "^1.0.6",
     "gulp-notify": "latest",
     "gulp-nunjucks-render": "latest",
     "gulp-plumber": "latest",
+    "gulp-replace": "^0.5.4",
     "gulp-sass": "latest",
     "gulp-uglify": "latest"
   },

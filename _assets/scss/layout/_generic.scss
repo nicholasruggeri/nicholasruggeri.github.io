@@ -81,9 +81,6 @@
         }
         > div{
             width: 100%;
-            &+div{
-                margin-top: 10%;
-            }
             @media screen and (min-width: 600px) {
                 width: 50%;
                 margin: 0;
@@ -109,7 +106,7 @@
     line-height: 1.5;
     display: block;
     &__primary{
-        font-size: calc(12px + .1vw);
+        font-size: calc(10px + .1vw);
     }
     &__secondary{
         font-size: calc(10px + .1vw);
@@ -128,7 +125,7 @@
         &:after {
             content:"";
             display: block;
-            height: 2px;
+            height: 1px;
             width: 8%;
             background: $black;
             position: absolute;

@@ -48,17 +48,21 @@
             .addTo(animationCtrl);
 
             _scrollToArrow[0].addEventListener('click', function(){
-                TweenLite.to(_w, 1, {
-                    scrollTo: _w.innerHeight/1.25,
-                    ease: Quint.easeInOut
-                });
+                setTimeout(function(){
+                    TweenLite.to(_w, 1, {
+                        scrollTo: _w.innerHeight/1.25,
+                        ease: Quint.easeInOut
+                    });
+                }, 0)
             })
 
             _elements[1].addEventListener('click', function(){
-                TweenLite.to(_w, 1, {
-                    scrollTo: 0,
-                    ease: Quint.easeInOut
-                });
+                setTimeout(function(){
+                    TweenLite.to(_w, 1, {
+                        scrollTo: 0,
+                        ease: Quint.easeInOut
+                    });
+                }, 0)
             })
 
         }

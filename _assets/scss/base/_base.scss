@@ -114,3 +114,16 @@ ul, li{
 li{
     list-style-type: none;
 }
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    overflow: hidden;
+    margin-bottom: 10%;
+    img {
+        filter: grayscale(100);
+        display: block;
+        width: 100%;
+    }
+}

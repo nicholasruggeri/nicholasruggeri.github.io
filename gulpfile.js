@@ -20,7 +20,9 @@ var gulp        = require('gulp'),
     browserSync = require('browser-sync').create(),
     nunjucksRender = require('gulp-nunjucks-render'),
     minifyHTML  = require('gulp-minify-html'),
-    ghPages     = require('gulp-gh-pages');
+    ghPages     = require('gulp-gh-pages'),
+    replace = require('gulp-replace'),
+    fs = require('fs');
 
 var critical = require('critical').stream;
 
@@ -49,6 +51,16 @@ var prod = false,
         customPath + '/main.js'
     ]
 
+
+gulp.task('inline', function() {
+    return gulp.src('./web/index.html')
+      .pipe(replace('<link rel="stylesheet" href="css/style.css">', function(s) {
+          console.log('ASDSDSD')
+          var style = fs.readFileSync('./web/css/style.css', 'utf8');
+          return '<style>\n' + style + '\n</style>';
+      }))
+      .pipe(gulp.dest('./web/'));
+});
 
 
 /**
@@ -147,7 +159,7 @@ gulp.task('watch', function() {
 **/
 gulp.task('build', function() {
     console.log('init build')
-    gulp.start('styles', 'scripts', 'images', 'nunjucks', 'minify-html');
+    gulp.start('styles', 'scripts', 'images', 'nunjucks', 'inline', 'minify-html');
 });
 
 
