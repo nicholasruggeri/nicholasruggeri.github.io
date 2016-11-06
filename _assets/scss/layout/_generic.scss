@@ -38,7 +38,7 @@
         }
         position: absolute;
         opacity: .05;
-        z-index: 9;
+        z-index: 1;
         width: 100px;
         height: 100px;
         @media screen and (min-width: 600px) {
@@ -105,6 +105,8 @@
 .info-text{
     line-height: 1.5;
     display: block;
+    position: relative;
+    z-index: 5;
     &__primary{
         font-size: calc(10px + .1vw);
     }
