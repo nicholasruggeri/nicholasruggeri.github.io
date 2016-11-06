@@ -37,7 +37,9 @@ var prod = false,
         vendorPath + '/GreenSock-JS/src/minified/TweenLite.min.js',
         vendorPath + '/GreenSock-JS/src/minified/easing/EasePack.min.js',
         vendorPath + '/GreenSock-JS/src/minified/plugins/CSSPlugin.min.js',
-        vendorPath + '/GreenSock-JS/src/minified/plugins/ScrollToPlugin.min.js'
+        vendorPath + '/GreenSock-JS/src/minified/plugins/ScrollToPlugin.min.js',
+        vendorPath + '/ScrollMagic/ScrollMagic.min.js',
+        vendorPath + '/ScrollMagic/animation.gsap.js'
     ],
     jscustoms = [
         customPath + '/intro.js',
@@ -52,12 +54,21 @@ var prod = false,
     ]
 
 
-gulp.task('inline', function() {
+gulp.task('inline:css', function() {
     return gulp.src('./web/index.html')
       .pipe(replace('<link rel="stylesheet" href="css/style.css">', function(s) {
           console.log('ASDSDSD')
           var style = fs.readFileSync('./web/css/style.css', 'utf8');
           return '<style>\n' + style + '\n</style>';
+      }))
+      .pipe(gulp.dest('./web/'));
+});
+
+gulp.task('inline:jsvendor', function() {
+    return gulp.src('./web/index.html')
+      .pipe(replace('<script src="js/vendor.js"></script>', function(s) {
+          var style = fs.readFileSync('./web/js/vendor.js', 'utf8');
+          return '<script>\n' + style + '\n</script>';
       }))
       .pipe(gulp.dest('./web/'));
 });
@@ -106,7 +117,7 @@ gulp.task('scripts', function() {
 */
 gulp.task('js:vendor', function() {
     return gulp.src(jsplugins)
-        .pipe(uglify())
+        //.pipe(uglify())
         .pipe(concat('vendor.js'))
         .pipe(gulp.dest('web/js'));
 });
@@ -159,7 +170,7 @@ gulp.task('watch', function() {
 **/
 gulp.task('build', function() {
     console.log('init build')
-    gulp.start('styles', 'scripts', 'images', 'nunjucks', 'inline', 'minify-html');
+    gulp.start('styles', 'scripts', 'images', 'nunjucks', 'inline:css', 'minify-html');
 });
 
 

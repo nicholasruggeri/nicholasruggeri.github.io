@@ -55,7 +55,6 @@
         z-index: 99999;
         display: inline-flex;
         flex-direction: column;
-        will-change: transform;
         &:focus{
             outline: none;
         }
