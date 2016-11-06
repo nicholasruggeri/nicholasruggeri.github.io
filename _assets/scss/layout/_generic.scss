@@ -89,15 +89,15 @@
                 }
                 &:last-of-type{
                     padding-left: 10%;
+                    > p:first-of-type {
+                        margin-top: 0;
+                    }
                 }
             }
         }
         p{
             display: block;
-            margin-bottom: 10%;
-            &:last-of-type{
-                margin-bottom: 0;
-            }
+            margin-top: 10%;
         }
     }
 }

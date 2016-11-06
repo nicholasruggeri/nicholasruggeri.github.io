@@ -116,11 +116,15 @@ li{
 }
 
 .avatar {
-    width: 100px;
-    height: 100px;
     border-radius: 100%;
     overflow: hidden;
     margin-bottom: 10%;
+    width: 80px;
+    height: 80px;
+    @media screen and (min-width: 600px) {
+        width: 100px;
+        height: 100px;
+    }
     img {
         filter: grayscale(100);
         display: block;
