@@ -149,14 +149,15 @@ li{
 }
 
 .avatar {
+    position: relative;
     border-radius: 100%;
     overflow: hidden;
     margin-bottom: 10%;
     width: 80px;
     height: 80px;
     @media screen and (min-width: 600px) {
-        width: 100px;
-        height: 100px;
+        width: 120px;
+        height: 120px;
     }
     img {
         display: block;
@@ -164,9 +165,15 @@ li{
     }
     svg {
         position: absolute;
-        top: 46px;
-        left: 22px;
-        width: 44px;
+        top: 36px;
+        left: 17px;
+        width: 37px;
+        transform: rotate(1deg);
+        @media screen and (min-width: 600px) {
+            top: 54px;
+            left: 25px;
+            width: 57px;
+        }
         path {
             stroke-dasharray: 1000;
             stroke-dashoffset: 1000;
