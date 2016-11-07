@@ -107,12 +107,7 @@
     display: block;
     position: relative;
     z-index: 5;
-    &__primary{
-        font-size: calc(10px + .1vw);
-    }
-    &__secondary{
-        font-size: calc(10px + .1vw);
-    }
+    font-size: calc(10px + .1vw);
     i {
         font-size: calc(10px + .1vw);
         display: block;
@@ -138,12 +133,5 @@
     }
     a{
         white-space: nowrap;
-        transition: all .3s ease-out;
-        text-decoration: none;
-        border-bottom: 1px solid $black;
-        &:hover {
-            color: $red;
-            border-bottom: 1px solid $red;
-        }
     }
 }

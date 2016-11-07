@@ -101,9 +101,42 @@ p {
     }
 }
 
+a.link {
+    display: inline;
+    &:hover {
+        &:before {
+            opacity: 1;
+        }
+    }
+    &:before, &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 103%;
+        height: 50%;
+        bottom: 0;
+        left: -2%;
+    }
+    &:after {
+        z-index: -2;
+        opacity: 0.1;
+        background: #000;
+    }
+    &:before {
+        opacity: 0;
+        background: #ccff33;
+        transition: opacity .5s $ease;
+        will-change: opacity;
+        z-index: -1;
+    }
+}
+
 a{
     color: inherit;
     text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
 }
 
 ul, li{
@@ -126,8 +159,25 @@ li{
         height: 100px;
     }
     img {
-        // filter: grayscale(100);
         display: block;
         width: 100%;
     }
+    svg {
+        position: absolute;
+        top: 46px;
+        left: 22px;
+        width: 44px;
+        path {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: dash 3s $ease forwards;
+            animation-delay: 10s;
+        }
+    }
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
 }
