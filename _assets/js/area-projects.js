@@ -56,7 +56,7 @@
 
                 new ScrollMagic.Scene({
                     triggerElement: _animationElY[i],
-                    offset: - _w.innerHeight/5
+                    triggerHook: 'onEnter'
                 })
                 .setTween(tl[i])
                 .reverse(false)
