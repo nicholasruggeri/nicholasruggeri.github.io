@@ -10,7 +10,8 @@
         var _animationCovers,
             _animationElY,
             _animationElFadeY,
-            _sectionParallax;
+            _sectionParallax,
+            _avatar;
 
         var animationCtrl, tl;
 
@@ -20,7 +21,8 @@
             _animationCovers = _d.querySelectorAll('.animation-cover');
             _animationElY = _d.querySelectorAll('.animation-y');
             _animationElFadeY = _d.querySelectorAll('.animation-fade-y');
-            _sectionParallax   = _d.querySelectorAll('.section-parallax');
+            _sectionParallax = _d.querySelectorAll('.section-parallax');
+            _avatar = _d.querySelectorAll('.avatar');
         }
 
         function _animationFadeY() {
@@ -41,6 +43,18 @@
                 .addTo(animationCtrl);
 
             });
+        }
+
+        function _drawGlass() {
+            new ScrollMagic.Scene({
+                triggerElement: _avatar,
+                triggerHook: 'onEnter'
+            })
+            .on('enter', function(){
+                _avatar[0].className += ' ' + 'is-active';
+            })
+            .reverse(false)
+            .addTo(animationCtrl);
         }
 
         function _animationY() {
@@ -116,6 +130,7 @@
             _animationCover()
             _animationY()
             _animationFadeY()
+            _drawGlass()
         }
 
         return {

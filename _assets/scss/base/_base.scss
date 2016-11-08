@@ -163,6 +163,14 @@ li{
         display: block;
         width: 100%;
     }
+    &.is-active {
+        svg {
+            path {
+                animation: dash 3s $ease forwards;
+                animation-delay: 2s;
+            }
+        }
+    }
     svg {
         position: absolute;
         top: 36px;
@@ -177,8 +185,6 @@ li{
         path {
             stroke-dasharray: 1000;
             stroke-dashoffset: 1000;
-            animation: dash 3s $ease forwards;
-            animation-delay: 10s;
         }
     }
 }
