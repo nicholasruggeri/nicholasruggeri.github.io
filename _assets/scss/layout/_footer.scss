@@ -1,7 +1,7 @@
 
 .list-social{
     display: flex;
-    padding-top: 10%;
+    padding-top: 15%;
     a{
         display: block;
         margin-right: 30px;
@@ -95,9 +95,6 @@
     position: relative;
     padding: 8px 14px;
     margin-bottom: 15%;
-    @media screen and (min-width: 780px) {
-        margin-bottom: 3vw;
-    }
     span {
         font-size: 12px;
     }
