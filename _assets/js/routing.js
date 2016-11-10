@@ -37,6 +37,7 @@
             onEnter: function() {
                 SHARER.init()
                 AREA_PROJECTS.init()
+                AREA_ABOUT.init()
                 // The new Container is ready and attached to the DOM.
             },
             onEnterCompleted: function() {
@@ -45,29 +46,29 @@
                 AREA_BIGTEXT.init()
                 // The Transition has just finished.
             },
-            onLeave: function() {
-                // A new Transition toward a new page has just started.
-            },
-            onLeaveCompleted: function() {
-                // The Container has just been removed from the DOM.
-            }
+            // onLeave: function() {
+            //     // A new Transition toward a new page has just started.
+            // },
+            // onLeaveCompleted: function() {
+            //     // The Container has just been removed from the DOM.
+            // }
         });
 
 
-        var About = Barba.BaseView.extend({
-            namespace: 'about',
-            onEnter: function() {
-            },
-            onEnterCompleted: function() {
-                INTRO.init()
-                AREA_BIGTEXT.init()
-            }
-        });
+        // var About = Barba.BaseView.extend({
+        //     namespace: 'about',
+        //     onEnter: function() {
+        //     },
+        //     onEnterCompleted: function() {
+        //         INTRO.init()
+        //         AREA_BIGTEXT.init()
+        //     }
+        // });
 
         function _init() {
             // console.log('ROUTING init')
             Homepage.init();
-            About.init();
+            // About.init();
             Barba.Pjax.start();
         }
 

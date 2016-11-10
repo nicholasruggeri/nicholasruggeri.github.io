@@ -11,9 +11,9 @@
             _scrollToArrow;
 
         function _initialize() {
-            _elements      = _d.getElementsByClassName('scroll-to'),
-            animationCtrl  = new ScrollMagic.Controller(),
+            _elements      = _d.getElementsByClassName('scroll-to');
             _scrollToArrow = _d.querySelectorAll('.section-header .scroll-to');
+            animationCtrl  = new ScrollMagic.Controller();
         }
 
         function _showArrow() {

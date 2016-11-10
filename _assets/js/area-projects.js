@@ -10,8 +10,7 @@
         var _animationCovers,
             _animationElY,
             _animationElFadeY,
-            _sectionParallax,
-            _avatar;
+            _sectionParallax;
 
         var animationCtrl, tl;
 
@@ -22,7 +21,6 @@
             _animationElY = _d.querySelectorAll('.animation-y');
             _animationElFadeY = _d.querySelectorAll('.animation-fade-y');
             _sectionParallax = _d.querySelectorAll('.section-parallax');
-            _avatar = _d.querySelectorAll('.avatar');
         }
 
         function _animationFadeY() {
@@ -45,17 +43,6 @@
             });
         }
 
-        function _drawGlass() {
-            new ScrollMagic.Scene({
-                triggerElement: _avatar,
-                triggerHook: 'onEnter'
-            })
-            .on('enter', function(){
-                _avatar[0].className += ' ' + 'is-active';
-            })
-            .reverse(false)
-            .addTo(animationCtrl);
-        }
 
         function _animationY() {
             Array.prototype.forEach.call(_animationElY, function(el, i){
@@ -130,7 +117,6 @@
             _animationCover()
             _animationY()
             _animationFadeY()
-            _drawGlass()
         }
 
         return {

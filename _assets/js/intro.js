@@ -4,8 +4,7 @@
 
     var INTRO = (function() {
 
-        var _headerLetters = document.querySelectorAll('.header i'),
-            _d             = document;
+        var _d = document;
 
         var _titleLetters,
             _titleMask,
@@ -14,11 +13,9 @@
             _bigTexts,
             _headerLineLoop;
 
-        var animationCtrl,
-            tl;
+        var tl;
 
         function _initialize() {
-            animationCtrl    = new ScrollMagic.Controller();
             _titleLetters    = _d.querySelectorAll('.header__title i');
             _titleMask       = _d.getElementsByClassName('header__title-mask')[0];
             _subTitleLetters = _d.querySelectorAll('.header__subtitle i');
@@ -29,7 +26,7 @@
 
         function _lineAnimation() {
 
-            var tl = new TimelineLite();
+            tl = new TimelineLite();
 
             tl.to(_headerLineLoop, 2.5, {
                     y: '100%',

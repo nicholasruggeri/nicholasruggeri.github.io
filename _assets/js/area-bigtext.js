@@ -36,8 +36,7 @@
                     ease: Cubic.easeOut
                 }, "-=1")
                 var s2 = new ScrollMagic.Scene({
-                    triggerElement: _bigTexts[2],
-                    // offset: - _w.innerHeight/3
+                    triggerElement: _bigTexts[2]
                 })
                 .setTween(tl[2])
                 .addTo(animationCtrl);
@@ -67,9 +66,7 @@
 
         }
 
-
         function _initAnimation() {
-            // console.log('AREA_BIGTEXT init')
             _initialize()
             _maskText()
         }
