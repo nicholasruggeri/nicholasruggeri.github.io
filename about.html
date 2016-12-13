@@ -33,7 +33,7 @@
         <link rel="icon" type="image/png" sizes="16x16" href="/img/favicons/favicon-16x16.png">
     </head>
     <body>
-
+        <canvas></canvas>
         <div>
             <div class="content-preloader">
                 <div class="content-preloader__left">
@@ -48,11 +48,11 @@
             </div>
         </div>
 
-        <div class="opl">
+        <!-- <div class="opl">
             <a href="https://onepagelove.com/nicholas-ruggeri-2" target="_blank">
                 Nicholas Ruggeri featured on One Page Love
             </a>
-        </div>
+        </div> -->
 
         <div id="barba-wrapper">
             
@@ -66,12 +66,12 @@
 
 <div class="block__big-text">
     <div>
-        <span class="big-text big-text--1">
+        <span class="big-text big-text--1" style="color: ">
             About
         </span>
     </div>
     <div>
-        <span class="big-text big-text--2">
+        <span class="big-text big-text--2" style="color: ">
             About
         </span>
     </div>
@@ -90,8 +90,8 @@
                 <span class="header__subtitle-mask"></span>
             </h2>
         </div>
-        <div class="header__line">
-            <div></div>
+        <div class="header__line" id="header__line">
+            <div id="header__line-loop"></div>
         </div>
     </header>
 
@@ -113,6 +113,7 @@
 
         </div>
 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.2.2/pixi.min.js"></script>
         <script src="js/vendor.js"></script>
         <script src="js/scripts.js"></script>
         <script>
