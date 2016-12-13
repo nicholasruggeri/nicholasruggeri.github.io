@@ -12,7 +12,7 @@
     }
 }
 
-.animation-fade-y {
+.animation-fade-in {
     opacity: 0;
     backface-visibility: hidden;
     will-change: transform, opacity;
@@ -22,11 +22,16 @@
     overflow: hidden;
     span {
         display: block;
-        opacity: 0;
+        // opacity: 0;
         transform: translateY(115%);
         will-change: transform, opacity;
         backface-visibility: hidden;
     }
+}
+
+.animation-slide-y {
+    transform: translateY(20%);
+    will-change: transform;
 }
 
 @keyframes lineY {
@@ -39,4 +44,13 @@
     100% {
         transform: translateY(100%);
     }
+}
+
+@keyframes slide {
+  from{
+    stroke-dashoffset: 0;
+  }
+  to{
+    stroke-dashoffset: 24px;
+  }
 }

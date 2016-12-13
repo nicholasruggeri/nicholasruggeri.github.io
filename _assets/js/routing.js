@@ -35,41 +35,58 @@
         var Homepage = Barba.BaseView.extend({
             namespace: 'homepage',
             onEnter: function() {
+                document.querySelector('body').style.overflow = "scroll";
                 SHARER.init()
                 AREA_PROJECTS.init()
-                AREA_ABOUT.init()
-                // The new Container is ready and attached to the DOM.
+                ANIMATIONS.drawGlass()
+                ANIMATIONS.parallax()
             },
             onEnterCompleted: function() {
                 SCROLLTO.init()
                 INTRO.init()
-                AREA_BIGTEXT.init()
-                // The Transition has just finished.
+                ANIMATIONS.bigText()
+                ANIMATIONS.headerLine()
+
+                // Generic Animations
+                ANIMATIONS.fadeIn()
+                ANIMATIONS.slideY()
+                ANIMATIONS.translateY()
             },
-            // onLeave: function() {
-            //     // A new Transition toward a new page has just started.
-            // },
-            // onLeaveCompleted: function() {
-            //     // The Container has just been removed from the DOM.
-            // }
         });
 
+        var CaseHistory = Barba.BaseView.extend({
+            namespace: 'case-history',
+            onEnter: function() {
+                document.querySelector('body').style.overflow = "scroll";
+            },
+            onEnterCompleted: function() {
+                SHARER.init()
+                AREA_PROJECTS.init()
+                SCROLLTO.init()
+                COUNTDOWN.init()
+                // INTRO.init()
+                ANIMATIONS.bigText()
+                ANIMATIONS.showImage()
+                ANIMATIONS.headerLine()
 
-        // var About = Barba.BaseView.extend({
-        //     namespace: 'about',
-        //     onEnter: function() {
-        //     },
-        //     onEnterCompleted: function() {
-        //         INTRO.init()
-        //         AREA_BIGTEXT.init()
-        //     }
-        // });
+                // Generic Animations
+                ANIMATIONS.fadeIn()
+                ANIMATIONS.slideY()
+                ANIMATIONS.translateY()
+
+                LIST_PROJECTS.init()
+            }
+        });
 
         function _init() {
-            // console.log('ROUTING init')
-            Homepage.init();
-            // About.init();
-            Barba.Pjax.start();
+
+            // Page
+            Homepage.init()
+            CaseHistory.init()
+
+            // Routing
+            Barba.Pjax.start()
+            Barba.Prefetch.init();
         }
 
         return {

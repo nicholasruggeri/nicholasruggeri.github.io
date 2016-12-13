@@ -42,14 +42,14 @@ var prod = false,
         vendorPath + '/ScrollMagic/animation.gsap.js'
     ],
     jscustoms = [
+        customPath + '/animations.js',
+        customPath + '/countdown.js',
+        customPath + '/list-projects.js',
         customPath + '/intro.js',
         customPath + '/sharer.js',
         customPath + '/preloader.js',
         customPath + '/scroll-to.js',
-        customPath + '/area-about.js',
         customPath + '/area-projects.js',
-        customPath + '/area-bigtext.js',
-        customPath + '/page-about.js',
         customPath + '/routing.js',
         customPath + '/main.js'
     ]
@@ -107,7 +107,7 @@ gulp.task('scripts', function() {
     gulp.src('_assets/js/**/*.js')
         .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
         .pipe(concat('scripts.js'))
-        .pipe(uglify())
+        //.pipe(uglify())
         .pipe(gulp.dest('web/js'))
         .pipe(browserSync.stream());
 });

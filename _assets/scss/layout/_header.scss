@@ -12,7 +12,7 @@
         position: relative;
     }
     .big-text{
-        color: #2b2b2b;
+        color: rgba(255,255,255,0.1);
         font-size: 50vw;
         font-weight: 900;
         white-space: nowrap;
@@ -21,7 +21,34 @@
         transform: translate(-10%, -50%) rotate(90deg);
         opacity: 0;
         will-change: transform, opacity;
-        text-shadow: 20px 20px 0 rgba(0,0,0,0.1);
+        .is-home &{
+            color: #2b2b2b;
+            text-shadow: 20px 20px 0 rgba(0,0,0,.2);
+        }
+        .is-molteni &{
+            color: #a80329;
+            // color: #e3e3e3;
+            color: rgba(0,0,0,0.1)
+            // text-shadow: 20px 20px 0 rgba(0,0,0,.2);
+        }
+        .is-ciak &{
+            color: #242426;
+            // color: #e3e3e3;
+            color: rgba(0,0,0,0.1)
+            // text-shadow: 20px 20px 0 rgba(0,0,0,.2);
+        }
+        .is-weatherymood &{
+            color: #114640;
+            // color: #e3e3e3;
+            color: rgba(0,0,0,0.1)
+            // text-shadow: 20px 20px 0 rgba(0,0,0,.2);
+        }
+        .is-snap &{
+            color: #3589bd;
+            // color: #e3e3e3;
+            color: rgba(0,0,0,0.1)
+            // text-shadow: 20px 20px 0 rgba(0,0,0,.2);
+        }
         @media screen and (min-width: 769px) {
             transform: translate(-10%, -50%) rotate(0deg);
             font-size: 50vw;
@@ -37,6 +64,50 @@
     padding: 0;
     position: relative;
     background: $black;
+    &.is-molteni {
+        background: linear-gradient(180deg, #6d0019 0%, #a90329 100%);
+        .big-text {
+            font-size: 35.5vw;
+        }
+        @media screen and (min-width: 769px) {
+            .big-text {
+                font-size: 33.5vw;
+            }
+        }
+    }
+    &.is-weatherymood {
+        background: linear-gradient(180deg, #132a42 0%, #10503f 100%);
+        .big-text {
+            font-size: 28vw;
+        }
+        @media screen and (min-width: 769px) {
+            .big-text {
+                font-size: 26.5vw;
+            }
+        }
+    }
+    &.is-snap {
+        background: linear-gradient(180deg, #2c539e 0%, #3da4db 100%);
+        .big-text {
+            font-size: 56vw;
+        }
+        @media screen and (min-width: 769px) {
+            .big-text {
+                font-size: 51vw;
+            }
+        }
+    }
+    &.is-ciak {
+        background: linear-gradient(180deg, #5b2130 0%, #3e7d6c 100%);
+        .big-text {
+            font-size: 59vw;
+        }
+        @media screen and (min-width: 769px) {
+            .big-text {
+                font-size: 59vw;
+            }
+        }
+    }
 }
 
 .header{

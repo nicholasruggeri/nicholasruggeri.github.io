@@ -1,15 +1,16 @@
 {% macro field({
-    text: text
+    text: text,
+    color: color
 })%}
 
 <div class="block__big-text">
     <div>
-        <span class="big-text big-text--1">
+        <span class="big-text big-text--1" style="color: {{ text.color }}">
             {{ text.text }}
         </span>
     </div>
     <div>
-        <span class="big-text big-text--2">
+        <span class="big-text big-text--2" style="color: {{ text.color }}">
             {{ text.text }}
         </span>
     </div>

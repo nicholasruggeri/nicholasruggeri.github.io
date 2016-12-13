@@ -7,10 +7,7 @@
         var _w = window,
             _d = document;
 
-        var _animationCovers,
-            _animationElY,
-            _animationElFadeY,
-            _sectionParallax;
+        var _animationCovers;
 
         var animationCtrl, tl;
 
@@ -18,53 +15,8 @@
             tl = [];
             animationCtrl = new ScrollMagic.Controller();
             _animationCovers = _d.querySelectorAll('.animation-cover');
-            _animationElY = _d.querySelectorAll('.animation-y');
-            _animationElFadeY = _d.querySelectorAll('.animation-fade-y');
-            _sectionParallax = _d.querySelectorAll('.section-parallax');
         }
 
-        function _animationFadeY() {
-            Array.prototype.forEach.call(_animationElFadeY, function(el, i){
-
-                tl[i] = new TimelineLite({ paused: false });
-
-                tl[i].to(el, 2, {
-                    opacity: 1,
-                    ease: Expo.easeOut
-                })
-
-                new ScrollMagic.Scene({
-                    triggerElement: _animationElFadeY[i]
-                })
-                .setTween(tl[i])
-                .reverse(false)
-                .addTo(animationCtrl);
-
-            });
-        }
-
-
-        function _animationY() {
-            Array.prototype.forEach.call(_animationElY, function(el, i){
-
-                tl[i] = new TimelineLite({ paused: false });
-
-                tl[i].to(el.children, 1, {
-                    y: '0%',
-                    opacity: 1,
-                    ease: Expo.easeOut
-                })
-
-                new ScrollMagic.Scene({
-                    triggerElement: _animationElY[i],
-                    triggerHook: 'onEnter'
-                })
-                .setTween(tl[i])
-                .reverse(false)
-                .addTo(animationCtrl);
-
-            });
-        }
 
         function _animationCover() {
 
@@ -92,31 +44,10 @@
 
         }
 
-        function _parallaxNumber() {
-
-            Array.prototype.forEach.call(_sectionParallax, function(el, i){
-
-                new ScrollMagic.Scene({
-                    triggerElement: el,
-                    duration: _w.innerHeight*2,
-                    triggerHook: 'onEnter'
-                })
-                .setTween(el.querySelector('.project__number'), {
-                    y: '-40%'
-                })
-                .addTo(animationCtrl)
-
-            });
-
-        }
-
         function _initAnimation() {
             // console.log('AREA_PROJECTS init')
             _initialize()
-            _parallaxNumber()
             _animationCover()
-            _animationY()
-            _animationFadeY()
         }
 
         return {

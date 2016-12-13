@@ -15,14 +15,10 @@
 
 
     <div class="project__content">
-        <div class="project__number">
+        <div class="project__number  section-parallax__element">
             {{ prj.letter }}
         </div>
-        {# <!-- <div class="project__title  animation-cover">
-            <span class="project__title-letter  animation-cover__text">{{ prj.letter }}</span>
-            <span class="project__title-cover  animation-cover__mask"></span>
-        </div> --> #}
-        <a href="http://{{ prj.url }}" class="project__content-text">
+        <a href="{{ prj.url }}" class="project__content-text">
             <span class="project__name animation-y  project__name-{{ prj.label }}">
                 <span>
                     {{ prj.title }}
@@ -70,7 +66,7 @@
 
     <div class="project__content-image  project__content-image-{{ prj.label }}">
         <div class="project__content-wrapper">
-            <img class="content-image  animation-fade-y" src="img/{{ prj.image }}" alt="">
+            <img class="content-image  animation-fade-in" src="img/{{ prj.image }}" alt="">
         </div>
     </div>
 

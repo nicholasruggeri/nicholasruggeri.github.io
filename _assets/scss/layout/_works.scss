@@ -3,6 +3,14 @@
     z-index: 9;
 }
 
+.box-countdown {
+    display: none !important;
+}
+
+.countdown {
+    display: inline-block !important;
+}
+
 .project{
     background: #f9f9f9;
     position: relative;
@@ -16,7 +24,6 @@
         .project__content {
             left: 0;
             right: auto;
-            // text-align: right;
             align-items: flex-end;
         }
         .project__content-image {
@@ -55,12 +62,10 @@
         &-ciak {
             background: #5b2130;
             background: linear-gradient(135deg,  #5b2130 0%,#3e7d6c 100%);
-            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5b2130', endColorstr='#3e7d6c',GradientType=1 );
         }
         &-weatherymood {
             background: #2b4a69;
-            background: linear-gradient(135deg,  #2b4a69 0%,#3e7d6c 100%);
-            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2b4a69', endColorstr='#3e7d6c',GradientType=1 );
+            background: linear-gradient(135deg, #132a42 0%, #10503f 100%);
             img {
                 box-shadow: 0 0 0 10px rgba(0,0,0,0.1);
                 width: 45%;
@@ -69,7 +74,6 @@
         &-snap {
             background: #2c539e;
             background: linear-gradient(135deg,  #2c539e 0%,#3da4db 100%);
-            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2c539e', endColorstr='#3da4db',GradientType=1 );
             img {
                 width: 50%;
             }
@@ -77,7 +81,6 @@
         &-molteni {
             background: #a90329;
             background: linear-gradient(135deg, #a90329 0%,#6d0019 100%);
-            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019',GradientType=1 );
             img {
                 width: 80%;
             }
@@ -255,7 +258,6 @@
             display: block;
             transform: translateY(100%);
             will-change: transform;
-            line-height: 1.5;
         }
         a{
             text-decoration: underline;

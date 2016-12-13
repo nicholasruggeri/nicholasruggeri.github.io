@@ -1,0 +1,22 @@
+{% macro field({
+    header: word1,
+    header: word2
+})%}
+
+<header class="header">
+    <div class="header__box">
+        <h1 class="header__title">
+            <i>{{ header.word1 }}</i>
+            <span class="header__title-mask"></span>
+        </h1>
+        <h2 class="header__subtitle">
+            <i>{{ header.word2 }}</i>
+            <span class="header__subtitle-mask"></span>
+        </h2>
+    </div>
+    <div class="header__line" id="header__line">
+        <div id="header__line-loop"></div>
+    </div>
+</header>
+
+{% endmacro %}

@@ -1,0 +1,12 @@
+{% macro field({
+    module: img,
+    module: full
+})%}
+
+<div class="section-case__module  m-full-width  {% if module.full == true %} m-full-width--full {% endif %}">
+    <img class="m-full-width__img" src="{{ module.img }}" alt="">
+    <div class="m-full-width__cover-l"></div>
+    <div class="m-full-width__cover-r"></div>
+</div>
+
+{% endmacro %}
