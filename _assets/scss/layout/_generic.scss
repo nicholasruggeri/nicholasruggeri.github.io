@@ -281,7 +281,10 @@
 .m-text {
     text-align: center;
     background: #fff;
-    padding: 2.5% 0;
+    padding: 2.5% 5%;
+    @media screen and (min-width: 600px) {
+        padding: 2.5% 0;
+    }
     &--left{
         text-align: left;
         border: 1px solid rgba(0,0,0,0.1);
@@ -304,7 +307,10 @@
         font-size: calc(14px + 0.1vw) !important;
         text-transform: uppercase;
         font-weight: 900;
-        margin-bottom: 2.5% !important;
+        margin-bottom: 10% !important;
+        @media screen and (min-width: 600px) {
+            margin-bottom: 2.5% !important;
+        }
         letter-spacing: 2px;
         display: inline-block;
         padding-bottom: 2%;
@@ -316,9 +322,12 @@
             width: 10%;
             background: rgba(0,0,0,0.2);
             position: absolute;
-            bottom: 0;
             left: 50%;
             transform: translateX(-50%);
+            bottom: -25%;
+            @media screen and (min-width: 600px) {
+                bottom: 0;
+            }
         }
     }
 }
@@ -558,12 +567,15 @@
     font-size: .8em;
     letter-spacing: 2px;
     font-weight: 600;
-    margin-top: 2%;
     position: relative;
     color: #fff;
     background: $black;
     overflow: visible;
     transition: all .5s $ease;
+    margin-top: 10%;
+    @media screen and (min-width: 600px) {
+        margin-top: 5%;
+    }
     &:hover {
         background: #fff;
         color: $black;
