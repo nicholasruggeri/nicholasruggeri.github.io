@@ -94,7 +94,7 @@
                 if (i == 0)
                     isFirst = "+=.3";
                 else
-                    isFirst = "-=.9";
+                    isFirst = "-=.6";
 
                 tl2.to(el, 1.5, {
                     opacity: 1,
