@@ -53,6 +53,8 @@
 
         function _remove(cb) {
 
+            TweenLite.to(window, 0.2, {scrollTo:0});
+
             var tl = new TimelineLite({
                 paused: true,
                 onComplete: function(){
