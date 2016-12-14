@@ -3,48 +3,6 @@
     cursor: pointer;
 }
 
-.section-header{
-    .scroll-to{
-        position: absolute;
-        z-index: 99999;
-        bottom: 5%;
-        left: 50%;
-        width: 40px;
-        height: 40px;
-        transform: translateX(-50%) scale(0);
-        &:focus{
-            outline: none;
-            .scroll-to-mask{
-                &:after{
-                    transform: translate(-50%,-50%) scale(1);
-                }
-            }
-        }
-        svg{
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            display: block;
-            height: 17px;
-            width: 17px;
-            transform: translate(-50%,-250%) rotate(-90deg);
-            opacity: 0;
-            path{
-                fill: $black;
-            }
-        }
-    }
-    .scroll-to-mask{
-        top: 0;
-        left: 0;
-        position: absolute;
-        border-radius: 100%;
-        width: 40px;
-        height: 40px;
-        background: #fff;
-    }
-}
-
 .footer{
     .scroll-to{
         &:focus{
@@ -59,5 +17,137 @@
                 fill: $white;
             }
         }
+    }
+}
+
+
+.circle-button {
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    border-radius: 100%;
+    position: absolute;
+    z-index: 99999;
+    cursor: pointer;
+    display: block;
+    &:hover {
+        &:after {
+            transform: translate(-50%,-50%) scale(1.2);
+        }
+    }
+    &:after {
+        transition: transform .5s $ease;
+        border-radius: 100%;
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%) scale(.8);
+        background: rgba(255,255,255,0.5);
+        z-index: -1;
+    }
+
+    &.back-to-home {
+        top: 3vw;
+        left: 3vw;
+        z-index: 9;
+        display: block;
+        overflow: visible;
+        transform: translateX(-200%);
+    }
+
+    &.scroll-to-down {
+        bottom: 3vw;
+        left: 50%;
+        margin-left: -20px;
+        transform: translateY(200%);
+        span {
+            transform: rotate(-90deg);
+        }
+    }
+
+    &.trigger-projects-menu {
+        transform: translateX(200%);
+        z-index: 99999999;
+        top: 3vw;
+        right: 3vw;
+        &.is-active {
+            > div {
+                background: rgba(0,0,0,0);
+                transform-origin: center center;
+                &:after, &:before{
+                    border-radius: 0;
+                    height: 18px;
+                    width: 3px;
+                }
+                &:after {
+                    transform: rotate(45deg);
+                }
+                &:before {
+                    transform: rotate(-45deg);
+                }
+            }
+        }
+        > div {
+            background: $black;
+            width: 4px;
+            height: 4px;
+            border-radius: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            will-change: transform;
+            transition: all .5s $ease;
+            transform-origin: center center;
+            &:after, &:before{
+                content:"";
+                display: block;
+                background: $black;
+                width: 4px;
+                height: 4px;
+                border-radius: 100%;
+                position: absolute;
+                transition: all .5s $ease;
+            }
+            &:after {
+                top: -7px;
+            }
+            &:before {
+                bottom: -7px;
+            }
+        }
+        &:hover{
+            > div {
+                transform: translate(-50%,-50%) rotate(90deg);
+                transform-origin: center center;
+            }
+        }
+    }
+
+    span, svg {
+        display: block;
+    }
+    span {
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 40px;
+        height: 40px;
+    }
+    svg {
+        transform: translate(-50%,-50%);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: block;
+        height: 17px;
+        width: 17px;
+    }
+    path {
+        fill: $black
     }
 }

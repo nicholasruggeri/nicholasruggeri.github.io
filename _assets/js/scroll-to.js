@@ -16,20 +16,6 @@
             animationCtrl  = new ScrollMagic.Controller();
         }
 
-        function _showArrow() {
-            TweenLite.to(_scrollToArrow, 0.5, {
-                scale: 1,
-                ease: Expo.easeOut,
-                onComplete: function(){
-                     TweenLite.to(_scrollToArrow[0].querySelector('.svg-icon'), 0.5, {
-                        y: '-50%',
-                        opacity: 1,
-                        ease: Expo.easeOut
-                    });
-                }
-            });
-        }
-
         function _handleEvents() {
             new ScrollMagic.Scene({
                 triggerElement: _scrollToArrow,
@@ -68,11 +54,7 @@
         }
 
         function _init(){
-            // console.log('SCROLLTO init')
             _initialize()
-            setTimeout(function(){
-                _showArrow()
-            }, 2000)
             _handleEvents()
         }
 

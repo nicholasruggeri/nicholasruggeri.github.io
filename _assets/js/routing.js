@@ -46,6 +46,7 @@
                 INTRO.init()
                 ANIMATIONS.bigText()
                 ANIMATIONS.headerLine()
+                ANIMATIONS.showCircleButtons()
 
                 // Generic Animations
                 ANIMATIONS.fadeIn()
@@ -68,6 +69,7 @@
                 ANIMATIONS.bigText()
                 ANIMATIONS.showImage()
                 ANIMATIONS.headerLine()
+                ANIMATIONS.showCircleButtons()
 
                 // Generic Animations
                 ANIMATIONS.fadeIn()

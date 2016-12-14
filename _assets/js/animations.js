@@ -125,32 +125,24 @@
                 animationCtrl,
                 tl;
 
-            tl = [];
             animationCtrl = new ScrollMagic.Controller();
             _bigTexts     = _d.querySelectorAll('.big-text');
 
-            tl[1] = new TimelineLite({ paused: false });
+            tl = new TimelineLite({ paused: false });
 
-            tl[1].to(_bigTexts[0], 1.5, {
+            tl.to(_bigTexts[0], 1.5, {
                 x: '-8%',
                 y: '-50%',
                 opacity: 1,
                 ease: Cubic.easeOut
             })
-            tl[1].to(_bigTexts[1], 1.5, {
+            tl.to(_bigTexts[1], 1.5, {
                 x: '-8%',
                 y: '-50%',
                 opacity: 1,
                 ease: Cubic.easeOut
             }, "-=1")
-
-
-            var s1 = new ScrollMagic.Scene({
-                triggerElement: _bigTexts[0],
-                offset: - _w.innerHeight/3
-            })
-            .setTween(tl[1])
-            .addTo(animationCtrl);
+            tl.play()
 
         }
 
@@ -233,6 +225,36 @@
 
         }
 
+        function _showCircleButtons() {
+
+            var _circleButtons,
+                animationCtrl,
+                tl;
+
+            animationCtrl  = new ScrollMagic.Controller();
+            _circleButtons = _d.querySelectorAll('.circle-button');
+
+            tl = new TimelineLite({ paused: false });
+
+            if (_circleButtons.length > 1) {
+                Array.prototype.forEach.call(_circleButtons, function(el, i){
+                    tl.to(el, .5, {
+                        x: 0,
+                        y: 0,
+                        ease: Expo.easeInOut
+                    })
+                });
+            } else {
+                tl.to(_circleButtons, 1.5, {
+                    delay: 1.5,
+                    y: 0,
+                    ease: Expo.easeInOut
+                })
+            }
+            tl.play()
+
+        }
+
         return {
             fadeIn: _fadeIn,
             slideY: _slideY,
@@ -241,7 +263,8 @@
             bigText: _bigText,
             parallax: _parallax,
             showImage: _showImage,
-            headerLine: _headerLine
+            headerLine: _headerLine,
+            showCircleButtons: _showCircleButtons
         };
 
     }());
