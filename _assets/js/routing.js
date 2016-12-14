@@ -36,7 +36,7 @@
             namespace: 'homepage',
             onEnter: function() {
                 document.querySelector('body').style.overflow = "scroll";
-                document.querySelector('body').style.overflow = "scroll";
+                _d.querySelector('body').style.position = "relative";
                 SHARER.init()
                 AREA_PROJECTS.init()
                 ANIMATIONS.drawGlass()
@@ -60,6 +60,7 @@
             namespace: 'case-history',
             onEnter: function() {
                 document.querySelector('body').style.overflow = "scroll";
+                _d.querySelector('body').style.position = "relative";
             },
             onEnterCompleted: function() {
                 SHARER.init()
