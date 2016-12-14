@@ -42,7 +42,7 @@
                 if (_trigger.classList.contains('is-active')){
                     _trigger.classList.remove('is-active')
                     _d.querySelector('body').style.overflow = "scroll";
-                    _d.querySelector('body').style.position = "relative";
+                    _d.querySelector('body').setAttribute('style', '');
                     _hide()
                 }
                 else {

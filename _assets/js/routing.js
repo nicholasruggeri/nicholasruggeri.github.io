@@ -35,8 +35,8 @@
         var Homepage = Barba.BaseView.extend({
             namespace: 'homepage',
             onEnter: function() {
+                document.querySelector('body').setAttribute('style', '');
                 document.querySelector('body').style.overflow = "scroll";
-                document.querySelector('body').style.position = "relative";
                 SHARER.init()
                 AREA_PROJECTS.init()
                 ANIMATIONS.drawGlass()
@@ -59,8 +59,8 @@
         var CaseHistory = Barba.BaseView.extend({
             namespace: 'case-history',
             onEnter: function() {
+                document.querySelector('body').setAttribute('style', '');
                 document.querySelector('body').style.overflow = "scroll";
-                document.querySelector('body').style.position = "relative";
             },
             onEnterCompleted: function() {
                 SHARER.init()
