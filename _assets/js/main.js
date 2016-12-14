@@ -19,6 +19,8 @@
 
             if (('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) {
                 document.querySelector('body').classList.add('is-touch')
+            } else {
+                document.querySelector('body').classList.add('no-touch')
             }
 
             PRELOADER.remove(function(){

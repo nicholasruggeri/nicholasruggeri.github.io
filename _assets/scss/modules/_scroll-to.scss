@@ -30,9 +30,11 @@
     z-index: 99999;
     cursor: pointer;
     display: block;
-    &:hover {
-        &:after {
-            transform: translate(-50%,-50%) scale(1.2);
+    .no-touch &{
+        &:hover {
+            &:after {
+                transform: translate(-50%,-50%) scale(1.2);
+            }
         }
     }
     &:after {
@@ -56,21 +58,21 @@
         z-index: 9;
         display: block;
         overflow: visible;
-        transform: translateX(-200%);
+        transform: translateX(-210%);
     }
 
     &.scroll-to-down {
         bottom: 3vw;
         left: 50%;
         margin-left: -20px;
-        transform: translateY(200%);
+        transform: translateY(210%);
         span {
             transform: rotate(-90deg);
         }
     }
 
     &.trigger-projects-menu {
-        transform: translateX(200%);
+        transform: translateX(210%);
         z-index: 99999999;
         top: 3vw;
         right: 3vw;
@@ -120,10 +122,12 @@
                 bottom: -7px;
             }
         }
-        &:hover{
-            > div {
-                transform: translate(-50%,-50%) rotate(90deg);
-                transform-origin: center center;
+        .no-touch &{
+            &:hover{
+                > div {
+                    transform: translate(-50%,-50%) rotate(90deg);
+                    transform-origin: center center;
+                }
             }
         }
     }

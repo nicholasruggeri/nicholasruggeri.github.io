@@ -238,15 +238,15 @@
 
             if (_circleButtons.length > 1) {
                 Array.prototype.forEach.call(_circleButtons, function(el, i){
-                    tl.to(el, .5, {
+                    tl.to(el, 1, {
                         x: 0,
                         y: 0,
                         ease: Expo.easeInOut
                     })
                 });
             } else {
-                tl.to(_circleButtons, 1.5, {
-                    delay: 1.5,
+                tl.to(_circleButtons, 1, {
+                    delay: 2,
                     y: 0,
                     ease: Expo.easeInOut
                 })

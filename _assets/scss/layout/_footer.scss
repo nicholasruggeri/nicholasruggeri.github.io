@@ -7,9 +7,11 @@
         margin-right: 30px;
         opacity: 1;
         transition: opacity .5s ease-in-out;
-        &:hover, &:focus {
-            opacity: .5;
-            outline: none;
+        .no-touch &{
+            &:hover, &:focus {
+                opacity: .5;
+                outline: none;
+            }
         }
     }
     svg{

@@ -386,6 +386,7 @@
     z-index: 9999999;
     align-items: baseline;
     justify-content: center;
+    overflow-x: hidden;
 
     &.is-molteni {
         .projects-menu__title {
@@ -495,12 +496,14 @@
     @media screen and (min-width: 600px) {
         margin-top: 5%;
     }
-    &:hover {
-        background: #fff;
-        color: $black;
-        transition: all .5s $ease;
-        &:after {
-            transform: translate(-50%,-50%) scale(1.1, 1.25);
+    .no-touch &{
+        &:hover {
+            background: #fff;
+            color: $black;
+            transition: all .5s $ease;
+            &:after {
+                transform: translate(-50%,-50%) scale(1.1, 1.25);
+            }
         }
     }
     &:after {

@@ -171,10 +171,12 @@
         display: inline-block;
         text-transform: uppercase;
         overflow: hidden;
-        margin-bottom: 1.2vw;
-        padding-bottom: 5px;
         position: relative;
-        padding-right: 30px;
+        @media screen and (min-width: 560px) {
+            margin-bottom: 1.2vw;
+            padding-bottom: 5px;
+            padding-right: 30px;
+        }
         &-molteni {
             span{
                 &:after {
@@ -207,13 +209,13 @@
             display: inline-block;
             font-weight: 600;
             letter-spacing: 3px;
-            font-size: 8px;
+            font-size: calc(14px + 0.1vw);
             position: relative;
-            padding-left: 3px;
-            padding-right: 1px;
             color: $black;
             @media screen and (min-width: 560px) {
                 font-size: calc(12px + 0.1vw);
+                padding-left: 3px;
+                padding-right: 1px;
             }
             &:after {
                 content: "";
@@ -269,15 +271,32 @@
     &__content-text {
         display: flex;
         flex-direction: column;
-        &:hover {
-            .svg-icon-link {
-                opacity: 1;
-                transform: translateX(0);
+        .no-touch &{
+            &:hover {
+                .svg-icon-link {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+                .project__name {
+                    span{
+                        &:after{
+                            transform: translateX(0);
+                        }
+                    }
+                }
             }
-            .project__name {
-                span{
-                    &:after{
-                        transform: translateX(0);
+        }
+        @media screen and (min-width: 560px) {
+            .is-touch &{
+                .svg-icon-link {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+                .project__name {
+                    span{
+                        &:after{
+                            transform: translateX(0);
+                        }
                     }
                 }
             }
