@@ -38,18 +38,17 @@
 
             });
 
-
-
-
             _trigger.addEventListener('click', function(evt){
                 if (_trigger.classList.contains('is-active')){
                     _trigger.classList.remove('is-active')
                     _d.querySelector('body').style.overflow = "scroll";
+                    _d.querySelector('body').style.position = "relative";
                     _hide()
                 }
                 else {
                     _trigger.classList.add('is-active')
                     _d.querySelector('body').style.overflow = "hidden";
+                    _d.querySelector('body').style.position = "fixed";
                     _show()
                 }
             })

@@ -36,6 +36,7 @@
             namespace: 'homepage',
             onEnter: function() {
                 document.querySelector('body').style.overflow = "scroll";
+                document.querySelector('body').style.overflow = "scroll";
                 SHARER.init()
                 AREA_PROJECTS.init()
                 ANIMATIONS.drawGlass()
