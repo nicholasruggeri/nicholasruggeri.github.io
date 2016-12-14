@@ -17,6 +17,10 @@
             console.style('<img="background:url(http://cultofthepartyparrot.com/parrots/parrot.gif);width:30px;height:21.4px">');
             console.log(' ')
 
+            if (('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) {
+                document.querySelector('body').classList.add('is-touch')
+            }
+
             PRELOADER.remove(function(){
                 _defer()
             })
