@@ -107,7 +107,7 @@ gulp.task('scripts', function() {
     gulp.src('_assets/js/**/*.js')
         .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
         .pipe(concat('scripts.js'))
-        .pipe(uglify())
+        //.pipe(uglify())
         .pipe(gulp.dest('web/js'))
         .pipe(browserSync.stream());
 });

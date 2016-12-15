@@ -156,29 +156,48 @@
         top: 0;
         left: 0;
         position: absolute;
-        background: #1a1a1a;
         z-index: -1;
         height: 28vw;
     }
     &.is-molteni {
-        &:before {
-            background: linear-gradient(0deg, #6d0019 0%, #a90329 100%);
+        margin-top: -20%;
+        z-index: 99999;
+        @media screen and (min-width: 600px) {
+            margin-top: -13%;
         }
+        // &:before {
+        //     background: linear-gradient(0deg, #6d0019 0%, #a90329 100%);
+        // }
     }
     &.is-weatherymood {
-        &:before {
-            background: linear-gradient(0deg, #132a42 0%, #10503f 100%);
+        margin-top: -20%;
+        z-index: 99999;
+        @media screen and (min-width: 600px) {
+            margin-top: -13%;
         }
+        // &:before {
+        //     background: linear-gradient(0deg, #132a42 0%, #10503f 100%);
+        // }
     }
     &.is-snap {
-        &:before {
-            background: linear-gradient(0deg, #2c539e 0%, #3da4db 100%);
+        margin-top: -20%;
+        z-index: 99999;
+        @media screen and (min-width: 600px) {
+            margin-top: -13%;
         }
+        // &:before {
+        //     background: linear-gradient(0deg, #2c539e 0%, #3da4db 100%);
+        // }
     }
     &.is-ciak {
-        &:before {
-            background: linear-gradient(0deg, #5b2130 0%, #3e7d6c 100%)
+        margin-top: -20%;
+        z-index: 99999;
+        @media screen and (min-width: 600px) {
+            margin-top: -13%;
         }
+        // &:before {
+        //     background: linear-gradient(0deg, #5b2130 0%, #3e7d6c 100%)
+        // }
     }
     &:after {
         content: "";
