@@ -34,6 +34,25 @@
     will-change: transform;
 }
 
+.animation-mask {
+    position: relative;
+    overflow: hidden;
+    &__cover {
+        transform: translateX(-100%);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: $black;
+        will-change: transform;
+        z-index: 9;
+    }
+    &__text {
+        opacity: 0;
+    }
+}
+
 @keyframes lineY {
     0% {
         transform: translateY(-100%);

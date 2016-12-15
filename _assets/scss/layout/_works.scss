@@ -260,9 +260,6 @@
         }
         p{
             font-size: calc(10px + 0.1vw);
-            display: block;
-            transform: translateY(100%);
-            will-change: transform;
         }
         a{
             text-decoration: underline;

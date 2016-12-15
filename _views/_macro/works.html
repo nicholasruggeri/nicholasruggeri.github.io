@@ -19,7 +19,7 @@
             {{ prj.letter }}
         </div>
         <a href="{{ prj.url }}" class="project__content-text">
-            <span class="project__name animation-y  project__name-{{ prj.label }}">
+            <span class="project__name  animation-fade-in project__name-{{ prj.label }}">
                 <span>
                     {{ prj.title }}
                     <svg class="svg-icon-link" viewBox="0 0 20 20">
@@ -33,30 +33,34 @@
             </span>
 
             {% if prj.description %}
-            <div class="project__description  animation-y">
-                <p>
+            <div class="project__description  animation-mask">
+                <div class="animation-mask__cover"></div>
+                <p class="animation-mask__text">
                     {{prj.description}}
                 </p>
             </div>
             {% endif %}
 
             {% if prj.agency %}
-                <div class="project__description  animation-y">
-                    <p>
+                <div class="project__description  animation-mask">
+                    <div class="animation-mask__cover"></div>
+                    <p class="animation-mask__text">
                         Built in {{ prj.agency }} for {{ prj.client }}.
                     </p>
                 </div>
             {% else %}
-                <div class="project__description  animation-y">
-                    <p>
+                <div class="project__description  animation-mask">
+                    <div class="animation-mask__cover"></div>
+                    <p class="animation-mask__text">
                         Built just for fun.
                     </p>
                 </div>
             {% endif %}
 
             {% if prj.offline %}
-            <div class="project__description  animation-y">
-                <p>
+            <div class="project__description  animation-mask">
+                <div class="animation-mask__cover"></div>
+                <p class="animation-mask__text">
                     This project is no longer online.
                 </p>
             </div>
@@ -66,7 +70,7 @@
 
     <div class="project__content-image  project__content-image-{{ prj.label }}">
         <div class="project__content-wrapper">
-            <img class="content-image  animation-fade-in" src="img/{{ prj.image }}" alt="">
+            <img class="content-image" src="img/{{ prj.image }}" alt="">
         </div>
     </div>
 

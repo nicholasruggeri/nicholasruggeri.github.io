@@ -51,8 +51,8 @@
 
                 // Generic Animations
                 ANIMATIONS.fadeIn()
-                ANIMATIONS.slideY()
-                ANIMATIONS.translateY()
+                ANIMATIONS.maskIn()
+                // ANIMATIONS.slideY()
             },
         });
 
@@ -76,7 +76,7 @@
                 // Generic Animations
                 ANIMATIONS.fadeIn()
                 ANIMATIONS.slideY()
-                ANIMATIONS.translateY()
+                ANIMATIONS.maskIn()
 
                 LIST_PROJECTS.init()
             }
