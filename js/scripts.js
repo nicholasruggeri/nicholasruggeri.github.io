@@ -35,28 +35,34 @@
 
         }
 
-        function _translateY() {
+        function _maskIn() {
 
-            var _animationElY,
+            var _el,
                 animationCtrl,
                 tl;
 
-            _animationElY = _d.querySelectorAll('.animation-y');
+            _el = _d.querySelectorAll('.animation-mask');
             animationCtrl = new ScrollMagic.Controller();
             tl            = [];
 
-            Array.prototype.forEach.call(_animationElY, function(el, i){
+            Array.prototype.forEach.call(_el, function(el, i){
 
                 tl[i] = new TimelineLite({ paused: false });
 
-                tl[i].to(el.children, 1, {
-                    y: '0%',
+                tl[i].to(el.querySelector('.animation-mask__cover'), .5, {
+                    x: '0%',
+                    ease: Expo.easeIn
+                }).set(el.querySelector('.animation-mask__text'), {
                     opacity: 1,
+                }).to(el.querySelector('.animation-mask__cover'), .5, {
+                    x: '100%',
                     ease: Expo.easeOut
+                }).set(el.querySelector('.animation-mask__cover'), {
+                    display: 'none'
                 })
 
                 new ScrollMagic.Scene({
-                    triggerElement: _animationElY[i],
+                    triggerElement: _el[i],
                     triggerHook: 'onEnter'
                 })
                 .setTween(tl[i])
@@ -258,13 +264,13 @@
         return {
             fadeIn: _fadeIn,
             slideY: _slideY,
-            translateY: _translateY,
             drawGlass: _drawGlass,
             bigText: _bigText,
             parallax: _parallax,
             showImage: _showImage,
             headerLine: _headerLine,
-            showCircleButtons: _showCircleButtons
+            showCircleButtons: _showCircleButtons,
+            maskIn: _maskIn
         };
 
     }());
@@ -870,8 +876,8 @@
 
                 // Generic Animations
                 ANIMATIONS.fadeIn()
-                ANIMATIONS.slideY()
-                ANIMATIONS.translateY()
+                ANIMATIONS.maskIn()
+                // ANIMATIONS.slideY()
             },
         });
 
@@ -895,7 +901,7 @@
                 // Generic Animations
                 ANIMATIONS.fadeIn()
                 ANIMATIONS.slideY()
-                ANIMATIONS.translateY()
+                ANIMATIONS.maskIn()
 
                 LIST_PROJECTS.init()
             }
