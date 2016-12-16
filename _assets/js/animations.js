@@ -221,12 +221,12 @@
             tl = new TimelineLite();
 
             tl.to(_headerLineLoop, 2.5, {
-                    y: '100%',
-                    ease: Expo.easeInOut,
-                    onComplete: function(){
-                        tl.restart()
-                    }
-                })
+                y: '100%',
+                ease: Expo.easeInOut,
+                onComplete: function(){
+                    tl.restart()
+                }
+            })
             tl.play();
 
         }
@@ -252,12 +252,13 @@
                 });
             } else {
                 tl.to(_circleButtons, 1, {
-                    delay: 2,
                     y: 0,
                     ease: Expo.easeInOut
-                })
+                }, 0)
             }
-            tl.play()
+            setTimeout(function(){
+                tl.play()
+            }, 0)
 
         }
 

@@ -37,6 +37,7 @@
 .animation-mask {
     position: relative;
     overflow: hidden;
+    display: table;
     &__cover {
         transform: translateX(-100%);
         position: absolute;
