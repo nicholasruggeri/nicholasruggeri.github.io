@@ -34,10 +34,18 @@
     will-change: transform;
 }
 
-.animation-mask {
+.animation-mask{
     position: relative;
     overflow: hidden;
     display: table;
+    &.no-animation {
+        .animation-mask__text {
+            opacity: 1;
+        }
+        .animation-mask__cover {
+            display: none;
+        }
+    }
     &__cover {
         transform: translateX(-100%);
         position: absolute;

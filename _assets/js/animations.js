@@ -41,8 +41,10 @@
                 animationCtrl,
                 tl;
 
-            // _el = _d.querySelectorAll('.animation-mask:not(.no-animation)');
-            _el = _d.querySelectorAll('.animation-mask');
+            _el = _d.querySelectorAll('.animation-mask:not(.no-animation)');
+            // _el = _d.querySelectorAll('.animation-mask');
+            //
+            console.log(_el)
             animationCtrl = new ScrollMagic.Controller();
             tl            = [];
 
