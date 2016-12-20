@@ -271,7 +271,8 @@
             var _project      = _d.querySelectorAll('.project'),
                 animationCtrl = new ScrollMagic.Controller(),
                 wipeAnimation = new TimelineLite(),
-                parallaxAnimation = new TimelineLite(),
+                parallaxAnimationLetter = new TimelineLite(),
+                parallaxAnimationImage  = new TimelineLite(),
                 textAnimation = new TimelineLite();
 
             // SLIDE
@@ -290,25 +291,27 @@
             // Parallax Letter and Img
             Array.prototype.forEach.call(_project, function(el, i){
 
-                parallaxAnimation.fromTo(_project[i].querySelector('.content-image'), 1, {
-                    y: "50%",
-                    x: "-50%",
+                parallaxAnimationLetter.fromTo(_project[i].querySelector('.project__number'), 1, {
+                    y: "0%",
                     opacity: .5,
                 }, {
                     y: "-50%",
-                    x: "-50%",
                     opacity: 1,
                     ease: Linear.easeNone
                 })
 
-                parallaxAnimation.fromTo(_project[i].querySelector('.project__number'), 1, {
+            })
+
+            Array.prototype.forEach.call(_project, function(el, i){
+
+                parallaxAnimationImage.fromTo(_project[i].querySelector('.content-image'), 1, {
                     y: "50%",
-                    opacity: .5,
+                    x: "-50%",
                 }, {
                     y: "-50%",
-                    opacity: 1,
+                    x: "-50%",
                     ease: Linear.easeNone
-                }, "-=1")
+                })
 
             })
 
@@ -335,13 +338,23 @@
             .setTween(wipeAnimation)
             .addTo(animationCtrl);
 
-            var S2 = new ScrollMagic.Scene({
+            var S2L = new ScrollMagic.Scene({
                 triggerElement: _list,
                 duration: "400%",
                 triggerHook: 'onLeave',
                 offset: - _w.innerHeight
             })
-            .setTween(parallaxAnimation)
+            .setTween(parallaxAnimationLetter)
+            .setTween(parallaxAnimationLetter)
+            .addTo(animationCtrl);
+
+            var S2I = new ScrollMagic.Scene({
+                triggerElement: _list,
+                duration: "400%",
+                triggerHook: 'onLeave',
+                offset: - _w.innerHeight
+            })
+            .setTween(parallaxAnimationImage)
             .addTo(animationCtrl);
 
             var S3 = new ScrollMagic.Scene({

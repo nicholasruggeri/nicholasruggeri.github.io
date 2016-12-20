@@ -4,7 +4,8 @@
 
     var ROUTING = (function() {
 
-        var _w = window;
+        var _w = window,
+            _body = document.querySelector('body');
 
         var PreloaderAnimation = Barba.BaseTransition.extend({
             start: function() {
@@ -43,7 +44,7 @@
                 AREA_PROJECTS.init()
                 ANIMATIONS.drawGlass()
                 // ANIMATIONS.parallax()
-                if (_w.outerWidth >= 768) {
+                if (_body.classList.contains('no-touch')) {
                     ANIMATIONS.parallaxProjects()
                 }
 
