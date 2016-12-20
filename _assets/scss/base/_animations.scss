@@ -12,7 +12,7 @@
     }
 }
 
-.animation-fade-in {
+.no-touch .animation-fade-in {
     opacity: 0;
     backface-visibility: hidden;
     will-change: transform, opacity;

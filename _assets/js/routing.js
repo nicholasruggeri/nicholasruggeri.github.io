@@ -4,6 +4,8 @@
 
     var ROUTING = (function() {
 
+        var _w = window;
+
         var PreloaderAnimation = Barba.BaseTransition.extend({
             start: function() {
                 Promise
@@ -40,7 +42,11 @@
                 SHARER.init()
                 AREA_PROJECTS.init()
                 ANIMATIONS.drawGlass()
-                ANIMATIONS.parallax()
+                // ANIMATIONS.parallax()
+                if (_w.outerWidth >= 768) {
+                    ANIMATIONS.parallaxProjects()
+                }
+
             },
             onEnterCompleted: function() {
                 SCROLLTO.init()
@@ -50,7 +56,11 @@
                 ANIMATIONS.showCircleButtons()
 
                 // Generic Animations
-                ANIMATIONS.fadeIn()
+
+                // console.log(_w.outerWidth)
+                if (_w.outerWidth > 768) {
+                    ANIMATIONS.fadeIn()
+                }
                 ANIMATIONS.maskIn()
                 // ANIMATIONS.slideY()
             },
@@ -66,7 +76,7 @@
                 SHARER.init()
                 AREA_PROJECTS.init()
                 SCROLLTO.init()
-                COUNTDOWN.init()
+                // COUNTDOWN.init()
                 // INTRO.init()
                 ANIMATIONS.bigText()
                 ANIMATIONS.showImage()

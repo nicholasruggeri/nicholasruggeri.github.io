@@ -41,6 +41,7 @@
                 animationCtrl,
                 tl;
 
+            // _el = _d.querySelectorAll('.animation-mask:not(.no-animation)');
             _el = _d.querySelectorAll('.animation-mask');
             animationCtrl = new ScrollMagic.Controller();
             tl            = [];
@@ -262,6 +263,99 @@
 
         }
 
+        function _parallaxProjects() {
+
+            var _list = _d.querySelector('.list-projects');
+            // _list.style.height = _w.innerHeight * 4 + "px";
+
+            var _project      = _d.querySelectorAll('.project'),
+                animationCtrl = new ScrollMagic.Controller(),
+                wipeAnimation = new TimelineLite(),
+                parallaxAnimation = new TimelineLite(),
+                textAnimation = new TimelineLite();
+
+            // SLIDE
+            Array.prototype.forEach.call(_project, function(el, i){
+
+                el.style.zIndex = 5-i;
+                wipeAnimation.fromTo(_project[i], 1, {
+                    y: "0%"
+                }, {
+                    y: "-100%",
+                    ease: Linear.easeNone
+                })
+
+            })
+
+            // Parallax Letter and Img
+            Array.prototype.forEach.call(_project, function(el, i){
+
+                parallaxAnimation.fromTo(_project[i].querySelector('.content-image'), 1, {
+                    y: "50%",
+                    x: "-50%",
+                    opacity: .5,
+                }, {
+                    y: "-50%",
+                    x: "-50%",
+                    opacity: 1,
+                    ease: Linear.easeNone
+                })
+
+                parallaxAnimation.fromTo(_project[i].querySelector('.project__number'), 1, {
+                    y: "50%",
+                    opacity: .5,
+                }, {
+                    y: "-50%",
+                    opacity: 1,
+                    ease: Linear.easeNone
+                }, "-=1")
+
+            })
+
+
+            // Text
+            Array.prototype.forEach.call(_project, function(el, i){
+
+                textAnimation.fromTo(el.querySelector('.project__content-text'), 1, {
+                    y: "70%",
+                }, {
+                    y: "-50%",
+                    ease: Linear.easeNone
+                })
+
+            })
+
+
+            var S = new ScrollMagic.Scene({
+                triggerElement: _list,
+                duration: "400%",
+                triggerHook: 'onLeave'
+            })
+            .setPin(_list)
+            .setTween(wipeAnimation)
+            .addTo(animationCtrl);
+
+            var S2 = new ScrollMagic.Scene({
+                triggerElement: _list,
+                duration: "400%",
+                triggerHook: 'onLeave',
+                offset: - _w.innerHeight
+            })
+            .setTween(parallaxAnimation)
+            .addTo(animationCtrl);
+
+            var S3 = new ScrollMagic.Scene({
+                triggerElement: _list,
+                duration: "400%",
+                triggerHook: 'onLeave',
+                offset: - _w.innerHeight
+            })
+            .setTween(textAnimation)
+            .addTo(animationCtrl);
+
+
+        }
+
         return {
             fadeIn: _fadeIn,
             slideY: _slideY,
@@ -271,7 +365,8 @@
             showImage: _showImage,
             headerLine: _headerLine,
             showCircleButtons: _showCircleButtons,
-            maskIn: _maskIn
+            maskIn: _maskIn,
+            parallaxProjects: _parallaxProjects
         };
 
     }());

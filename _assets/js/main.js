@@ -10,6 +10,8 @@
 
         function _init() {
 
+            var _d = document;
+
             var css = 'font-size:10px;color:#f9f9f9;background:#1a1a1a;padding:10px 7px;';
             console.log(' ')
             console.style('<css="' + css + '">www.ruggeri.io</css>');
@@ -18,14 +20,15 @@
             console.log(' ')
 
             if (('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) {
-                document.querySelector('body').classList.add('is-touch')
+                _d.querySelector('body').classList.add('is-touch')
             } else {
-                document.querySelector('body').classList.add('no-touch')
+                _d.querySelector('body').classList.add('no-touch')
             }
 
             PRELOADER.remove(function(){
                 _defer()
             })
+
         }
 
         return {
