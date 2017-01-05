@@ -78,7 +78,6 @@
                 AREA_PROJECTS.init()
                 SCROLLTO.init()
                 // COUNTDOWN.init()
-                // INTRO.init()
                 ANIMATIONS.bigText()
                 ANIMATIONS.showImage()
                 ANIMATIONS.headerLine()

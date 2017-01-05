@@ -67,9 +67,12 @@
         position: absolute;
         top: 0;
         left: 0;
-        width: 50%;
         height: 100%;
         overflow: hidden;
+        width: 100%;
+        @media screen and (min-width: 560px) {
+            width: 50%;
+        }
         img {
             position: absolute;
             width: 40%;
@@ -92,15 +95,13 @@
             }
         }
         &-snap {
-            background: #2c539e;
             background: linear-gradient(135deg,  #2c539e 0%,#3da4db 100%);
             img {
                 width: 50%;
             }
         }
         &-molteni {
-            background: #a90329;
-            background: linear-gradient(135deg, #a90329 0%,#6d0019 100%);
+            background: $bgIsMolteni;
             img {
                 width: 80%;
             }
@@ -124,6 +125,10 @@
         line-height: 1;
         font-weight: 900;
         display: block;
+        opacity: .1;
+        @media screen and (min-width: 560px) {
+            opacity: 1;
+        }
 
         .no-touch &{
             transform: translateY(-70%);
@@ -254,13 +259,17 @@
         }
     }
     &__content-text {
-        display: flex;
+
         flex-direction: column;
         position: absolute;
         top: 50%;
         left: 0;
         padding: 14%;
         transform: translateY(-50%);
+        display: none;
+        @media screen and (min-width: 560px) {
+            display: flex;
+        }
 
         .no-touch &{
             transform: translateY(0);

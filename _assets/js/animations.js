@@ -148,7 +148,7 @@
                 y: '-50%',
                 opacity: 1,
                 ease: Cubic.easeOut
-            }, "-=1")
+            }, "-=.5")
             tl.play()
 
         }

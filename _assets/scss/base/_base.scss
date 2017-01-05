@@ -148,6 +148,62 @@ li{
     list-style-type: none;
 }
 
+
+.m-next-project {
+    position: relative;
+    padding: 10%;
+    margin: 0 !important;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-align: center;
+    &:hover{
+        span{
+            opacity: 1;
+        }
+        div {
+            opacity: 0;
+            transform: translate(-50%,-50%) scale(.95);
+        }
+    }
+    &.is-molteni {
+        background: $bgIsMolteni;
+    }
+    &.is-snap {
+        background: $bgIsSnap;
+    }
+    &.is-ciak {
+        background: $bgIsCiak;
+    }
+    &.is-weatherymood {
+        background: $bsIsWeatheryMood;
+    }
+    span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        font-weight: 900;
+        letter-spacing: 0;
+        color: rgba(0,0,0,0.1);
+        text-transform: none;
+        font-size: 15vw;
+        opacity: 0;
+        transition: opacity .5s $ease;
+    }
+    div {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%) scale(1);
+        font-weight: 900;
+        padding: 1em 1.5em;
+        background: #fff;
+        color: #000;
+        transition: all .5s $ease;
+    }
+}
+
 .avatar {
     position: relative;
     border-radius: 100%;

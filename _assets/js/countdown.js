@@ -6,6 +6,7 @@
 
         var _countdown,
             _counter = 5,
+            isLoading = true,
             IN;
 
         var animationCtrl;
@@ -15,39 +16,43 @@
         }
 
         function _start(){
+            Barba.Dispatcher.on('transitionCompleted', function() {
+                console.log('wdsfwad')
+                animationCtrl = new ScrollMagic.Controller();
 
-            animationCtrl = new ScrollMagic.Controller();
+                    new ScrollMagic.Scene({
+                        triggerElement: '.countdown',
+                        triggerHook: 'onEnter'
+                    })
+                    .on('enter', function(){
+                        console.log('enter')
 
-            new ScrollMagic.Scene({
-                triggerElement: '.countdown',
-                triggerHook: 'onEnter'
-            })
-            .on('enter', function(){
-                console.log('enter')
-                IN = setInterval(function() {
-                    _counter--;
-                    if (_counter < 1) {
-                        clearInterval(IN);
-                        // Barba.Pjax.goTo(_countdown.getAttribute("data-href") + '.html')
-                    } else {
+                        IN = setInterval(function() {
+                            _counter--;
+                            if (_counter < 1) {
+                                clearInterval(IN);
+                                Barba.Pjax.goTo(_countdown.getAttribute("data-href") + '.html')
+                            } else {
+                                _countdown.textContent = _counter.toString()
+                            }
+                        }, 1000);
+                    })
+                    .on('leave', function(){
+                        console.log('leave')
+                        _counter = 5;
                         _countdown.textContent = _counter.toString()
-                    }
-                }, 1000);
-            })
-            .on('leave', function(){
-                console.log('leave')
-                _counter = 5;
-                _countdown.textContent = _counter.toString()
-                clearInterval(IN);
-            })
-            .addTo(animationCtrl);
+                        clearInterval(IN);
+                    })
+                    .addTo(animationCtrl);
+            });
+
 
 
         }
 
         function _init(){
-            // _initialize()
-            // _start()
+            _initialize()
+            _start()
         }
 
         return {

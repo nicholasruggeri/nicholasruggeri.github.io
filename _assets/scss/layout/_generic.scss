@@ -138,10 +138,10 @@
 
 .section-case {
     position: relative;
-    padding-bottom: 20%;
-    @media screen and (min-width: 600px) {
-        padding-bottom: 10%;
-    }
+    // padding-bottom: 20%;
+    // @media screen and (min-width: 600px) {
+    //     padding-bottom: 10%;
+    // }
     img {
         max-width: 100%;
         display: block;
@@ -341,30 +341,32 @@
 
     &__title {
         font-size: calc(14px + 0.1vw) !important;
-        text-transform: uppercase;
-        font-weight: 900;
+        // text-transform: uppercase;
+        // font-weight: 900;
         margin-bottom: 10% !important;
+        font-size: 2em !important;
         @media screen and (min-width: 600px) {
+            font-size: 3em !important;
             margin-bottom: 2.5% !important;
         }
         letter-spacing: 2px;
         display: inline-block;
         padding-bottom: 2%;
         position: relative;
-        &:after {
-            content: "";
-            display: block;
-            height: 1px;
-            width: 10%;
-            background: rgba(0,0,0,0.2);
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            bottom: -25%;
-            @media screen and (min-width: 600px) {
-                bottom: 0;
-            }
-        }
+        // &:after {
+        //     content: "";
+        //     display: block;
+        //     height: 1px;
+        //     width: 10%;
+        //     background: rgba(0,0,0,0.2);
+        //     position: absolute;
+        //     left: 50%;
+        //     transform: translateX(-50%);
+        //     bottom: -25%;
+        //     @media screen and (min-width: 600px) {
+        //         bottom: 0;
+        //     }
+        // }
     }
 }
 
