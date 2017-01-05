@@ -344,7 +344,10 @@
         // text-transform: uppercase;
         // font-weight: 900;
         margin-bottom: 10% !important;
-        font-size: 2em !important;
+        font-size: 1.6em !important;
+        @media screen and (min-width: 400px) {
+            font-size: 2em !important;
+        }
         @media screen and (min-width: 600px) {
             font-size: 3em !important;
             margin-bottom: 2.5% !important;
