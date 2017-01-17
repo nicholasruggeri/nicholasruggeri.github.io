@@ -1,7 +1,7 @@
 {
   "name": "how-to-gulp",
   "version": "1.0.0",
-  "description": "Questo è un repository per capire e testare le funzionalità di Gulp",
+  "description": "",
   "main": "gulpfile.js",
   "devDependencies": {
     "browser-sync": "latest",
