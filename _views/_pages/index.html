@@ -9,8 +9,7 @@
 
 
     <div class="barba-container" data-namespace="homepage">
-
-        <div id="awwwards" class="honorable white top right">
+        <div id="awwwards" class="sotd white right">
             <a href="http://www.awwwards.com/sites/nicholas-ruggeri-portfolio" target="_blank">Awwwards</a>
         </div>
 
@@ -128,7 +127,7 @@
         </div>
 
         <div class="list-projects">
-            {{ work.field
+            {# work.field
                 ({
                     agency: 'H-ART',
                     client: 'Molteni&C',
@@ -140,7 +139,22 @@
                     image: 'molteni.png',
                     letter: 'M'
                 })
+            #}
+
+            {{ work.field
+                ({
+                    agency: 'H-ART',
+                    client: 'Elica',
+                    role: 'Lead frontend developer',
+                    url: 'snap.html',
+                    description: 'JavaScripts, styles, optimization and frontend engineering.',
+                    title: 'Elica Snap',
+                    label: 'snap',
+                    image: 'snap.png',
+                    letter: 'S'
+                })
             }}
+
             {{ work.field
                 ({
                     url: 'ciak.html',
@@ -164,19 +178,7 @@
                 })
             }}
 
-            {{ work.field
-                ({
-                    agency: 'H-ART',
-                    client: 'Elica',
-                    role: 'Lead frontend developer',
-                    url: 'snap.html',
-                    description: 'JavaScripts, styles, optimization and frontend engineering.',
-                    title: 'Elica Snap',
-                    label: 'snap',
-                    image: 'snap.png',
-                    letter: 'S'
-                })
-            }}
+
 
         </div>
 

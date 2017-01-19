@@ -331,7 +331,7 @@
 
             var S = new ScrollMagic.Scene({
                 triggerElement: _list,
-                duration: "400%",
+                duration: "300%",
                 triggerHook: 'onLeave'
             })
             .setPin(_list)
@@ -340,7 +340,7 @@
 
             var S2L = new ScrollMagic.Scene({
                 triggerElement: _list,
-                duration: "400%",
+                duration: "300%",
                 triggerHook: 'onLeave',
                 offset: - _w.innerHeight
             })
@@ -350,7 +350,7 @@
 
             var S2I = new ScrollMagic.Scene({
                 triggerElement: _list,
-                duration: "400%",
+                duration: "300%",
                 triggerHook: 'onLeave',
                 offset: - _w.innerHeight
             })
@@ -359,7 +359,7 @@
 
             var S3 = new ScrollMagic.Scene({
                 triggerElement: _list,
-                duration: "400%",
+                duration: "300%",
                 triggerHook: 'onLeave',
                 offset: - _w.innerHeight
             })

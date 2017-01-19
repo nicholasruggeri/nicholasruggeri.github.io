@@ -7,7 +7,7 @@
 $primaryColor: #252525;
 $secondaryColor: #1d1d1d;
 $white: #f9f9f9;
-$black: #1a1a1a;
+$black: #171616;
 $red: #DA0D34;
 $ease: cubic-bezier(0.785, 0.135, 0.150, 0.860);
 
@@ -67,12 +67,12 @@ $primaryFont: 'Roboto', sans-serif;
 
 /* HONORABLE */
 
-#awwwards.honorable.white.right a{
-    background-image: url(../img/awwwards_honorable_white_right.png);
+#awwwards.sotd.white.right a{
+    background-image: url(../img/awwwards_sotd_white_right.png);
 }
 
 @media only screen and (-Webkit-min-device-pixel-ratio: 1.5), only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (min-device-pixel-ratio: 1.5) {
-    #awwwards.honorable.white.right a{
-        background-image: url(../img/awwwards_honorable_white_right@2x.png);
+    #awwwards.sotd.white.right a{
+        background-image: url(../img/awwwards_sotd_white_right@2x.png);
     }
 }
