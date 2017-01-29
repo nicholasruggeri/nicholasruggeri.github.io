@@ -31,8 +31,79 @@
 
         });
 
-        Barba.Pjax.getTransition = function() {
-            return PreloaderAnimation;
+        var PageAnimation = Barba.BaseTransition.extend({
+            start: function() {
+                Promise
+                    .all([this.newContainerLoading, this.showPreloader()])
+                    .then(this.hidePreloader.bind(this));
+            },
+            showPreloader: function() {
+                return new Promise(function(resolve){
+                    console.log('loading')
+                    resolve()
+                })
+            },
+            hidePreloader: function() {
+                console.log('end loading')
+                var _this = this,
+                    _new  = this.newContainer,
+                    _old  = this.oldContainer;
+                // _old.style.display = 'none';
+                // _new.style.visibility = "visible";
+
+                TweenLite.set(_new, {
+                    visibility: 'visible',
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    y: '100%',
+                    width: '100%',
+                    zIndex: 9999,
+                    willChange: 'transform'
+                })
+
+                TweenLite.to(this.oldContainer, 1.5,{
+                    y: '1%',
+                    ease: Expo.easeInOut
+                })
+
+                TweenLite.to(_new, 1.5,{
+                    y: '0%',
+                    ease: Expo.easeInOut
+                })
+
+                PRELOADER.remove(function(){
+
+                    TweenLite.to(window, 0, {scrollTo:0});
+                    TweenLite.set(_new, {
+                        top: 0,
+                        left: 0,
+                    })
+                    setTimeout(function(_new){
+                        TweenLite.set('.barba-container', {
+                            position: 'relative'
+                        })
+                    }, 500)
+                    _this.done()
+                })
+            }
+
+        });
+
+        console.log('routing init')
+        // console.log(Barba.HistoryManager.currentStatus())
+
+        var lastClickEl;
+        Barba.Dispatcher.on('linkClicked', function(el) {
+          lastClickEl = el;
+        });
+
+        Barba.Pjax.getTransition = function(e) {
+            var transitionObj = PreloaderAnimation;
+            if (lastClickEl.getAttribute('data-transition') == 'case-history') {
+                transitionObj = PageAnimation;
+            }
+            return transitionObj;
         };
 
         var Homepage = Barba.BaseView.extend({
@@ -72,11 +143,17 @@
             onEnter: function() {
                 document.querySelector('body').setAttribute('style', '');
                 document.querySelector('body').style.overflow = "scroll";
+                TweenLite.set('body', {
+                    cursor: 'wait'
+                })
             },
             onEnterCompleted: function() {
+                TweenLite.set('body', {
+                    cursor: 'default'
+                })
                 SHARER.init()
                 AREA_PROJECTS.init()
-                SCROLLTO.init()
+                // SCROLLTO.init()
                 // COUNTDOWN.init()
                 ANIMATIONS.bigText()
                 ANIMATIONS.showImage()

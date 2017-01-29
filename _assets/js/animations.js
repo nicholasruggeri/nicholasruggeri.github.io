@@ -137,13 +137,13 @@
 
             tl = new TimelineLite({ paused: false });
 
-            tl.to(_bigTexts[0], 1.5, {
+            tl.to(_bigTexts[0], 1, {
                 x: '-8%',
                 y: '-50%',
                 opacity: 1,
                 ease: Cubic.easeOut
             })
-            tl.to(_bigTexts[1], 1.5, {
+            tl.to(_bigTexts[1], 1, {
                 x: '-8%',
                 y: '-50%',
                 opacity: 1,
