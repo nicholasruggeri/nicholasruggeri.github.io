@@ -1,4 +1,5 @@
 .animation-word {
+    opacity: 0;
     .animation-word-el {
         display: inline-block;
         will-change: transform;
@@ -7,6 +8,7 @@
         transition: transform .5s $ease, opacity .5s $ease;
     }
     &.is-active {
+        opacity: 1;
         .animation-word-el {
             opacity: 1;
             transform: translateY(0);
