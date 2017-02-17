@@ -1,4 +1,4 @@
-(function(exports) {
+(function() {
 
     'use strict';
 
@@ -41,4 +41,4 @@
         MAIN.init()
     };
 
-}(window));
+}());

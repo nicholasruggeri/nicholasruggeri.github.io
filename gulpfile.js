@@ -43,7 +43,6 @@ var prod = false,
     ],
     jscustoms = [
         customPath + '/animations.js',
-        customPath + '/countdown.js',
         customPath + '/list-projects.js',
         customPath + '/intro.js',
         customPath + '/sharer.js',

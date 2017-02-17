@@ -48,8 +48,6 @@
                 var _this = this,
                     _new  = this.newContainer,
                     _old  = this.oldContainer;
-                // _old.style.display = 'none';
-                // _new.style.visibility = "visible";
 
                 TweenLite.set(_new, {
                     visibility: 'visible',
@@ -90,9 +88,6 @@
 
         });
 
-        console.log('routing init')
-        // console.log(Barba.HistoryManager.currentStatus())
-
         var lastClickEl;
         Barba.Dispatcher.on('linkClicked', function(el) {
           lastClickEl = el;
@@ -114,7 +109,7 @@
                 SHARER.init()
                 AREA_PROJECTS.init()
                 ANIMATIONS.drawGlass()
-                // ANIMATIONS.parallax()
+                ANIMATIONS.showWords()
                 if (_body.classList.contains('no-touch')) {
                     ANIMATIONS.parallaxProjects()
                 }
@@ -126,15 +121,10 @@
                 ANIMATIONS.bigText()
                 ANIMATIONS.headerLine()
                 ANIMATIONS.showCircleButtons()
-
-                // Generic Animations
-
-                // console.log(_w.outerWidth)
                 if (_w.outerWidth > 768) {
                     ANIMATIONS.fadeIn()
                 }
                 ANIMATIONS.maskIn()
-                // ANIMATIONS.slideY()
             },
         });
 
@@ -153,12 +143,11 @@
                 })
                 SHARER.init()
                 AREA_PROJECTS.init()
-                // SCROLLTO.init()
-                // COUNTDOWN.init()
                 ANIMATIONS.bigText()
                 ANIMATIONS.showImage()
                 ANIMATIONS.headerLine()
                 ANIMATIONS.showCircleButtons()
+                ANIMATIONS.showWords()
 
                 // Generic Animations
                 ANIMATIONS.fadeIn()

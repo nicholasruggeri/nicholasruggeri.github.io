@@ -83,8 +83,7 @@
             z-index: 9;
         }
         &-ciak {
-            background: #5b2130;
-            background: linear-gradient(135deg,  #5b2130 0%,#3e7d6c 100%);
+            background-image: $bgIsCiak;
         }
         &-weatherymood {
             background: #2b4a69;

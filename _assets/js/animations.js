@@ -366,6 +366,35 @@
             .setTween(textAnimation)
             .addTo(animationCtrl);
 
+        }
+
+        function wrapWords(str, tmpl) {
+            return str.replace(/<\s*(\w+\b)(?:(?!<\s*\/\s*\1\b)[\s\S])*<\s*\/\s*\1\s*>|\S+/g, tmpl || '<span class="animation-word-el">$&</span>');
+        }
+
+
+        function _showWords() {
+            var newText;
+            var _els = _d.querySelectorAll('.animation-word');
+            var _singleWord;
+            var animationCtrl;
+
+            animationCtrl = new ScrollMagic.Controller();
+
+            Array.prototype.forEach.call(_els, function(el, i){
+                newText = wrapWords(el.innerHTML);
+                el.innerHTML = newText;
+
+                new ScrollMagic.Scene({
+                    triggerElement: el,
+                    triggerHook: 'onEnter'
+                })
+                .on('enter', function(){
+                    el.className += ' ' + 'is-active';
+                })
+                .reverse(false)
+                .addTo(animationCtrl);
+            });
 
         }
 
@@ -379,7 +408,8 @@
             headerLine: _headerLine,
             showCircleButtons: _showCircleButtons,
             maskIn: _maskIn,
-            parallaxProjects: _parallaxProjects
+            parallaxProjects: _parallaxProjects,
+            showWords: _showWords
         };
 
     }());

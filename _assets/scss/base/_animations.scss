@@ -1,3 +1,24 @@
+.animation-word {
+    .animation-word-el {
+        display: inline-block;
+        will-change: transform;
+        opacity: 0;
+        transform: translateY(4px);
+        transition: transform .5s $ease, opacity .5s $ease;
+    }
+    &.is-active {
+        .animation-word-el {
+            opacity: 1;
+            transform: translateY(0);
+            @for $i from 1 to 100 {
+                &:nth-child(#{$i}) {
+                    transition-delay: $i * 0.1s;
+                }
+            }
+        }
+    }
+}
+
 .animation-cover {
     overflow: hidden;
     will-change: transform;
