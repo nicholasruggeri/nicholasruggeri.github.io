@@ -218,6 +218,11 @@ li{
         width: 120px;
         height: 120px;
     }
+    &:hover {
+        svg {
+            transform: rotate(18deg);
+        }
+    }
     img {
         display: block;
         width: 100%;
@@ -236,6 +241,8 @@ li{
         left: 17px;
         width: 37px;
         transform: rotate(1deg);
+        transition: transform .5s $ease;
+        transform-origin: right top;
         @media screen and (min-width: 600px) {
             top: 54px;
             left: 25px;

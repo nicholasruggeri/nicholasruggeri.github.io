@@ -35,8 +35,8 @@
 
             _scrollToArrow[0].addEventListener('click', function(){
                 setTimeout(function(){
-                    TweenLite.to(_w, 1, {
-                        scrollTo: _w.innerHeight/1.25,
+                    TweenLite.to(_w, 1.5, {
+                        scrollTo: _w.innerHeight/1.1,
                         ease: Quint.easeInOut
                     });
                 }, 0)

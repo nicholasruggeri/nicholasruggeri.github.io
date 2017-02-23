@@ -376,21 +376,18 @@
         function _showWords() {
             var newText;
             var _els = _d.querySelectorAll('.animation-word');
-            var _singleWord;
-            var animationCtrl;
-
-            animationCtrl = new ScrollMagic.Controller();
-
+            var animationCtrl = new ScrollMagic.Controller();
             Array.prototype.forEach.call(_els, function(el, i){
                 newText = wrapWords(el.innerHTML);
                 el.innerHTML = newText;
-
                 new ScrollMagic.Scene({
                     triggerElement: el,
                     triggerHook: 'onEnter'
                 })
-                .on('enter', function(){
-                    el.className += ' ' + 'is-active';
+                .on('enter', function(event){
+                    setTimeout(function(){
+                        el.classList.add('is-active')
+                    }, 500)
                 })
                 .reverse(false)
                 .addTo(animationCtrl);
