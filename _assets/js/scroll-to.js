@@ -12,28 +12,23 @@
 
         function _initialize() {
             _elements      = _d.getElementsByClassName('scroll-to');
-            _scrollToArrow = _d.querySelectorAll('.section-header .scroll-to');
+            _scrollToArrow = _d.querySelector('.section-header .scroll-to');
             animationCtrl  = new ScrollMagic.Controller();
         }
 
         function _handleEvents() {
             new ScrollMagic.Scene({
-                triggerElement: _scrollToArrow,
-                triggerHook: 'onLeave',
-                offset: - _w.innerHeight/3
+                triggerElement: _scrollToArrow
             })
-            .setTween(_scrollToArrow, 1, {
-                y: '-100%',
-                opacity: 0,
-                ease: Expo.easeInOut,
-                onComplete: function(){
-                    _scrollToArrow[0].style.display = 'none';
-                }
+            .on('enter', function(event){
+                setTimeout(function(){
+                    _scrollToArrow.classList.add('is-hidden')
+                }, 500)
             })
             .reverse(false)
             .addTo(animationCtrl);
 
-            _scrollToArrow[0].addEventListener('click', function(){
+            _scrollToArrow.addEventListener('click', function(){
                 setTimeout(function(){
                     TweenLite.to(_w, 1.5, {
                         scrollTo: _w.innerHeight/1.1,

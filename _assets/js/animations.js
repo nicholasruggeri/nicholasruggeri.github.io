@@ -137,17 +137,17 @@
 
             tl = new TimelineLite({ paused: false });
 
-            tl.to(_bigTexts[0], 1, {
+            tl.to(_bigTexts[0], 1.5, {
                 x: '-8%',
                 y: '-50%',
                 opacity: 1,
-                ease: Cubic.easeOut
+                ease: Cubic.easeInOut
             })
-            tl.to(_bigTexts[1], 1, {
+            tl.to(_bigTexts[1], 1.5, {
                 x: '-8%',
                 y: '-50%',
                 opacity: 1,
-                ease: Cubic.easeOut
+                ease: Cubic.easeInOut
             }, "-=.5")
             tl.play()
 
@@ -224,9 +224,9 @@
             tl.to(_headerLineLoop, 2.5, {
                 y: '100%',
                 ease: Expo.easeInOut,
-                onComplete: function(){
-                    tl.restart()
-                }
+                // onComplete: function(){
+                //     tl.restart()
+                // }
             })
             tl.play();
 

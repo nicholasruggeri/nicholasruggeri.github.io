@@ -9,9 +9,7 @@
         var _titleLetters,
             _titleMask,
             _subTitleLetters,
-            _subTitleMask,
-            _bigTexts,
-            _headerLineLoop;
+            _subTitleMask;
 
         var tl;
 
@@ -20,23 +18,6 @@
             _titleMask       = _d.getElementsByClassName('header__title-mask')[0];
             _subTitleLetters = _d.querySelectorAll('.header__subtitle i');
             _subTitleMask    = _d.getElementsByClassName('header__subtitle-mask')[0];
-            _bigTexts        = _d.querySelectorAll('.big-text');
-            _headerLineLoop  = _d.getElementById("header__line-loop");
-        }
-
-        function _lineAnimation() {
-
-            tl = new TimelineLite();
-
-            tl.to(_headerLineLoop, 2.5, {
-                    y: '100%',
-                    ease: Expo.easeInOut,
-                    onComplete: function(){
-                        tl.restart()
-                    }
-                })
-            tl.play();
-
         }
 
         function _headerAnimation() {
@@ -78,7 +59,6 @@
         function _initAnimation() {
             _initialize()
             _headerAnimation()
-            _lineAnimation()
         }
 
         return {

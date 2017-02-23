@@ -66,6 +66,11 @@
         left: 50%;
         margin-left: -20px;
         transform: translateY(210%);
+        &.is-hidden {
+            transition: all .5s;
+            opacity: 0;
+            transform: translateY(-10%);
+        }
         span {
             transform: rotate(-90deg);
         }
