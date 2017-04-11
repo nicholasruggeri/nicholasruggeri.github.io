@@ -110,9 +110,9 @@
                 AREA_PROJECTS.init()
                 ANIMATIONS.drawGlass()
                 ANIMATIONS.showWords()
-                if (_body.classList.contains('no-touch')) {
-                    ANIMATIONS.parallaxProjects()
-                }
+                // if (_body.classList.contains('no-touch')) {
+                //     ANIMATIONS.parallaxProjects()
+                // }
 
             },
             onEnterCompleted: function() {
@@ -123,8 +123,8 @@
                 ANIMATIONS.showCircleButtons()
                 if (_w.outerWidth > 768) {
                     ANIMATIONS.fadeIn()
+                    ANIMATIONS.slideY()
                 }
-                ANIMATIONS.maskIn()
             },
         });
 
@@ -152,7 +152,6 @@
                 // Generic Animations
                 ANIMATIONS.fadeIn()
                 ANIMATIONS.slideY()
-                ANIMATIONS.maskIn()
 
                 LIST_PROJECTS.init()
             }

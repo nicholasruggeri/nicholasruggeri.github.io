@@ -32,6 +32,7 @@ var prod = false,
     customPath = '_assets/js',
     jsplugins = [
         vendorPath + '/ConsoleStyles/console.style.min.js',
+        vendorPath + '/SC/smooth-scrollbar.js',
         vendorPath + '/Barba/barba.min.js',
         vendorPath + '/GreenSock-JS/src/minified/TimelineLite.min.js',
         vendorPath + '/GreenSock-JS/src/minified/TweenLite.min.js',

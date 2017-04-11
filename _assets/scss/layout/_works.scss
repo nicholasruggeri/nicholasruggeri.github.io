@@ -23,16 +23,16 @@
     min-height: 60vh;
     z-index: 99;
     @media screen and (min-width: 700px) {
-        min-height: 80vh;
+        min-height: 100vh;
     }
     .no-touch &{
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        height: 100%;
-        width: 100%;
+        // position: fixed;
+        // top: 0;
+        // left: 0;
+        // right: 0;
+        // bottom: 0;
+        // height: 100%;
+        // width: 100%;
     }
 
     // @media screen and (min-width: 500px) {
@@ -82,9 +82,6 @@
             transform-origin: center center;
             z-index: 9;
         }
-        &-ciak {
-            background-image: $bgIsCiak;
-        }
         &-weatherymood {
             background: #2b4a69;
             background: linear-gradient(135deg, #132a42 0%, #10503f 100%);
@@ -97,6 +94,12 @@
             background: linear-gradient(135deg,  #2c539e 0%,#3da4db 100%);
             img {
                 width: 50%;
+            }
+        }
+        &-nidi {
+            background-image: $bgIsNidi;
+            img {
+                width: 70%;
             }
         }
         &-molteni {
@@ -271,7 +274,7 @@
         }
 
         .no-touch &{
-            transform: translateY(0);
+            // transform: translateY(0);
             &:hover {
                 .svg-icon-link {
                     opacity: 1;

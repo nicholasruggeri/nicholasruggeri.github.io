@@ -33,5 +33,8 @@
   "bugs": {
     "url": "https://github.com/trevisojs/how-to-gulp/issues"
   },
-  "homepage": "https://github.com/trevisojs/how-to-gulp"
+  "homepage": "https://github.com/trevisojs/how-to-gulp",
+  "dependencies": {
+    "smooth-scrollbar": "^7.2.10"
+  }
 }

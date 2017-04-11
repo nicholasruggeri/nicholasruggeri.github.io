@@ -27,27 +27,19 @@
         }
         .is-molteni &{
             color: #a80329;
-            // color: #e3e3e3;
             color: rgba(0,0,0,0.1)
-            // text-shadow: 20px 20px 0 rgba(0,0,0,.2);
         }
-        .is-ciak &{
+        .is-nidi &{
             color: #242426;
-            // color: #e3e3e3;
             color: rgba(0,0,0,0.1)
-            // text-shadow: 20px 20px 0 rgba(0,0,0,.2);
         }
         .is-weatherymood &{
             color: #114640;
-            // color: #e3e3e3;
             color: rgba(0,0,0,0.1)
-            // text-shadow: 20px 20px 0 rgba(0,0,0,.2);
         }
         .is-snap &{
             color: #3589bd;
-            // color: #e3e3e3;
             color: rgba(0,0,0,0.1)
-            // text-shadow: 20px 20px 0 rgba(0,0,0,.2);
         }
         @media screen and (min-width: 769px) {
             transform: translate(-12%, -50%) rotate(0deg);
@@ -99,14 +91,14 @@
             }
         }
     }
-    &.is-ciak {
-        background-image: $bgIsCiak;
+    &.is-nidi {
+        background-image: $bgIsNidi;
         .big-text {
-            font-size: 59vw;
+            font-size: 62vw;
         }
         @media screen and (min-width: 769px) {
             .big-text {
-                font-size: 59vw;
+                font-size: 62vw;
             }
         }
     }

@@ -53,8 +53,10 @@
 }
 
 .animation-slide-y {
-    transform: translateY(20%);
+    transform: translateY(200px);
     will-change: transform;
+    position: relative;
+    z-index: 999;
 }
 
 .animation-mask{

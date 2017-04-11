@@ -30,7 +30,7 @@
                 });
 
                 el.addEventListener("mouseout", function(){
-                    _menu.classList.remove('is-ciak')
+                    _menu.classList.remove('is-nidi')
                     _menu.classList.remove('is-molteni')
                     _menu.classList.remove('is-snap')
                     _menu.classList.remove('is-weatherymood')

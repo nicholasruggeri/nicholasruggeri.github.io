@@ -19,7 +19,7 @@
             {{ prj.letter }}
         </div>
         <a href="{{ prj.url }}" class="project__content-text" data-transition="homepage">
-            <span class="project__name  animation-fade-in project__name-{{ prj.label }}">
+            <span class="project__name  project__name-{{ prj.label }}">
                 <span>
                     {{ prj.title }}
                     <svg class="svg-icon-link" viewBox="0 0 20 20">
@@ -33,34 +33,30 @@
             </span>
 
             {% if prj.description %}
-            <div class="project__description  animation-mask  no-animation">
-                <div class="animation-mask__cover"></div>
-                <p class="animation-mask__text">
+            <div class="project__description">
+                <p class="animation-word">
                     {{prj.description}}
                 </p>
             </div>
             {% endif %}
 
             {% if prj.agency %}
-                <div class="project__description  animation-mask  no-animation">
-                    <div class="animation-mask__cover"></div>
-                    <p class="animation-mask__text">
+                <div class="project__description">
+                    <p class="animation-word">
                         Built in {{ prj.agency }} for {{ prj.client }}.
                     </p>
                 </div>
-            {% else %}
-                <div class="project__description  animation-mask  no-animation">
-                    <div class="animation-mask__cover"></div>
-                    <p class="animation-mask__text">
+            {% elif prj.agency == 'freelance' %}
+                <div class="project__description">
+                    <p class="animation-word">
                         Built just for fun.
                     </p>
                 </div>
             {% endif %}
 
             {% if prj.offline %}
-            <div class="project__description  animation-mask  no-animation">
-                <div class="animation-mask__cover"></div>
-                <p class="animation-mask__text">
+            <div class="project__description">
+                <p class="animation-word">
                     This project is no longer online.
                 </p>
             </div>
@@ -69,7 +65,7 @@
     </div>
 
     <div class="project__content-image  project__content-image-{{ prj.label }}">
-        <a href="{{ prj.url }}" class="project__content-wrapper">
+        <a href="{{ prj.url }}" class="project__content-wrapper  animation-slide-y">
             <img class="content-image" src="img/{{ prj.image }}" alt="">
         </a>
     </div>
